@@ -69,7 +69,7 @@ body {
 	font-weight:800;
  }
 .list_innr p {
-	font-size: 20px;
+    font-size: 18px;
 }
 .footer {
 	max-width: 1440px;
@@ -79,7 +79,14 @@ body {
     line-height: 40px;
 }
 .total.toggled {
-    background: #f4511c;
+    background: #f4511c none repeat scroll 0 0;
     border-color: #f4511c;
     color: #fff;
+}
+
+.toggled .number {
+    color: #fff;
+}
+.container {
+    width: 1010px !Important;
 }
