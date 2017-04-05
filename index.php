@@ -11,26 +11,24 @@
 	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 main">
 		<div class="container">
 			<div class="heading">
-				<h1>Vote on upcoming features</h1>
+				<h1>Vote on Upcoming Features</h1>
 			</div>
-			<div class="col-lg-1 col-md-1  col-sm-1"></div>
-			<div class="col-lg-10 col-md-10  col-sm-10 col-xs-12 content_main">
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 content_main">
 				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 content">
 <?php
 // Connecting, selecting database
 $dbconn = pg_connect("host=ec2-23-23-223-2.compute-1.amazonaws.com dbname=d1filjgshltm5 user=mtracxsevywyhp password=d1950f8ce89de40987a180f56de2bc99250da5810e346b57e6bdf5e957c18c3c")
     or die('Could not connect: ' . pg_last_error());
 	
-$query = 'SELECT * from vote';
+$query = 'SELECT * from vote ORDER BY vote."Id"';
 $result = pg_query($query) or die('Query failed: ' . pg_last_error());	
 
 // Printing results in HTML
 while ($row = pg_fetch_array($result)) {
-     //do stuff with $row
 	//echo $row[Count_num];
 	//echo '<pre>';
 	//print_r ($row);
-	//echo "<br />\n";
+
 
 ?>
 				<div class="list">
