@@ -14,7 +14,7 @@ if(isset($_SESSION['login_user'])){
 <div id="main">
 	<div id="login">
 		<h2>Login Management</h2>
-		<form action="login.php" method="post" class="login_form">
+		<form action="" method="post" class="login_form">
 			<input id="name" name="username" placeholder="Username" type="text">
 			<input id="password" name="password" placeholder="Password" type="password">
 			<input name="submit" type="submit" class="button" value="Login "align="center">
