@@ -49,25 +49,25 @@ include ('config.php');
 		<b id="logout"><a href="logout.php">Log Out</a></b>
 	</div>
 	<div id="code">
-		<h3 align="center"><u><a href="#"<button class="button">Create New Refferal Code</button></a></u></h3>
+		<h3 align="center"><u><a href="#"<button class="button">Create New Question</button></a></u></h3>
 	</div>
 		<h4 align="center"> Questions details </h4>
 		<table id="example" class="display" cellspacing="0" width="100%">
 		<thead>
 			<tr>
-				<th>ID</th>
-				<th>Question</th>
 				<th>Counts</th>
+				<th>Question</th>
 				<th>Question Desc</th>
+				<th>ID</th>
 				<th>Action</th>
 			</tr>
 		</thead>
 		<tfoot>
 			<tr>
-				<th>ID</th>
-				<th>Question</th>
 				<th>Counts</th>
+				<th>Question</th>
 				<th>Question Desc</th>
+				<th>ID</th>
 				<th>Action</th>
 			</tr>
 		</tfoot>
@@ -79,9 +79,9 @@ $result = pg_query($query) or die('Query failed: ' . pg_last_error());
 if($sql === FALSE) { 
     die(mysql_error());
 }
-if ($result->num_rows > 0) {
+if ($result-> pg_num_rows > 0) {
     // output data of each row
-    while($row = $result->fetch_assoc()) {
+    while($row = $result->pg_fetch_assoc()) {
 		$id= $row["Id"];
         echo "<tr><td>" . $row["Id"]. "</td><td>" . $row["Question"]. "</td><td>" . $row["Count_num"]. "</td><td>" . $row["Question_Desc"] . "</td><td>" ."<a href='#'>Edit</a>"  ."&nbsp;/&nbsp;<a href='#'>Delete</a>"  ."</td></tr>";
     }
