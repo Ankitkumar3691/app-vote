@@ -55,19 +55,19 @@ include ('config.php');
 		<table id="example" class="display" cellspacing="0" width="100%">
 		<thead>
 			<tr>
-				<th>Counts</th>
+				<th>Id</th>
 				<th>Question</th>
+				<th>Counts</th>
 				<th>Question Desc</th>
-				<th>ID</th>
 				<th>Action</th>
 			</tr>
 		</thead>
 		<tfoot>
 			<tr>
-				<th>Counts</th>
+				<th>Id</th>
 				<th>Question</th>
+				<th>Counts</th>
 				<th>Question Desc</th>
-				<th>ID</th>
 				<th>Action</th>
 			</tr>
 		</tfoot>
@@ -76,16 +76,17 @@ include ('config.php');
 $sql = 'SELECT * from vote ORDER BY vote."Id"';
 $result = pg_query($sql) or die('Query failed: ' . pg_last_error());
 
-if ($result-> pg_num_rows > 0) {
+//if ($result-> pg_num_rows > 0) {
     // output data of each row
-    while($row = $result->pg_fetch_assoc()) {
+    //while($row = $result-> pg_fetch_assoc()) {
+	while ($row = pg_fetch_array($result)) {	
 		$id= $row["Id"];
         echo "<tr><td>" . $row["Id"]. "</td><td>" . $row["Question"]. "</td><td>" . $row["Count_num"]. "</td><td>" . $row["Question_Desc"] . "</td><td>" ."<a href='#'>Edit</a>"  ."&nbsp;/&nbsp;<a href='#'>Delete</a>"  ."</td></tr>";
     }
-} 
-else {
-    echo "0 results";
-}
+//} 
+//else {
+//    echo "0 results";
+//}
 ?>
 		</tbody>
 		</table>	
