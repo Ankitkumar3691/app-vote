@@ -73,7 +73,7 @@ include ('config.php');
 		</tfoot>
 		<tbody>
 <?php
-$sql = 'SELECT * from vote ORDER BY vote."Id"';
+$sql = 'SELECT * from admin_user ORDER BY admin_user."Id"';
 $result = pg_query($query) or die('Query failed: ' . pg_last_error());
 
 if ($result-> pg_num_rows > 0) {
