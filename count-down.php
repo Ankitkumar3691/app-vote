@@ -7,11 +7,11 @@ $dbconn = pg_connect("host=ec2-23-23-223-2.compute-1.amazonaws.com dbname=d1filj
 $ques_id = pg_escape_string($_GET['votecode']);
 
 // SQL query 
-$query_update = 'UPDATE vote SET "Count_num" = "Count_num"-1 where vote."Question_num" = \''.$ques_id.'\'';
+$query_update = 'UPDATE vote SET "Count_num" = "Count_num"-1 where vote."Id" = \''.$ques_id.'\'';
 
 $result_one = pg_query($query_update) or die('Query failed: ' . pg_last_error());
 
-$query = 'SELECT vote."Count_num" from vote where vote."Question_num" = \''.$ques_id.'\'';
+$query = 'SELECT vote."Count_num" from vote where vote."Id" = \''.$ques_id.'\'';
 
 $result = pg_query($query) or die('Query failed: ' . pg_last_error());
 	
