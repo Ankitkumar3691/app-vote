@@ -3,9 +3,9 @@ session_start(); // Starting Session
 
 $error=''; // Variable To Store Error Message
 
-if (isset(pg_escape_string($_POST['submit']))) {
+if (isset pg_escape_string($_POST['submit'])) {
 	
-	if (empty(pg_escape_string($_POST['username'])) || empty(pg_escape_string($_POST['password']))) {
+	if (empty pg_escape_string($_POST['username']) || empty pg_escape_string($_POST['password'])) {
 		$error = "Username or Password invalid";
 	}
 	else
