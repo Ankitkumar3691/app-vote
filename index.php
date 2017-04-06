@@ -35,7 +35,7 @@ while ($row = pg_fetch_array($result)) {
 					<div class="toggle">
 						<div class="total">
 							<span class="icon"><img src="images\arrow.png"> </span>
-							<span class="number" id="<?php echo $row['Question_num']?>"><?php echo $row['Count_num'];?></span>
+							<span class="number" id="<?php echo $row['Id']?>"><?php echo $row['Count_num'];?></span>
 						</div>
 					</div>
 					<div class="list_innr">
