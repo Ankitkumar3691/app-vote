@@ -35,7 +35,7 @@ $(document).ready(function(){
 			$(this).addClass('toggled');
 			$(this).css("background", "#f4511c");
 			$(this).css("border-color", "#f4511c");
-			$(this).find(.toggled .number).css("color", "#fff");
+			$(this).find('.toggled .number').css("color", "#fff");
 		}	
 	});	
 });	
