@@ -3,9 +3,9 @@ session_start(); // Starting Session
 
 $error=''; // Variable To Store Error Message
 
-if (isset($_POST['submit'])) {
+if (isset(pg_escape_string($_POST['submit']))) {
 	
-	if (empty($_POST['username']) || empty($_POST['password'])) {
+	if (empty(pg_escape_string($_POST['username'])) || empty(pg_escape_string($_POST['password']))) {
 		$error = "Username or Password invalid";
 	}
 	else
@@ -15,7 +15,7 @@ if (isset($_POST['submit'])) {
 		$password= pg_escape_string($_POST['password']);
 		
 		// Connecting, selecting database
-		include 'session.php';
+		include 'config.php';
 			
 		// SQL query to fetch information of registerd users and finds user match.
 	$query = 'Select * from admin_user where admin_user."Username" = \''.$username.'\' and admin_user."Password" = \''.$password.'\'';
