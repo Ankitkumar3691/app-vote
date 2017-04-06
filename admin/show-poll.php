@@ -76,12 +76,9 @@ include ('config.php');
 $sql = 'SELECT * from vote ORDER BY vote."Id"';
 $result = pg_query($query) or die('Query failed: ' . pg_last_error());
 
-if($sql === FALSE) { 
-    die(mysql_error());
-}
 if ($result-> pg_num_rows > 0) {
     // output data of each row
-    while($row = $result->pg_fetch_assoc()) {
+    while($row = pg_fetch_array($result)) {
 		$id= $row["Id"];
         echo "<tr><td>" . $row["Id"]. "</td><td>" . $row["Question"]. "</td><td>" . $row["Count_num"]. "</td><td>" . $row["Question_Desc"] . "</td><td>" ."<a href='#'>Edit</a>"  ."&nbsp;/&nbsp;<a href='#'>Delete</a>"  ."</td></tr>";
     }
