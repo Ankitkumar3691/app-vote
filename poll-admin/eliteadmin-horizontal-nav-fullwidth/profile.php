@@ -29,8 +29,8 @@ include ('config.php');
 <link href="css/colors/blue.css" id="theme"  rel="stylesheet">
 
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-		<script src="js/jquery.dataTables.min.js"></script>
-		<link href="css/jquery.dataTables.min.css" rel="stylesheet">
+		<script src="https://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.11/css/jquery.dataTables.min.css">
 		<script>
 		$(document).ready(function() {
 			$('#example').DataTable( {
@@ -133,38 +133,7 @@ include ('config.php');
           <h4 class="page-title">WELCOME ADMIN</h4>
         </div>
 		
-		<h4 align="center"> Questions details </h4>
-		<table id="example" class="display" cellspacing="0" width="100%">
-		<thead>
-			<tr>
-				<th>Id</th>
-				<th>Question</th>
-				<th>Counts</th>
-				<th>Question Desc</th>
-				<th>Action</th>
-			</tr>
-		</thead>
-		<tfoot>
-			<tr>
-				<th>Id</th>
-				<th>Question</th>
-				<th>Counts</th>
-				<th>Question Desc</th>
-				<th>Action</th>
-			</tr>
-		</tfoot>
-		<tbody>
-<?php
-$sql = 'SELECT * from vote ORDER BY vote."Id"';
-$result = pg_query($sql) or die('Query failed: ' . pg_last_error());
-
-	while ($row = pg_fetch_array($result)) {	
-		$id= $row["Id"];
-        echo "<tr><td>" . $row["Id"]. "</td><td>" . $row["Question"]. "</td><td>" . $row["Count_num"]. "</td><td>" . $row["Quest_Desc"] . "</td><td>" ."<a href='#'>Edit</a>"  ."&nbsp;/&nbsp;<a href='#'>Delete</a>"  ."</td></tr>";
-    }
-?>
-		</tbody>
-		</table>
+		
 			
         <!-- /.col-lg-12 -->
       <div class="right-sidebar">
@@ -203,6 +172,38 @@ $result = pg_query($sql) or die('Query failed: ' . pg_last_error());
         </div><div class="slimScrollBar" style="background: rgb(220, 220, 220); width: 5px; position: absolute; top: 0px; opacity: 0.4; display: none; border-radius: 7px; z-index: 99; right: 1px; height: 233.38px;"></div><div class="slimScrollRail" style="width: 5px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51); opacity: 0.2; z-index: 90; right: 1px;"></div></div>
       </div>
 		
+	<h4 align="center"> Questions details </h4>
+		<table id="example" class="display" cellspacing="0" width="100%">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Question</th>
+				<th>Counts</th>
+				<th>Question Desc</th>
+				<th>Action</th>
+			</tr>
+		</thead>
+		<tfoot>
+			<tr>
+				<th>Id</th>
+				<th>Question</th>
+				<th>Counts</th>
+				<th>Question Desc</th>
+				<th>Action</th>
+			</tr>
+		</tfoot>
+		<tbody>
+<?php
+$sql = 'SELECT * from vote ORDER BY vote."Id"';
+$result = pg_query($sql) or die('Query failed: ' . pg_last_error());
+
+	while ($row = pg_fetch_array($result)) {	
+		$id= $row["Id"];
+        echo "<tr><td>" . $row["Id"]. "</td><td>" . $row["Question"]. "</td><td>" . $row["Count_num"]. "</td><td>" . $row["Quest_Desc"] . "</td><td>" ."<a href='#'>Edit</a>"  ."&nbsp;/&nbsp;<a href='#'>Delete</a>"  ."</td></tr>";
+    }
+?>
+		</tbody>
+		</table>	
 		
       </div>
    
