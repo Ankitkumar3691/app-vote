@@ -93,24 +93,12 @@
             </span> </div>
           <!-- /input-group -->
         </li>
-        <li> <a href="index.html" class="waves-effect active"><i class="linea-icon linea-basic fa-fw" data-icon="v"></i> <span class="hide-menu"> Dashboard <span class="fa arrow"></span> </span></a>
+        <li> <a href="profile.php" class="waves-effect active"><i class="linea-icon linea-basic fa-fw" data-icon="v"></i> <span class="hide-menu"> Dashboard <span class="fa arrow"></span> </span></a>
         </li>
-<li> <a href="#" class="waves-effect"><i data-icon="7" class="linea-icon linea-basic fa-fw "></i> <span class="hide-menu ">Menu 1<span class="fa arrow"></span></span></a>
-</li>
-        <li><a href="#" class="waves-effect"><i data-icon=")" class="linea-icon linea-basic fa-fw"></i> <span class="hide-menu">Menu 2<span class="fa arrow"></span></span></a>
-        </li>
-        <li> <a href="#" class="waves-effect"><i data-icon="/" class="linea-icon linea-basic fa-fw"></i> <span class="hide-menu">Menu 3<span class="fa arrow"></span></span></a> 
-        </li>
-        <li> <a href="#" class="waves-effect"><i data-icon="&#xe00b;" class="linea-icon linea-basic fa-fw"></i> <span class="hide-menu">Menu 4<span class="fa arrow"></span></span></a>
-        </li>
-        <li> <a href="#" class="waves-effect"><i data-icon="O" class="linea-icon linea-software fa-fw"></i> <span class="hide-menu">Menu 5<span class="fa arrow"></span></span></a>
-        </li>
-        <li> <a href="#" class="waves-effect"><i data-icon="&#xe008;" class="linea-icon linea-basic fa-fw"></i> <span class="hide-menu">Menu 6<span class="fa arrow"></span></span></a>  
-        </li>
-        <li> <a href="#" class="waves-effect"><i data-icon="P" class="linea-icon linea-basic fa-fw"></i> <span class="hide-menu">Menu 7</span></a> </li>
-        <li> <a href="javascript:void(0)" class="waves-effect"><i data-icon="F" class="linea-icon linea-software fa-fw"></i> <span class="hide-menu">Menu 8<span class="fa arrow"></span></span></a>
-        </li>
-        
+		<li> <a href="create-poll.php" class="waves-effect"><i data-icon="7" class="linea-icon linea-basic fa-fw "></i> <span class="hide-menu ">Create New Question<span class="fa arrow"></span></span></a>
+		</li>
+        <li><a href="show-poll.php" class="waves-effect"><i data-icon=")" class="linea-icon linea-basic fa-fw"></i> <span class="hide-menu">Show all Poll Questions<span class="fa arrow"></span></span></a>
+        </li>  
 </ul>
     </div>
   </div>
