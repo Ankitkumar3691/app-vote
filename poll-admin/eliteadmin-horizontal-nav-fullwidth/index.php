@@ -60,8 +60,10 @@ if(isset($_SESSION['login_user'])){
         </div-->
         <div class="form-group text-center m-t-20">
           <div class="col-xs-12">
-            <button class="btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light" type="submit">Log In</button>
-			<!--input name="submit" type="submit" class="button" value="Login "align="center"-->
+            <!--button class="btn btn-info btn-lg btn-block text-uppercase waves-effect waves-light" type="submit">Log In</button-->
+			<input name="submit" type="submit" class="button" value="Login "align="center">
+			<br />
+			<span><?php echo $error; ?></span>
           </div>
         </div>
         <div class="row">
