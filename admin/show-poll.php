@@ -49,7 +49,7 @@ include ('config.php');
 		<b id="logout"><a href="logout.php">Log Out</a></b>
 	</div>
 	<div id="code">
-		<h3 align="center"><u><a href="#"<button class="button">Create New Question</button></a></u></h3>
+		<h3 align="center"><u><a href="create-poll.php"<button class="button">Create New Question</button></a></u></h3>
 	</div>
 		<h4 align="center"> Questions details </h4>
 		<table id="example" class="display" cellspacing="0" width="100%">
