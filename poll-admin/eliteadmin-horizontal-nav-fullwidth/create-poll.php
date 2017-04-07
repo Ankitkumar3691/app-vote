@@ -116,8 +116,6 @@ if(isset($_POST['submit'])){
         </li>
 		<li> <a href="#" class="waves-effect active"><i data-icon="7" class="linea-icon linea-basic fa-fw "></i> <span class="hide-menu ">Create New Question<span class="fa arrow"></span></span></a>
 		</li>
-        <li><a href="show-poll.php" class="waves-effect"><i data-icon=")" class="linea-icon linea-basic fa-fw"></i> <span class="hide-menu">Show all Poll Questions<span class="fa arrow"></span></span></a>
-        </li>  
 </ul>
     </div>
   </div>
