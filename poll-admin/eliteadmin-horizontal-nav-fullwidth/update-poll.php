@@ -1,4 +1,5 @@
 <?php
+
 include 'config.php';
 
 if(isset($_POST['Submit'])){
@@ -25,10 +26,9 @@ if(isset($_POST['Submit'])){
 	echo "<script type='text/javascript'>alert('$message');</script>";
 	}
 }
-
 if(isset($_GET['id']))
 {
-	$id= pg_escape_string($_GET['id'];);
+	$id= pg_escape_string($_GET['id']);
 	
 	$query = 'SELECT * from vote where vote."Id" = \''.$id.'\'';
 	
