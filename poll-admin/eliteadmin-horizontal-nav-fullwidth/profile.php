@@ -13,23 +13,10 @@ include ('config.php');
 <meta name="author" content="">
 <link rel="icon" type="image/png" sizes="16x16" href="../plugins/images/favicon.png">
 <title>Poll Voting Interface</title>
-<!-- Bootstrap Core CSS -->
-<link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-<!-- Menu CSS -->
-<link href="../plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css" rel="stylesheet">
-<!-- toast CSS -->
-<link href="../plugins/bower_components/toast-master/css/jquery.toast.css" rel="stylesheet">
-<!-- morris CSS -->
-<link href="../plugins/bower_components/morrisjs/morris.css" rel="stylesheet">
-<!-- animation CSS -->
-<link href="css/animate.css" rel="stylesheet">
-<!-- Custom CSS -->
-<link href="css/style.css" rel="stylesheet">
-<!-- color CSS -->
-<link href="css/colors/blue.css" id="theme"  rel="stylesheet">
 
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-	<script src="https://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+		<script src="https://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.11/css/jquery.dataTables.min.css">
 		<script>
 		$(document).ready(function() {
 			$('#example').DataTable( {
@@ -59,6 +46,23 @@ include ('config.php');
 		<style>
 			td {text-align:center;}
 		</style>
+
+<!-- Bootstrap Core CSS -->
+<link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- Menu CSS -->
+<link href="../plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css" rel="stylesheet">
+<!-- toast CSS -->
+<link href="../plugins/bower_components/toast-master/css/jquery.toast.css" rel="stylesheet">
+<!-- morris CSS -->
+<link href="../plugins/bower_components/morrisjs/morris.css" rel="stylesheet">
+<!-- animation CSS -->
+<link href="css/animate.css" rel="stylesheet">
+<!-- Custom CSS -->
+<link href="css/style.css" rel="stylesheet">
+<!-- color CSS -->
+<link href="css/colors/blue.css" id="theme"  rel="stylesheet">
+
+		
 </head>
 <body>
 <!-- Preloader -->
