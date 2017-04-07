@@ -28,7 +28,7 @@ include ('config.php');
 <!-- color CSS -->
 <link href="css/colors/blue.css" id="theme"  rel="stylesheet">
 
-			<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 		<script src="https://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js"></script>
 		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.11/css/jquery.dataTables.min.css">
 		<script>
@@ -58,9 +58,7 @@ include ('config.php');
 		} );
 		</script>
 		<style>
-			td {
-				text-align:center;
-			}
+			td {text-align:center;}
 		</style>
 </head>
 <body>
