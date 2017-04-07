@@ -1,5 +1,4 @@
 <?php
-
 include 'config.php';
 
 if(isset($_POST['Submit'])){
@@ -9,7 +8,7 @@ if(isset($_POST['Submit'])){
 	$cunt= pg_escape_string($_POST['count_number']);
 	$dsc= pg_escape_string($_POST['que_desc']);
 
-	$sql = 'UPDATE vote SET Question= \''.$que.'\', Count_num= \''.$cunt.'\', Quest_Desc=\''.$dsc.'\' where vote."Id" = \''.$id.'\'';
+	$sql = 'UPDATE vote SET "Question"= \''.$que.'\', "Count_num"= \''.$cunt.'\', "Quest_Desc"= \''.$dsc.'\' where vote."Id" = \''.$id.'\'';
 	
 	$result_update = pg_query($sql) or die('Query failed: ' . pg_last_error());
 
