@@ -14,7 +14,7 @@ include ('config.php');
 <link rel="icon" type="image/png" sizes="16x16" href="../plugins/images/favicon.png">
 <title>Poll Voting Interface</title>
 <!-- Bootstrap Core CSS -->
-<link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+<!--link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"-->
 <!-- Menu CSS -->
 <link href="../plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css" rel="stylesheet">
 <!-- toast CSS -->
