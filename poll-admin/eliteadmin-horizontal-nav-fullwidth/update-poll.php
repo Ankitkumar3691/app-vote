@@ -33,19 +33,13 @@ if(isset($_GET['id']))
 	
 	$result = pg_query($query) or die('Query failed: ' . pg_last_error());	
 	
-	//if ($result-> pg_num_rows > 0) {
-		
-		// output data of each row
-		while($row = pg_fetch_array($result)) {
-			$id= $row["Id"];
-			$a= $row["Question"];
-			$b= $row["Count_num"];
-			$d= $row["Quest_Desc"];
-		}
-	/* } 
-	else {
-		echo "0 results";
-	} */
+	// output data of each row
+	while($row = pg_fetch_array($result)) {
+		$id= $row["Id"];
+		$a= $row["Question"];
+		$b= $row["Count_num"];
+		$d= $row["Quest_Desc"];
+	}
 }	
 ?>
 <!DOCTYPE html>  
