@@ -126,8 +126,6 @@ tbody td {
         </li>
 		<li> <a href="create-poll.php" class="waves-effect"><i data-icon="7" class="linea-icon linea-basic fa-fw "></i> <span class="hide-menu ">Create New Question<span class="fa arrow"></span></span></a>
 		</li>
-        <li><a href="show-poll.php" class="waves-effect"><i data-icon=")" class="linea-icon linea-basic fa-fw"></i> <span class="hide-menu">Show all Poll Questions<span class="fa arrow"></span></span></a>
-        </li>  
 </ul>
     </div>
   </div>
@@ -197,7 +195,7 @@ $result = pg_query($sql) or die('Query failed: ' . pg_last_error());
 
 	while ($row = pg_fetch_array($result)) {	
 		$id= $row["Id"];
-        echo "<tr><td>" . $row["Id"]. "</td><td>" . $row["Question"]. "</td><td>" . $row["Count_num"]. "</td><td>" . $row["Quest_Desc"] . "</td><td>" ."<a href='https://poll-upvoting.herokuapp.com/poll-admin/eliteadmin-horizontal-nav-fullwidth/update-poll.php?id=$id'>Edit</a>"  ."&nbsp;/&nbsp;<a href='https://poll-upvoting.herokuapp.com/poll-admin/eliteadmin-horizontal-nav-fullwidth/update-poll.php?id=$id'>Delete</a>"  ."</td></tr>";
+        echo "<tr><td>" . $row["Id"]. "</td><td>" . $row["Question"]. "</td><td>" . $row["Count_num"]. "</td><td>" . $row["Quest_Desc"] . "</td><td>" ."<a href='https://poll-upvoting.herokuapp.com/poll-admin/eliteadmin-horizontal-nav-fullwidth/update-poll.php?id=$id'>Edit</a>"  ."&nbsp;/&nbsp;<a href='https://poll-upvoting.herokuapp.com/poll-admin/eliteadmin-horizontal-nav-fullwidth/delete-poll.php?id=$id'>Delete</a>"  ."</td></tr>";
     }
 ?>
 		</tbody>
