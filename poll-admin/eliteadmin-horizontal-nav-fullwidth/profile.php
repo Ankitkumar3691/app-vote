@@ -1,3 +1,8 @@
+<?php
+include('session.php');
+
+include ('config.php');	
+?>
 <!DOCTYPE html>  
 <html lang="en">
 <head>
@@ -22,22 +27,41 @@
 <link href="css/style.css" rel="stylesheet">
 <!-- color CSS -->
 <link href="css/colors/blue.css" id="theme"  rel="stylesheet">
-<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
-    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-<![endif]-->
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-  ga('create', 'UA-19175540-9', 'auto');
-  ga('send', 'pageview');
-
-</script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+		<script src="https://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.11/css/jquery.dataTables.min.css">
+		<script>
+		$(document).ready(function() {
+			$('#example').DataTable( {
+				initComplete: function () {
+					this.api().columns().every( function () {
+						var column = this;
+						var select = $('<select><option value=""></option></select>')
+							.appendTo( $(column.footer()).empty() )
+							.on( 'change', function () {
+								var val = $.fn.dataTable.util.escapeRegex(
+									$(this).val()
+								);
+		 
+								column
+									.search( val ? '^'+val+'$' : '', true, false )
+									.draw();
+							} );
+		 
+						column.data().unique().sort().each( function ( d, j ) {
+							select.append( '<option value="'+d+'">'+d+'</option>' )
+						} );
+					} );
+				}
+			} );
+		} );
+		</script>
+		<style>
+			td {
+				text-align:center;
+			}
+		</style>
 </head>
 <body>
 <!-- Preloader -->
@@ -110,6 +134,39 @@
         <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
           <h4 class="page-title">WELCOME ADMIN</h4>
         </div>
+		
+		<h4 align="center"> Questions details </h4>
+		<table id="example" class="display" cellspacing="0" width="100%">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Question</th>
+				<th>Counts</th>
+				<th>Question Desc</th>
+				<th>Action</th>
+			</tr>
+		</thead>
+		<tfoot>
+			<tr>
+				<th>Id</th>
+				<th>Question</th>
+				<th>Counts</th>
+				<th>Question Desc</th>
+				<th>Action</th>
+			</tr>
+		</tfoot>
+		<tbody>
+<?php
+$sql = 'SELECT * from vote ORDER BY vote."Id"';
+$result = pg_query($sql) or die('Query failed: ' . pg_last_error());
+
+	while ($row = pg_fetch_array($result)) {	
+		$id= $row["Id"];
+        echo "<tr><td>" . $row["Id"]. "</td><td>" . $row["Question"]. "</td><td>" . $row["Count_num"]. "</td><td>" . $row["Quest_Desc"] . "</td><td>" ."<a href='#'>Edit</a>"  ."&nbsp;/&nbsp;<a href='#'>Delete</a>"  ."</td></tr>";
+    }
+?>
+		</tbody>
+		</table>
 			
         <!-- /.col-lg-12 -->
       <div class="right-sidebar">
@@ -180,21 +237,6 @@
 <script src="../plugins/bower_components/jquery-sparkline/jquery.sparkline.min.js"></script>
 <script src="../plugins/bower_components/jquery-sparkline/jquery.charts-sparkline.js"></script>
 <script src="../plugins/bower_components/toast-master/js/jquery.toast.js"></script>
-<!-- <script type="text/javascript">
-  
-   $(document).ready(function() {
-      $.toast({
-        heading: 'Welcome to Elite admin',
-        text: 'Use the predefined ones, or specify a custom position object.',
-        position: 'top-right',
-        loaderBg:'#ff6849',
-        icon: 'info',
-        hideAfter: 3500, 
-        
-        stack: 6
-      })
-    });
-</script> -->
 <!--Style Switcher -->
 <script src="../plugins/bower_components/styleswitcher/jQuery.style.switcher.js"></script>
 </body>
