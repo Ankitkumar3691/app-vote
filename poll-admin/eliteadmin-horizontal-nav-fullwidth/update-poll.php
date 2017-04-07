@@ -5,11 +5,11 @@ include 'config.php';
 if(isset($_POST['Submit'])){
 	
 	$id= pg_escape_string($_POST['Id']);	
-	$doc= pg_escape_string($_POST['question_name']);
-	$ref= pg_escape_string($_POST['count_number']);
-	$sale= pg_escape_string($_POST['que_desc']);
+	$que= pg_escape_string($_POST['question_name']);
+	$cunt= pg_escape_string($_POST['count_number']);
+	$dsc= pg_escape_string($_POST['que_desc']);
 
-	$sql = 'UPDATE vote SET Question= \''.$q_name.'\', Count_num= \''.$count_code.'\', Quest_Desc=\''.$desc.'\' where vote."Id" = \''.$id.'\'';
+	$sql = 'UPDATE vote SET Question= \''.$que.'\', Count_num= \''.$cunt.'\', Quest_Desc=\''.$dsc.'\' where vote."Id" = \''.$id.'\'';
 	
 	$result_update = pg_query($sql) or die('Query failed: ' . pg_last_error());
 
@@ -29,8 +29,6 @@ if(isset($_POST['Submit'])){
 if(isset($_GET['id']))
 {
 	$id= pg_escape_string($_GET['id']);
-	
-	echo $id;
 	
 	$query = 'SELECT * from vote where vote."Id" = \''.$id.'\'';
 	
