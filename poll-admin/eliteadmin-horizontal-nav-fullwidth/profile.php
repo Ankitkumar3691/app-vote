@@ -45,6 +45,10 @@ include ('config.php');
 		</script>
 		<style>
 			td {text-align:center;}
+tbody td {
+  border: 1px solid;
+  padding: 5px;
+}
 		</style>
 
 <!-- Bootstrap Core CSS -->
@@ -179,22 +183,13 @@ include ('config.php');
 		<table id="example" class="display" cellspacing="0" width="100%">
 		<thead>
 			<tr>
-				<th>Id</th>
-				<th>Question</th>
-				<th>Counts</th>
-				<th>Question Desc</th>
-				<th>Action</th>
+				<th style="text-align: center;">Id</th>
+				<th style="text-align: center;">Question</th>
+				<th style="text-align: center;">Counts</th>
+				<th style="text-align: center;">Question Desc</th>
+				<th style="text-align: center;">Action</th>
 			</tr>
 		</thead>
-		<tfoot>
-			<tr>
-				<th>Id</th>
-				<th>Question</th>
-				<th>Counts</th>
-				<th>Question Desc</th>
-				<th>Action</th>
-			</tr>
-		</tfoot>
 		<tbody>
 <?php
 $sql = 'SELECT * from vote ORDER BY vote."Id"';
