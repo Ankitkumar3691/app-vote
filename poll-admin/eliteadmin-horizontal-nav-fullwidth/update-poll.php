@@ -30,11 +30,13 @@ if(isset($_GET['id']))
 {
 	$id= pg_escape_string($_GET['id']);
 	
+	echo $id;
+	
 	$query = 'SELECT * from vote where vote."Id" = \''.$id.'\'';
 	
 	$result = pg_query($query) or die('Query failed: ' . pg_last_error());	
 	
-	if ($result->pg_num_rows > 0) {
+	//if ($result-> pg_num_rows > 0) {
 		
 		// output data of each row
 		while($row = pg_fetch_array($result)) {
@@ -43,10 +45,10 @@ if(isset($_GET['id']))
 			$b= $row["Count_num"];
 			$d= $row["Quest_Desc"];
 		}
-	} 
+	/* } 
 	else {
 		echo "0 results";
-	}
+	} */
 }	
 ?>
 <!DOCTYPE html>  
@@ -131,10 +133,8 @@ if(isset($_GET['id']))
         </li>
         <li> <a href="profile.php" class="waves-effect"><i class="linea-icon linea-basic fa-fw" data-icon="v"></i> <span class="hide-menu"> Dashboard <span class="fa arrow"></span> </span></a>
         </li>
-		<li> <a href="#" class="waves-effect active"><i data-icon="7" class="linea-icon linea-basic fa-fw "></i> <span class="hide-menu ">Create New Question<span class="fa arrow"></span></span></a>
+		<li> <a href="#" class="waves-effect ><i data-icon="7" class="linea-icon linea-basic fa-fw "></i> <span class="hide-menu ">Create New Question<span class="fa arrow"></span></span></a>
 		</li>
-        <li><a href="show-poll.php" class="waves-effect"><i data-icon=")" class="linea-icon linea-basic fa-fw"></i> <span class="hide-menu">Show all Poll Questions<span class="fa arrow"></span></span></a>
-        </li>  
 </ul>
     </div>
   </div>
