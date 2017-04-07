@@ -47,6 +47,7 @@ if(isset($_GET['id']))
 	else {
 		echo "0 results";
 	}
+}	
 ?>
 <!DOCTYPE html>  
 <html lang="en">
