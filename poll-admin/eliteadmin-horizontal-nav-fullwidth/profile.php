@@ -177,14 +177,14 @@ tbody td {
         </div><div class="slimScrollBar" style="background: rgb(220, 220, 220); width: 5px; position: absolute; top: 0px; opacity: 0.4; display: none; border-radius: 7px; z-index: 99; right: 1px; height: 233.38px;"></div><div class="slimScrollRail" style="width: 5px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51); opacity: 0.2; z-index: 90; right: 1px;"></div></div>
       </div>
 		
-	<h4 align="center"> Questions details </h4>
+	<h4 align="center"> Create or Edit Poll Items </h4>
 		<table id="example" class="display" cellspacing="0" width="100%">
 		<thead>
 			<tr>
 				<th style="text-align: center;">Id</th>
-				<th style="text-align: center;">Question</th>
+				<th style="text-align: center;">Poll Item</th>
 				<th style="text-align: center;">Counts</th>
-				<th style="text-align: center;">Question Desc</th>
+				<th style="text-align: center;">Poll Item Description</th>
 				<th style="text-align: center;">Action</th>
 			</tr>
 		</thead>
@@ -200,10 +200,14 @@ $result = pg_query($sql) or die('Query failed: ' . pg_last_error());
 ?>
 		</tbody>
 		</table>	
-		
+			
+	<div id="code">
+		<h3 align="center"><u><a href="create-poll.php"<button class="button">Create a new poll Item</button></a></u></h3>
+	</div>		
+			
       </div>
    
-    <footer class="footer text-center"> 2017 &copy; Poll Voting Admin Interface </footer>
+    <footer class="footer text-center"> 2017 &copy; UpVoteApp.com </footer>
   </div>
   <!-- /#page-wrapper -->
 </div>
