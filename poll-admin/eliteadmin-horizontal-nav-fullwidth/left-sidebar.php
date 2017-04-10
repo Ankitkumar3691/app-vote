@@ -11,7 +11,7 @@
             </span> </div>
           <!-- /input-group -->
         </li>
-        <li> <a href="#" class="waves-effect "><i class="linea-icon linea-basic fa-fw" data-icon="v"></i> <span class="hide-menu"> Poll <span class="fa arrow"></span> </span></a></li>
+        <li> <a href="#" class="waves-effect "><i class="linea-icon linea-basic fa-fw" data-icon="v"></i> <span class="hide-menu"> Polls <span class="fa arrow"></span> </span></a></li>
         <li> <a href="#" class="waves-effect "><i class="linea-icon linea-basic fa-fw" data-icon="v"></i> <span class="hide-menu"> Settings <span class="fa arrow"></span> </span></a></li>
 		</ul>
     </div>
