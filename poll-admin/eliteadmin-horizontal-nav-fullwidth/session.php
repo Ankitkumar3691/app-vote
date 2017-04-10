@@ -22,6 +22,6 @@ $row = pg_fetch_assoc($result);
 $login_session = $row['username'];
 
 if(!isset($login_session)){
-	header('Location: index.php'); // Redirecting To Home Page
+	header('Location: profile.php'); // Redirecting To Home Page
 }
 ?>
