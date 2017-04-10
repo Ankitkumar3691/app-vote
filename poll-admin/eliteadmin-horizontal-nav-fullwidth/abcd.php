@@ -15,20 +15,18 @@ include ('config.php');
 <title>Poll Voting Interface</title>
 <!-- Bootstrap Core CSS -->
 <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- Editable CSS -->
+<link rel="stylesheet" href="../plugins/bower_components/jquery-datatables-editable/datatables.css" />
 <!-- Menu CSS -->
 <link href="../plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css" rel="stylesheet">
-<!-- toast CSS -->
-<link href="../plugins/bower_components/toast-master/css/jquery.toast.css" rel="stylesheet">
-<!-- morris CSS -->
-<link href="../plugins/bower_components/morrisjs/morris.css" rel="stylesheet">
 <!-- animation CSS -->
 <link href="css/animate.css" rel="stylesheet">
 <!-- Custom CSS -->
 <link href="css/style.css" rel="stylesheet">
 <!-- color CSS -->
 <link href="css/colors/blue.css" id="theme"  rel="stylesheet">
-
-		
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<script src="http://www.w3schools.com/lib/w3data.js"></script>
 </head>
 <body>
 <!-- Preloader -->
@@ -200,19 +198,24 @@ $result = pg_query($sql) or die('Query failed: ' . pg_last_error());
 <script src="js/jquery.slimscroll.js"></script>
 <!--Wave Effects -->
 <script src="js/waves.js"></script>
-<!--Counter js -->
-<script src="../plugins/bower_components/waypoints/lib/jquery.waypoints.js"></script>
-<script src="../plugins/bower_components/counterup/jquery.counterup.min.js"></script>
-<!--Morris JavaScript -->
-<script src="../plugins/bower_components/raphael/raphael-min.js"></script>
-<script src="../plugins/bower_components/morrisjs/morris.js"></script>
 <!-- Custom Theme JavaScript -->
 <script src="js/custom.min.js"></script>
-<script src="js/dashboard1.js"></script>
-<!-- Sparkline chart JavaScript -->
-<script src="../plugins/bower_components/jquery-sparkline/jquery.sparkline.min.js"></script>
-<script src="../plugins/bower_components/jquery-sparkline/jquery.charts-sparkline.js"></script>
-<script src="../plugins/bower_components/toast-master/js/jquery.toast.js"></script>
+<!-- Editable -->
+<script src="../plugins/bower_components/jquery-datatables-editable/jquery.dataTables.js"></script>
+<script src="../plugins/bower_components/datatables/dataTables.bootstrap.js"></script>
+<script src="../plugins/bower_components/tiny-editable/mindmup-editabletable.js"></script>
+<script src="../plugins/bower_components/tiny-editable/numeric-input-example.js"></script>
+<script>
+$('#mainTable').editableTableWidget().numericInputExample().find('td:first').focus();
+$('#editable-datatable').editableTableWidget().numericInputExample().find('td:first').focus();
+  $(document).ready(function(){
+      $('#editable-datatable').DataTable();
+      
+
+    
+  });
+    
+</script>
 <!--Style Switcher -->
 <script src="../plugins/bower_components/styleswitcher/jQuery.style.switcher.js"></script>
 </body>
