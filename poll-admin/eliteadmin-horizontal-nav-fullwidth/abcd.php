@@ -158,7 +158,7 @@ $result = pg_query($sql) or die('Query failed: ' . pg_last_error());
 
 	while ($row = pg_fetch_array($result)) {	
 		$id= $row["Id"];
-        echo "<tr><td>" . $row["Id"]. "</td><td>" . $row["Question"]. "</td><td>" . $row["Count_num"]. "</td><td>" . $row["Quest_Desc"] . "</td><td>" ."<a href='https://poll-upvoting.herokuapp.com/poll-admin/eliteadmin-horizontal-nav-fullwidth/update-poll.php?id=$id'>Edit</a>"  ."&nbsp;/&nbsp;<a href='https://poll-upvoting.herokuapp.com/poll-admin/eliteadmin-horizontal-nav-fullwidth/delete-poll.php?id=$id'>Delete</a>"  ."</td></tr>";
+        echo "<tr id='<?php echo $id ?>'><td>" . $row["Id"]. "</td><td>" . $row["Question"]. "</td><td>" . $row["Count_num"]. "</td><td>" . $row["Quest_Desc"] . "</td><td>" ."<a href='https://poll-upvoting.herokuapp.com/poll-admin/eliteadmin-horizontal-nav-fullwidth/update-poll.php?id=$id'>Edit</a>"  ."&nbsp;/&nbsp;<a href='https://poll-upvoting.herokuapp.com/poll-admin/eliteadmin-horizontal-nav-fullwidth/delete-poll.php?id=$id'>Delete</a>"  ."</td></tr>";
     }
 ?>
 				</tbody>
@@ -211,9 +211,7 @@ $('#editable-datatable').editableTableWidget().numericInputExample().find('td:fi
   $(document).ready(function(){
       $('#editable-datatable').DataTable();
       
-
-    
-  });
+});
     
 </script>
 <!--Style Switcher -->
