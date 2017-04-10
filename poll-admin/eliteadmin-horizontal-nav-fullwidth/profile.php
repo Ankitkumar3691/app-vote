@@ -13,60 +13,20 @@ include ('config.php');
 <meta name="author" content="">
 <link rel="icon" type="image/png" sizes="16x16" href="../plugins/images/favicon.png">
 <title>Poll Voting Interface</title>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
-		<script src="https://cdn.datatables.net/1.10.11/js/jquery.dataTables.min.js"></script>
-		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.11/css/jquery.dataTables.min.css">
-		<script>
-		$(document).ready(function() {
-			$('#example').DataTable( {
-				initComplete: function () {
-					this.api().columns().every( function () {
-						var column = this;
-						var select = $('<select><option value=""></option></select>')
-							.appendTo( $(column.footer()).empty() )
-							.on( 'change', function () {
-								var val = $.fn.dataTable.util.escapeRegex(
-									$(this).val()
-								);
-		 
-								column
-									.search( val ? '^'+val+'$' : '', true, false )
-									.draw();
-							} );
-		 
-						column.data().unique().sort().each( function ( d, j ) {
-							select.append( '<option value="'+d+'">'+d+'</option>' )
-						} );
-					} );
-				}
-			} );
-		} );
-		</script>
-		<style>
-			td {text-align:center;}
-tbody td {
-  border: 1px solid;
-  padding: 5px;
-}
-		</style>
-
 <!-- Bootstrap Core CSS -->
 <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- Editable CSS -->
+<link rel="stylesheet" href="../plugins/bower_components/jquery-datatables-editable/datatables.css" />
 <!-- Menu CSS -->
 <link href="../plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css" rel="stylesheet">
-<!-- toast CSS -->
-<link href="../plugins/bower_components/toast-master/css/jquery.toast.css" rel="stylesheet">
-<!-- morris CSS -->
-<link href="../plugins/bower_components/morrisjs/morris.css" rel="stylesheet">
 <!-- animation CSS -->
 <link href="css/animate.css" rel="stylesheet">
 <!-- Custom CSS -->
 <link href="css/style.css" rel="stylesheet">
 <!-- color CSS -->
 <link href="css/colors/blue.css" id="theme"  rel="stylesheet">
-
-		
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<script src="http://www.w3schools.com/lib/w3data.js"></script>
 </head>
 <body>
 <!-- Preloader -->
@@ -91,12 +51,6 @@ tbody td {
         <!-- /.dropdown -->
         <li class="dropdown"> <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"> <img src="default_avatar.png" alt="user-img" width="36" class="img-circle"><b class="hidden-xs">admin</b> </a>
           <ul class="dropdown-menu dropdown-user animated flipInY">
-            <!--li><a href="#"><i class="ti-user"></i> My Profile</a></li>
-            <li><a href="#"><i class="ti-wallet"></i> My Balance</a></li>
-            <li><a href="#"><i class="ti-email"></i> Inbox</a></li>
-            <li role="separator" class="divider"></li>
-            <li><a href="#"><i class="ti-settings"></i> Account Setting</a></li>
-            <li role="separator" class="divider"></li-->
             <li><a href="logout.php"><i class="fa fa-power-off"></i> Logout</a></li>
           </ul>
           <!-- /.dropdown-user -->
@@ -122,10 +76,8 @@ tbody td {
             </span> </div>
           <!-- /input-group -->
         </li>
-        <li> <a href="#" class="waves-effect active"><i class="linea-icon linea-basic fa-fw" data-icon="v"></i> <span class="hide-menu"> Dashboard <span class="fa arrow"></span> </span></a>
+        <li> <a href="#" class="waves-effect "><i class="linea-icon linea-basic fa-fw" data-icon="v"></i> <span class="hide-menu"> Poll <span class="fa arrow"></span> </span></a>
         </li>
-		<li> <a href="create-poll.php" class="waves-effect"><i data-icon="7" class="linea-icon linea-basic fa-fw "></i> <span class="hide-menu ">Create New Question<span class="fa arrow"></span></span></a>
-		</li>
 </ul>
     </div>
   </div>
@@ -176,30 +128,45 @@ tbody td {
           </div>
         </div><div class="slimScrollBar" style="background: rgb(220, 220, 220); width: 5px; position: absolute; top: 0px; opacity: 0.4; display: none; border-radius: 7px; z-index: 99; right: 1px; height: 233.38px;"></div><div class="slimScrollRail" style="width: 5px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: rgb(51, 51, 51); opacity: 0.2; z-index: 90; right: 1px;"></div></div>
       </div>
-		
-	<h4 align="center"> Create or Edit Poll Items </h4>
-		<table id="example" class="display" cellspacing="0" width="100%">
-		<thead>
-			<tr>
-				<th style="text-align: center;">Id</th>
-				<th style="text-align: center;">Poll Item</th>
-				<th style="text-align: center;">Counts</th>
-				<th style="text-align: center;">Poll Item Description</th>
-				<th style="text-align: center;">Action</th>
-			</tr>
-		</thead>
-		<tbody>
+	  
+  <div class="row">
+        <div class="col-lg-12">
+          <div class="white-box">
+            <h3 class="box-title">Create or Edit Poll Items</h3>
+            <table class="table table-striped table-bordered" id="editable-datatable">
+				<thead>
+				<tr>
+				  <th>Id</th>
+				  <th>Poll Item</th>
+				  <th>Counts</th>
+				  <th>Poll Item Description</th>
+				  <th>Action</th>
+				</tr>
+				</thead>			
+				<tbody>
 <?php
 $sql = 'SELECT * from vote ORDER BY vote."Id"';
 $result = pg_query($sql) or die('Query failed: ' . pg_last_error());
 
 	while ($row = pg_fetch_array($result)) {	
 		$id= $row["Id"];
-        echo "<tr><td>" . $row["Id"]. "</td><td>" . $row["Question"]. "</td><td>" . $row["Count_num"]. "</td><td>" . $row["Quest_Desc"] . "</td><td>" ."<a href='https://poll-upvoting.herokuapp.com/poll-admin/eliteadmin-horizontal-nav-fullwidth/update-poll.php?id=$id'>Edit</a>"  ."&nbsp;/&nbsp;<a href='https://poll-upvoting.herokuapp.com/poll-admin/eliteadmin-horizontal-nav-fullwidth/delete-poll.php?id=$id'>Delete</a>"  ."</td></tr>";
+        echo "<tr id='$id'><td>" . $row["Id"]. "</td><td>" . $row["Question"]. "</td><td>" . $row["Count_num"]. "</td><td>" . $row["Quest_Desc"] . "</td><td>" ."<a href='https://poll-upvoting.herokuapp.com/poll-admin/eliteadmin-horizontal-nav-fullwidth/update-poll.php?id=$id'>Edit</a>"  ."&nbsp;/&nbsp;<a href='https://poll-upvoting.herokuapp.com/poll-admin/eliteadmin-horizontal-nav-fullwidth/delete-poll.php?id=$id'>Delete</a>"  ."</td></tr>";
     }
 ?>
-		</tbody>
-		</table>	
+				</tbody>
+				<tfoot>
+					<tr>
+					  <th>Id</th>
+					  <th>Poll Item</th>
+					  <th>Counts</th>
+					  <th>Poll Item Description</th>
+					  <th>Action</th>
+					</tr>
+				</tfoot>	
+			</table>
+          </div>
+        </div>
+      </div>
 			
 	<div id="code">
 		<h3 align="center"><u><a href="create-poll.php"<button class="button">Create a new poll Item</button></a></u></h3>
@@ -223,19 +190,22 @@ $result = pg_query($sql) or die('Query failed: ' . pg_last_error());
 <script src="js/jquery.slimscroll.js"></script>
 <!--Wave Effects -->
 <script src="js/waves.js"></script>
-<!--Counter js -->
-<script src="../plugins/bower_components/waypoints/lib/jquery.waypoints.js"></script>
-<script src="../plugins/bower_components/counterup/jquery.counterup.min.js"></script>
-<!--Morris JavaScript -->
-<script src="../plugins/bower_components/raphael/raphael-min.js"></script>
-<script src="../plugins/bower_components/morrisjs/morris.js"></script>
 <!-- Custom Theme JavaScript -->
 <script src="js/custom.min.js"></script>
-<script src="js/dashboard1.js"></script>
-<!-- Sparkline chart JavaScript -->
-<script src="../plugins/bower_components/jquery-sparkline/jquery.sparkline.min.js"></script>
-<script src="../plugins/bower_components/jquery-sparkline/jquery.charts-sparkline.js"></script>
-<script src="../plugins/bower_components/toast-master/js/jquery.toast.js"></script>
+<!-- Editable -->
+<script src="../plugins/bower_components/jquery-datatables-editable/jquery.dataTables.js"></script>
+<script src="../plugins/bower_components/datatables/dataTables.bootstrap.js"></script>
+<script src="../plugins/bower_components/tiny-editable/mindmup-editabletable.js"></script>
+<script src="../plugins/bower_components/tiny-editable/numeric-input-example.js"></script>
+<script>
+$('#mainTable').editableTableWidget().numericInputExample().find('td:first').focus();
+$('#editable-datatable').editableTableWidget().numericInputExample().find('td:first').focus();
+  $(document).ready(function(){
+      $('#editable-datatable').DataTable();
+      
+});
+    
+</script>
 <!--Style Switcher -->
 <script src="../plugins/bower_components/styleswitcher/jQuery.style.switcher.js"></script>
 </body>
