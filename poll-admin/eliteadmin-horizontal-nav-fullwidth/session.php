@@ -17,7 +17,7 @@ $query = 'SELECT admin_user."Username" from admin_user where admin_user."Usernam
 
 $result = pg_query($query) or die('Query failed: ' . pg_last_error());
 
-$row = pg_fetch_assoc($result);
+$row = pg_numrows($result);
 
 $login_session = $row['username'];
 
