@@ -10,7 +10,7 @@ include('register-data.php'); // Includes Register Script
 <meta name="description" content="">
 <meta name="author" content="">
 <link rel="icon" type="image/png" sizes="16x16" href="../plugins/images/favicon.png">
-<title>Register User for Poll</title>
+<title>Register for Poll</title>
 <!-- Bootstrap Core CSS -->
 <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 <!-- animation CSS -->
