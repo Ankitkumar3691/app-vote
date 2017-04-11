@@ -24,8 +24,10 @@ if (isset ($_POST['submit'])) {
 	
 		$rows = pg_num_rows($result);
 		
+		foreach ($rows as $row){
 		echo '<pre>';
-		print_r ($rows);
+		print_r ($row);
+		}
 		die();
 		
 		if ($rows == 1) {
