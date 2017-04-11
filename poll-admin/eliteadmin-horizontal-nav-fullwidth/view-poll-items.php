@@ -80,7 +80,7 @@ $result = pg_query($sql) or die('Query failed: ' . pg_last_error());
 
 	while ($row = pg_fetch_array($result)) {	
 		$id= $row["Id"];
-        echo "<tr id='$id'><td>" . $row["Id"]. "</td><td>" . $row["Question"]. "</td><td>" . $row["Count_num"]. "</td><td>" . $row["Quest_Desc"] . "</td><td>" ."<a href='http://app.upvoteapp.com/poll-admin/eliteadmin-horizontal-nav-fullwidth/update-poll-item.php?id=$id'><img src='edit_one.png' alt='Edit'/></a>"  ."&nbsp;/&nbsp;<a href='#'><img src='close.png' alt='Delete'/></a>"  ."</td></tr>";
+        echo "<tr id='$id'><td>" . $row["Id"]. "</td><td>" . $row["Question"]. "</td><td>" . $row["Count_num"]. "</td><td>" . $row["Quest_Desc"] . "</td><td>" ."<a href='#'><img src='edit_one.png' alt='Edit'/></a>"  ."&nbsp;/&nbsp;<a href='#'><img src='close.png' alt='Delete'/></a>"  ."</td></tr>";
     }
 ?>
 				</tbody>
