@@ -24,7 +24,7 @@ if (isset ($_POST['submit'])) {
 	
 	while ($row = pg_fetch_array($result)) {
 		//$rows = pg_num_rows($result);
-		if ($rows == 1) {
+		if ($row == 1) {
 			$id= $row["id"];
 			$_SESSION['login_user']=$username; // Initializing Session
 			header("location: profile.php?id=$id"); // Redirecting To Other Page
