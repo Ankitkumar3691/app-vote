@@ -22,21 +22,12 @@ if (isset ($_POST['submit'])) {
 	
 		$result = pg_query($query) or die('Query failed: ' . pg_last_error());
 	
-		$rows = pg_fetch_array($result);
-		
-		$arr = array();
-		$arr = $rows;
-		foreach($arr as $row){
-		echo '<pre>';
-		print_r ($row);
-		//echo $id= $row["id"];
-		}
-		die();
+		$rows = pg_num_rows($result);
 		
 		if ($rows == 1) {
-			$id= $row["id"];
+			//$id= $row["id"];
 			$_SESSION['login_user']=$username; // Initializing Session
-			header("location: profile.php?id=$id"); // Redirecting To Other Page
+			header("location: profile.php?id=$username"); // Redirecting To Other Page
 		} 
 		else {
 			$error = "Username or Password is invalid";
