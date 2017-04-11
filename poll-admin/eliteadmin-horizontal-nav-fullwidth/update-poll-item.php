@@ -97,8 +97,8 @@ include('left-sidebar.php');
 				<input type="text" name="question_name" placeholder="Question Name" value="<?php echo($a); ?>"/></br>  
 				<input type="text" name="count_number" placeholder="Counts" value="<?php echo($b); ?>"/></br>
 				<input type="text" name="que_desc" placeholder="Question Desc" value="<?php echo($d); ?>"/></br>
-				<input type="hidden" name="my_user" value="<?php echo($e); ?>">	
-				<input type="hidden" name="my_poll_id" value="<?php echo($f); ?>">	
+				<input type="text" name="my_user" value="<?php echo($e); ?>">	
+				<input type="text" name="my_poll_id" value="<?php echo($f); ?>">	
 				<input type="submit" name="Submit" value="Update"/> 
 			</form> 
 		</div>
