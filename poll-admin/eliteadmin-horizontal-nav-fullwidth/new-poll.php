@@ -13,12 +13,13 @@ if(isset($_POST['submit'])){
 	
 	if ($row = pg_num_rows($result) == 1)
 	{	
-		$message = "This Question is already exist ";
+	
+		$message = "This Poll is already exist ";
 		echo "<script type='text/javascript'>alert('$message');</script>";
 	}
 	else
 	{
-		$sql = 'INSERT INTO vote_polls ("poll_name") VALUES (\''.$p_name.'\')';
+		$sql = 'INSERT INTO vote_polls ("user_name","poll_name") VALUES (\''.$login_session.'\',\''.$p_name.'\')';
 		$insert_result = pg_query($sql) or die('Query failed: ' . pg_last_error());	
 		if ($insert_result)
 		{	
