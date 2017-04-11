@@ -2,6 +2,7 @@
 include('session.php');
 
 include ('config.php');	
+
 ?>
 <!DOCTYPE html>  
 <html lang="en">
@@ -12,7 +13,7 @@ include ('config.php');
 <meta name="description" content="">
 <meta name="author" content="">
 <link rel="icon" type="image/png" sizes="16x16" href="../plugins/images/favicon.png">
-<title>Poll Voting Interface</title>
+<title>Polls Name</title>
 <!-- Bootstrap Core CSS -->
 <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 <!-- Editable CSS -->
@@ -54,35 +55,29 @@ include('left-sidebar.php');
   <div class="row">
         <div class="col-lg-12">
           <div class="white-box">
-            <h3 class="box-title">Create or Edit Poll Items</h3>
+            <h3 class="box-title"> Poll Names</h3>
             <table class="table table-striped table-bordered" id="editable-datatable">
 				<thead>
 				<tr>
 				  <th>Id</th>
-				  <th>Poll Item</th>
-				  <th>Counts</th>
-				  <th>Poll Item Description</th>
-				  <th>Action</th>
+				  <th>Poll Name</th>
 				</tr>
 				</thead>			
 				<tbody>
 <?php
-$sql = 'SELECT * from vote ORDER BY vote."Id"';
+$sql = 'SELECT * from vote_polls where vote_polls."user_name" = \''.$login_session.'\' ORDER BY vote."poll_id"';
 $result = pg_query($sql) or die('Query failed: ' . pg_last_error());
 
 	while ($row = pg_fetch_array($result)) {	
-		$id= $row["Id"];
-        echo "<tr id='$id'><td>" . $row["Id"]. "</td><td>" . $row["Question"]. "</td><td>" . $row["Count_num"]. "</td><td>" . $row["Quest_Desc"] . "</td><td>" ."<a href='https://poll-upvoting.herokuapp.com/poll-admin/eliteadmin-horizontal-nav-fullwidth/update-poll.php?id=$id'><img src='edit_one.png' alt='Edit'/></a>"  ."&nbsp;/&nbsp;<a href='https://poll-upvoting.herokuapp.com/poll-admin/eliteadmin-horizontal-nav-fullwidth/delete-poll.php?id=$id'><img src='close.png' alt='Delete'/></a>"  ."</td></tr>";
+		$id= $row["poll_id"];
+        echo "<tr id='$id'><td>" . $row["poll_id"]. "</td><td>" . $row["poll_name"]. "</td></tr>";
     }
 ?>
 				</tbody>
 				<tfoot>
 					<tr>
 					  <th>Id</th>
-					  <th>Poll Item</th>
-					  <th>Counts</th>
-					  <th>Poll Item Description</th>
-					  <th>Action</th>
+					  <th>Poll Name</th>
 					</tr>
 				</tfoot>	
 			</table>
