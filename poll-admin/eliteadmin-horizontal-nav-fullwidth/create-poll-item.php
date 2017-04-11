@@ -28,7 +28,7 @@ if(isset($_POST['submit'])){
 		{	
 			echo '<script type="text/javascript">'; 
 			echo 'alert("New Question Created successfully");'; 
-			echo 'window.location.href = "http://poll-upvoting.herokuapp.com/poll-admin/eliteadmin-horizontal-nav-fullwidth/profile.php";';
+			echo 'window.location.href = "http://app.upvoteapp.com/poll-admin/eliteadmin-horizontal-nav-fullwidth/profile.php";';
 			echo '</script>';	
 		}
 	}
