@@ -16,7 +16,7 @@ if(isset($_POST['Submit'])){
 	{
 		echo '<script type="text/javascript">'; 
         echo 'alert("Update successfully");'; 
-        echo 'window.location.href = "https://poll-upvoting.herokuapp.com/poll-admin/eliteadmin-horizontal-nav-fullwidth/profile.php";';
+        echo 'window.location.href = "http://app.upvoteapp.com/poll-admin/eliteadmin-horizontal-nav-fullwidth/profile.php";';
         echo '</script>';
 	}
 	else
