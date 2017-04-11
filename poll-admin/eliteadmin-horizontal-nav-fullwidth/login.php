@@ -24,8 +24,9 @@ if (isset ($_POST['submit'])) {
 	
 		$rows = pg_num_rows($result);
 		if ($rows == 1) {
+			$id= $row["id"];
 			$_SESSION['login_user']=$username; // Initializing Session
-			header("location: profile.php"); // Redirecting To Other Page
+			header("location: profile.php?id=$id"); // Redirecting To Other Page
 		} 
 		else {
 			$error = "Username or Password is invalid";
