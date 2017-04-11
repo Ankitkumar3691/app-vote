@@ -61,7 +61,6 @@ include('left-sidebar.php');
 				<tr>
 				  <th>Id</th>
 				  <th>Poll Name</th>
-				  <th>Add New Item</th>
 				  <th>View Items</th>
 				</tr>
 				</thead>			
@@ -80,7 +79,6 @@ $result = pg_query($sql) or die('Query failed: ' . pg_last_error());
 					<tr>
 				  <th>Id</th>
 				  <th>Poll Name</th>
-				  <th>Add New Item</th>
 				  <th>View Items</th>
 					</tr>
 				</tfoot>	
