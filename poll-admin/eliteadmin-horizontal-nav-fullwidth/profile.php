@@ -65,7 +65,7 @@ include('left-sidebar.php');
 				</thead>			
 				<tbody>
 <?php
-$sql = 'SELECT * from vote_polls where vote_polls."user_name" = \''.$login_session.'\' ORDER BY vote."poll_id"';
+$sql = 'SELECT * from vote_polls where vote_polls."user_name" = \''.$login_session.'\'';
 $result = pg_query($sql) or die('Query failed: ' . pg_last_error());
 
 	while ($row = pg_fetch_array($result)) {	
