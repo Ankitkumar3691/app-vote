@@ -61,6 +61,8 @@ include('left-sidebar.php');
 				<tr>
 				  <th>Id</th>
 				  <th>Poll Name</th>
+				  <th>Add New Item</th>
+				  <th>View Items</th>
 				</tr>
 				</thead>			
 				<tbody>
@@ -70,14 +72,16 @@ $result = pg_query($sql) or die('Query failed: ' . pg_last_error());
 
 	while ($row = pg_fetch_array($result)) {	
 		$id= $row["poll_id"];
-        echo "<tr id='$id'><td>" . $row["poll_id"]. "</td><td>" . $row["poll_name"]. "</td></tr>";
+        echo "<tr id='$id'><td>" . $row["poll_id"]. "</td><td>" . $row["poll_name"]. "</td><td>" ."<a href='http://app.upvoteapp.com/poll-admin/eliteadmin-horizontal-nav-fullwidth/view-poll-items.php?id=$id'>View Items</a>"."</td></tr>";
     }
 ?>
 				</tbody>
 				<tfoot>
 					<tr>
-					  <th>Id</th>
-					  <th>Poll Name</th>
+				  <th>Id</th>
+				  <th>Poll Name</th>
+				  <th>Add New Item</th>
+				  <th>View Items</th>
 					</tr>
 				</tfoot>	
 			</table>
