@@ -115,8 +115,12 @@ $result = pg_query($sql) or die('Query failed: ' . pg_last_error());
 <script src="../plugins/bower_components/tiny-editable/mindmup-editabletable.js"></script>
 <script src="../plugins/bower_components/tiny-editable/numeric-input-example.js"></script>
 <script>
-
-    
+/* $('#mainTable').editableTableWidget().numericInputExample().find('td:first').focus();
+$('#editable-datatable').editableTableWidget().numericInputExample().find('td:first').focus();
+  $(document).ready(function(){
+      $('#editable-datatable').DataTable();
+      
+}); */
 </script>
 <!--Style Switcher -->
 <script src="../plugins/bower_components/styleswitcher/jQuery.style.switcher.js"></script>
