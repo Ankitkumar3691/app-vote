@@ -26,7 +26,7 @@ if (isset ($_POST['submit'])) {
 		
 		if ($rows == 1) {
 			$user_name= pg_escape_string($_POST['username']);
-			//$_SESSION['login_user']=$username; // Initializing Session
+			$_SESSION['login_user'] = $user_name; // Initializing Session
 			header("location: profile.php?user=$user_name"); // Redirecting To Other Page
 		} 
 		else {
