@@ -26,9 +26,8 @@ if (isset ($_POST['submit'])) {
 		
 		if ($rows == 1) {
 			$user_name= pg_escape_string($_POST['username']);
-			//$id= $row["id"];
 			//$_SESSION['login_user']=$username; // Initializing Session
-			header("location: profile.php?id=$user_name"); // Redirecting To Other Page
+			header("location: profile.php?user=$user_name"); // Redirecting To Other Page
 		} 
 		else {
 			$error = "Username or Password is invalid";
