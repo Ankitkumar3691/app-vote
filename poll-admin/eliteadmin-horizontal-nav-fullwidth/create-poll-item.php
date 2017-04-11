@@ -87,7 +87,7 @@ include('left-sidebar.php');
 				<select name="variant" value=""></br>
 					<option value=""><b>--- Select Option ---</b></option>
 				<?php 
-				$sql = "SELECT * FROM vote_polls WHERE vote_polls.'user_name'='$login_session'";
+				$sql = 'SELECT * from vote_polls where vote_polls."user_name" = \''.$login_session.'\'';
 	
 				$result = pg_query($sql) or die('Query failed: ' . pg_last_error());
 
