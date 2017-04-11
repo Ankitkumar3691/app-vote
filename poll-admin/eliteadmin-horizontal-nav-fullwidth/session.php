@@ -5,7 +5,7 @@ include ('config.php');
 session_start();
 
 // Storing Session
-$user_check= $_SESSION['login_user'];
+$user_check = $_SESSION['login_user'];
 
 // SQL Query To Fetch Complete Information Of User
 //$ses_sql=mysql_query("select username from admin_user where Username='$user_check'", $connection);
@@ -15,7 +15,7 @@ $query = 'SELECT admin_user."Username" from admin_user where admin_user."Usernam
 
 $result = pg_query($query) or die('Query failed: ' . pg_last_error());
 
-$row = pg_numrows($result);
+$row = pg_fetch_array($result);
 
 $login_session = $row['Username'];
 
