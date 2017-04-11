@@ -21,7 +21,7 @@ if(isset($_POST['submit'])){
 	else
 	{
 		$sql = 'INSERT INTO vote ("Question", "Count_num", "Quest_Desc") VALUES (\''.$q_name.'\',\''.$count_code.'\', \''.$desc.'\')';
-	$insert_result = pg_query($sql) or die('Query failed: ' . pg_last_error());	
+		$insert_result = pg_query($sql) or die('Query failed: ' . pg_last_error());	
 		if ($insert_result)
 		{	
 			echo '<script type="text/javascript">'; 
@@ -31,6 +31,7 @@ if(isset($_POST['submit'])){
 		}
 	}
 }
+
 ?> 
 <!DOCTYPE html>  
 <html lang="en">
@@ -82,6 +83,20 @@ include('left-sidebar.php');
 				<input id="d_name" name="question_name" type="text" placeholder="Question" required >
 				<input id="ref_code" name="count_number" type="text" placeholder="Counts" required>
 				<input id="sal_rep" name="que_desc" type="text" placeholder="Question Desc" required>
+				<b>Select the Poll Name :</b>
+				<select name="variant" value=""></br>
+					<option value=""><b>--- Select Option ---</b></option>
+				<?php 
+				$sql = "SELECT * FROM vote_polls WHERE vote_polls.'user_name'='$login_session'";
+	
+				$result = pg_query($sql) or die('Query failed: ' . pg_last_error());
+
+					while ($row = pg_fetch_array($result)) {	
+					//	$poll_name= $row["poll_name"];
+					//	$id= $row["poll_id"];
+					echo "<option value='". $row["poll_id"] ."'>" .$row["poll_name"] ."</option>" ;	
+					}	?>
+				</select>
 				<input name="submit" type="submit" value="Create" id="create">
 				<span><?php echo $error; ?></span>
 			</form>
