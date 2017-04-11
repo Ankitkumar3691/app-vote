@@ -28,7 +28,7 @@ if(isset($_GET['user']))
             <a href=""><i class="fa fa-search"></i></a>
           </form-->
         </li>
-		<li><input type="hidden" class="hidden_id" name="name" value="<?php echo $_POST['id']; ?>"></li>
+		<li><input type="hidden" class="hidden_id" name="name" value="<?php echo $id ?>"></li>
       </ul>
       <ul class="nav navbar-top-links navbar-right pull-right">  
         <!-- /.dropdown -->
