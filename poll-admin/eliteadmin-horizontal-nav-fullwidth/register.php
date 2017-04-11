@@ -44,7 +44,7 @@ include('register-data.php'); // Includes Register Script
         </div>
         <div class="form-group">
           <div class="col-xs-12">
-            <input class="form-control" type="password" name="reg_user" required="" placeholder="Username">
+            <input class="form-control" type="text" name="reg_user" required="" placeholder="Username">
           </div>
         </div>		
         <div class="form-group ">
