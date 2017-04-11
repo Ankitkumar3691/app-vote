@@ -22,7 +22,8 @@ if (isset ($_POST['submit'])) {
 	
 		$result = pg_query($query) or die('Query failed: ' . pg_last_error());
 	
-		$rows = pg_num_rows($result);
+	while ($row = pg_fetch_array($result)) {
+		//$rows = pg_num_rows($result);
 		if ($rows == 1) {
 			$id= $row["id"];
 			$_SESSION['login_user']=$username; // Initializing Session
@@ -31,6 +32,7 @@ if (isset ($_POST['submit'])) {
 		else {
 			$error = "Username or Password is invalid";
 		}
+	}	
 		// Free resultset
 		pg_free_result($result);
 		
