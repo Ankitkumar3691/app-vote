@@ -12,7 +12,7 @@
       </ul>
       <ul class="nav navbar-top-links navbar-right pull-right">  
         <!-- /.dropdown -->
-        <li class="dropdown"> <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"> <img src="default_avatar.png" alt="user-img" width="36" class="img-circle"><b class="hidden-xs">admin</b> </a>
+        <li class="dropdown"> <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"> <img src="default_avatar.png" alt="user-img" width="36" class="img-circle"><b class="hidden-xs"></b> </a>
           <ul class="dropdown-menu dropdown-user animated flipInY">
             <li><a href="logout.php"><i class="fa fa-power-off"></i> Logout</a></li>
           </ul>
