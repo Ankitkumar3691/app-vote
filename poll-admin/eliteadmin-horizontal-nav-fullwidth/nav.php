@@ -7,7 +7,7 @@ if(isset($_GET['user']))
 {
 	$my_user= pg_escape_string($_GET['user']);
 	
-	$query = 'Select * from admin_user where admin_user."Username" = \''.$username.'\'';
+	$query = 'Select * from admin_user where admin_user."Username" = \''.$my_user.'\'';
 	
 	$result = pg_query($query) or die('Query failed: ' . pg_last_error());	
 	
