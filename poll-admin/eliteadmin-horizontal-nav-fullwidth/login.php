@@ -22,12 +22,12 @@ if (isset ($_POST['submit'])) {
 	
 		$result = pg_query($query) or die('Query failed: ' . pg_last_error());
 	
-		$rows = pg_num_rows($result);
+		$rows = pg_fetch_array($result);
 		
-		//foreach($rows as $row){
+		foreach($rows as $row){
 		echo '<pre>';
-		print_r ($rows);
-		//}
+		print_r ($row);
+		}
 		die();
 		
 		if ($rows == 1) {
