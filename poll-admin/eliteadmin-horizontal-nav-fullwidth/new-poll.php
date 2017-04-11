@@ -7,7 +7,7 @@ if(isset($_POST['submit'])){
 	
 	include 'config.php';	
 
-	$select = 'Select * from vote_polls where vote."poll_name" = \''.$p_name.'\'';
+	$select = 'Select * from vote_polls where vote_polls."poll_name" = \''.$p_name.'\'';
 	
 	$result = pg_query($select) or die('Query failed: ' . pg_last_error());
 	
