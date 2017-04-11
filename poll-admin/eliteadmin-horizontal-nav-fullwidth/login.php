@@ -24,9 +24,12 @@ if (isset ($_POST['submit'])) {
 	
 		$rows = pg_fetch_array($result);
 		
-		foreach($rows as $row){
+		$arr = array();
+		$arr = $rows;
+		foreach($arr as $row){
 		echo '<pre>';
 		print_r ($row);
+		//echo $id= $row["id"];
 		}
 		die();
 		
