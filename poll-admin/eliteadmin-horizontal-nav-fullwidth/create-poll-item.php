@@ -6,6 +6,8 @@ if(isset($_POST['submit'])){
 	$q_name= pg_escape_string($_POST['question_name']);
 	$count_code= pg_escape_string($_POST['count_number']);	
 	$desc= pg_escape_string($_POST['que_desc']);
+	$poll_id= pg_escape_string($_POST['variant']);
+	
 	
 	include 'config.php';	
 
@@ -20,7 +22,7 @@ if(isset($_POST['submit'])){
 	}
 	else
 	{
-		$sql = 'INSERT INTO vote ("Question", "Count_num", "Quest_Desc") VALUES (\''.$q_name.'\',\''.$count_code.'\', \''.$desc.'\')';
+		$sql = 'INSERT INTO vote ("Question", "Count_num", "Quest_Desc", "user_name", "poll_id") VALUES (\''.$q_name.'\',\''.$count_code.'\', \''.$desc.'\', \''.$login_session.'\', \''.$poll_id.'\')';
 		$insert_result = pg_query($sql) or die('Query failed: ' . pg_last_error());	
 		if ($insert_result)
 		{	
@@ -85,7 +87,7 @@ include('left-sidebar.php');
 				<input id="sal_rep" name="que_desc" type="text" placeholder="Question Desc" required>
 				<b>Select the Poll Name :</b>
 				<select name="variant" value=""></br>
-					<option value=""><b>--- Select Option ---</b></option>
+					<option value=""><b>---Select Option---</b></option>
 				<?php 
 				$sql = 'SELECT * from vote_polls where vote_polls."user_name" = \''.$login_session.'\'';
 	
