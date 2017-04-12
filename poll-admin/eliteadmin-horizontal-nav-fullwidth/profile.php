@@ -72,7 +72,7 @@ $result = pg_query($sql) or die('Query failed: ' . pg_last_error());
 
 	while ($row = pg_fetch_array($result)) {	
 		$id= $row["poll_id"];
-        echo "<tr id='$id'><td>" . $row["poll_id"]. "</td><td>" . $row["poll_name"]. "</td><td>" ."<a href='http://app.upvoteapp.com/poll-admin/eliteadmin-horizontal-nav-fullwidth/view-poll-items.php?id=$id'>View Poll Items</a>"."</td><td>" ."<a href='#'>Add Poll Settings</a>"."</td></tr>";
+        echo "<tr id='$id'><td>" . $row["poll_id"]. "</td><td>" . $row["poll_name"]. "</td><td>" ."<a href='http://app.upvoteapp.com/poll-admin/eliteadmin-horizontal-nav-fullwidth/view-poll-items.php?id=$id'>View Poll Items</a>"."</td><td>" ."<a href='#'>Poll Settings</a>"."</td></tr>";
     }
 ?>
 				</tbody>
