@@ -5,7 +5,7 @@ include('session.php');
 
 if(isset($_POST['Submit'])){
 	
-	$id= pg_escape_string($_POST['Id']);	
+	$id= pg_escape_string($_GET['id']);	
 	$que= pg_escape_string($_POST['question_name']);
 	$cunt= pg_escape_string($_POST['count_number']);
 	$dsc= pg_escape_string($_POST['que_desc']);
