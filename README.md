@@ -1,2 +1,2 @@
-# vote-system
-Just test with PHP and Jquery
+# Vote-System
+Lets Vote for new Features
