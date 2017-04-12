@@ -12,9 +12,6 @@ if(isset($_POST['Submit'])){
 
 	$sql = 'UPDATE vote SET "Question"= \''.$que.'\', "Count_num"= \''.$cunt.'\', "Quest_Desc"= \''.$dsc.'\' where vote."Id" = \''.$id.'\'';
 	
-	echo $sql;
-	die();
-	
 	$result_update = pg_query($sql) or die('Query failed: ' . pg_last_error());
 
     if($result_update)
