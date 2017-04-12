@@ -55,7 +55,7 @@ include('left-sidebar.php');
   <div class="row">
         <div class="col-lg-12">
           <div class="white-box">
-            <h3 class="box-title"> Poll Names</h3>
+            <h3 class="box-title"> All Poll </h3>
             <table class="table table-striped table-bordered" id="editable-datatable">
 				<thead>
 				<tr>
