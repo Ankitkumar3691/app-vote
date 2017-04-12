@@ -72,18 +72,18 @@ include('left-sidebar.php');
   <div id="page-wrapper">
     <div class="container-fluid">
       <div class="row bg-title">
-        <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
           <h4 class="page-title">Create New Poll</h4>
         </div>
-		
+		<div class="col-md-4 col-md-offset-4 col-sm-12 col-xs-12">
 		<div class="code_create">
 			<form action="" method="POST">
 				<input id="d_name" name="poll_name" type="text" placeholder="Poll Name" required >
-				<input name="submit" type="submit" value="Create" id="create">
+				<input name="submit" type="submit" value="Create" id="create" style="padding: 10px 60px;">
 				<span><?php echo $error; ?></span>
 			</form>
 		</div>
-			
+		</div>
 <?php include('right-sidebar.php');?>
 
       </div>
