@@ -7,10 +7,12 @@ if(isset($_POST['Submit'])){
 	$que= pg_escape_string($_POST['question_name']);
 	$cunt= pg_escape_string($_POST['count_number']);
 	$dsc= pg_escape_string($_POST['que_desc']);
-	$use= pg_escape_string($_POST['my_user']);
-	$poll= pg_escape_string($_POST['my_poll_id']);
+	//$use= pg_escape_string($_POST['my_user']);
+	//$poll= pg_escape_string($_POST['my_poll_id']);
+	
+	$sql = 'UPDATE vote SET "Question"= \''.$que.'\', "Count_num"= \''.$cunt.'\', "Quest_Desc"= \''.$dsc.'\' where vote."Id" = \''.$id.'\'';
 
-	$sql = 'UPDATE vote SET "Question"= \''.$que.'\', "Count_num"= \''.$cunt.'\', "Quest_Desc"= \''.$dsc.'\', "user_name"= \''.$use.'\', "poll_id"= \''.$poll.'\' where vote."Id" = \''.$id.'\'';
+	//$sql = 'UPDATE vote SET "Question"= \''.$que.'\', "Count_num"= \''.$cunt.'\', "Quest_Desc"= \''.$dsc.'\', "user_name"= \''.$use.'\', "poll_id"= \''.$poll.'\' where vote."Id" = \''.$id.'\'';
 	
 	$result_update = pg_query($sql) or die('Query failed: ' . pg_last_error());
 
@@ -93,13 +95,13 @@ include('left-sidebar.php');
 		
 		<div class="col-md-4 col-md-offset-4 col-sm-12 col-xs-12">
 		<div class="code_update">
-			<form method="post"  name="update" action="" /> 
+			<form method="post" name="update" action="" /> 
 				<input type="hidden" name="Id" value="<?php echo($id); ?>">             
 				<input type="text" name="question_name" placeholder="Question Name" value="<?php echo($a); ?>"/></br>  
 				<input type="text" name="count_number" placeholder="Counts" value="<?php echo($b); ?>"/></br>
 				<input type="text" name="que_desc" placeholder="Question Desc" value="<?php echo($d); ?>"/></br>
-				<input type="text" name="my_user" value="<?php echo($e); ?>">	
-				<input type="text" name="my_poll_id" value="<?php echo($f); ?>">	
+				<input type="hidden" name="my_user" value="<?php echo($e); ?>">	
+				<input type="hidden" name="my_poll_id" value="<?php echo($f); ?>">	
 				<input style="padding: 10px 60px;" type="submit" name="Submit" value="Update"/> 
 			</form> 
 		</div>
