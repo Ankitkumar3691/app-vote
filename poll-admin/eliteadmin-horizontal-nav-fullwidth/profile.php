@@ -88,7 +88,7 @@ $result = pg_query($sql) or die('Query failed: ' . pg_last_error());
       </div>
 			
 	<div id="code">
-		<h3 align="center"><u><a href="create-poll-item.php"<button class="button">Create a new poll Item</button></a></u></h3>
+		<h3 align="center"><u><a href="new-poll.php"<button class="button">Create a new Poll</button></a></u></h3>
 	</div>		
 			
       </div>
