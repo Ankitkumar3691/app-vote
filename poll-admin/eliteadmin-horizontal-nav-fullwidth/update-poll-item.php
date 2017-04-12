@@ -10,11 +10,6 @@ if(isset($_POST['Submit'])){
 	//$use= pg_escape_string($_POST['my_user']);
 	//$poll= pg_escape_string($_POST['my_poll_id']);
 	
-	echo $que;
-	echo $cunt;
-	echo $dsc;
-	die();
-	
 	$sql = 'UPDATE vote SET "Question"= \''.$que.'\', "Count_num"= \''.$cunt.'\', "Quest_Desc"= \''.$dsc.'\' where vote."Id" = \''.$id.'\'';
 
 	//$sql = 'UPDATE vote SET "Question"= \''.$que.'\', "Count_num"= \''.$cunt.'\', "Quest_Desc"= \''.$dsc.'\', "user_name"= \''.$use.'\', "poll_id"= \''.$poll.'\' where vote."Id" = \''.$id.'\'';
