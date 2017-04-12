@@ -131,10 +131,7 @@ $result = pg_query($sql) or die('Query failed: ' . pg_last_error());
 $('#mainTable').editableTableWidget().numericInputExample().find('td:first').focus();
 $('#editable-datatable').editableTableWidget().numericInputExample().find('td:first').focus();
   $(document).ready(function(){
-      $('#editable-datatable').DataTable(
-	  alert ('Work');
-		
-	  );
+      $('#editable-datatable').DataTable();
 });
     
 </script>
