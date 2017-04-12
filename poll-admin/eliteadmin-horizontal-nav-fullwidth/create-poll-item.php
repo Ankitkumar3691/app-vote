@@ -76,17 +76,18 @@ include('left-sidebar.php');
   <div id="page-wrapper">
     <div class="container-fluid">
       <div class="row bg-title">
-        <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
           <h4 class="page-title">Create New Questions for Poll</h4>
         </div>
 		
+		<div class="col-md-4 col-md-offset-4 col-sm-12 col-xs-12">
 		<div class="code_create">
 			<form action="" method="POST">
 				<input id="d_name" name="question_name" type="text" placeholder="Question" required >
 				<input id="ref_code" name="count_number" type="text" placeholder="Counts" required>
 				<input id="sal_rep" name="que_desc" type="text" placeholder="Question Desc" required>
-				<b>Select the Poll Name :</b>
-				<select name="variant" value=""></br>
+				<center><b>Select the Poll Name :</b></center><br>
+				<center><select name="variant" value=""></br>
 					<option value=""><b>---Select Option---</b></option>
 				<?php 
 				$sql = 'SELECT * from vote_polls where vote_polls."user_name" = \''.$login_session.'\'';
@@ -98,10 +99,11 @@ include('left-sidebar.php');
 					//	$id= $row["poll_id"];
 					echo "<option value='". $row["poll_id"] ."'>" .$row["poll_name"] ."</option>" ;	
 					}	?>
-				</select>
-				<input name="submit" type="submit" value="Create" id="create">
+				</select></center>
+				<input name="submit" type="submit" value="Create" id="create" style="margin: 10px 0; padding: 10px 60px;">
 				<span><?php echo $error; ?></span>
 			</form>
+		</div>
 		</div>
 			
 <?php include('right-sidebar.php');?>
