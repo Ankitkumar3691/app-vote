@@ -87,10 +87,11 @@ include('left-sidebar.php');
   <div id="page-wrapper">
     <div class="container-fluid">
       <div class="row bg-title">
-        <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
           <h4 class="page-title">Edit <? echo $a ?> Poll Item Record</h4>
         </div>
 		
+		<div class="col-md-4 col-md-offset-4 col-sm-12 col-xs-12">
 		<div class="code_update">
 			<form method="post"  name="update" action="" /> 
 				<input type="hidden" name="Id" value="<?php echo($id); ?>">             
@@ -99,8 +100,9 @@ include('left-sidebar.php');
 				<input type="text" name="que_desc" placeholder="Question Desc" value="<?php echo($d); ?>"/></br>
 				<input type="text" name="my_user" value="<?php echo($e); ?>">	
 				<input type="text" name="my_poll_id" value="<?php echo($f); ?>">	
-				<input type="submit" name="Submit" value="Update"/> 
+				<input style="padding: 10px 60px;" type="submit" name="Submit" value="Update"/> 
 			</form> 
+		</div>
 		</div>
 <?php include('right-sidebar.php');?>				
        
