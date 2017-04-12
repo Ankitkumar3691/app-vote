@@ -7,12 +7,8 @@ if(isset($_POST['Submit'])){
 	$que= pg_escape_string($_POST['question_name']);
 	$cunt= pg_escape_string($_POST['count_number']);
 	$dsc= pg_escape_string($_POST['que_desc']);
-	//$use= pg_escape_string($_POST['my_user']);
-	//$poll= pg_escape_string($_POST['my_poll_id']);
-	
-	$sql = 'UPDATE vote SET "Question"= \''.$que.'\', "Count_num"= \''.$cunt.'\', "Quest_Desc"= \''.$dsc.'\' where vote."Id" = \''.$id.'\'';
 
-	//$sql = 'UPDATE vote SET "Question"= \''.$que.'\', "Count_num"= \''.$cunt.'\', "Quest_Desc"= \''.$dsc.'\', "user_name"= \''.$use.'\', "poll_id"= \''.$poll.'\' where vote."Id" = \''.$id.'\'';
+	$sql = 'UPDATE vote SET "Question"= \''.$que.'\', "Count_num"= \''.$cunt.'\', "Quest_Desc"= \''.$dsc.'\' where vote."Id" = \''.$id.'\'';
 	
 	$result_update = pg_query($sql) or die('Query failed: ' . pg_last_error());
 
