@@ -1,6 +1,8 @@
 <?php
 include 'config.php';
 
+include('session.php');
+
 if(isset($_POST['Submit'])){
 	
 	$id= pg_escape_string($_POST['Id']);	
