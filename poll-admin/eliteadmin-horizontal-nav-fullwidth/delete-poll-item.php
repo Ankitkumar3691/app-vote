@@ -13,14 +13,14 @@ if(isset($_GET['id']))
 	{
 		echo '<script type="text/javascript">'; 
         echo 'alert("Record delete successfully");'; 
-        echo 'window.location.href = "https://poll-upvoting.herokuapp.com/poll-admin/eliteadmin-horizontal-nav-fullwidth/profile.php";';
+        echo 'window.location.href = "http://app.upvoteapp.com/poll-admin/eliteadmin-horizontal-nav-fullwidth/profile.php";';
         echo '</script>';
 	}
 	else
 	{
 		echo '<script type="text/javascript">'; 
         echo 'alert("Record delete unsuccessful");'; 
-        echo 'window.location.href = "https://poll-upvoting.herokuapp.com/poll-admin/eliteadmin-horizontal-nav-fullwidth/profile.php";';
+        echo 'window.location.href = "http://app.upvoteapp.com/poll-admin/eliteadmin-horizontal-nav-fullwidth/profile.php";';
         echo '</script>';
 	}
 }
