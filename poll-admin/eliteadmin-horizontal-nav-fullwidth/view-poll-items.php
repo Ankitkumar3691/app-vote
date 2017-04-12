@@ -1,8 +1,52 @@
 <?php
-include('session.php');
+include 'config.php';
 
-include ('config.php');	
+if(isset($_POST['Submit'])){
+	
+	$id= pg_escape_string($_POST['Id']);	
+	$que= pg_escape_string($_POST['question_name']);
+	$cunt= pg_escape_string($_POST['count_number']);
+	$dsc= pg_escape_string($_POST['que_desc']);
+	//$use= pg_escape_string($_POST['my_user']);
+	//$poll= pg_escape_string($_POST['my_poll_id']);
+	
+	$sql = 'UPDATE vote SET "Question"= \''.$que.'\', "Count_num"= \''.$cunt.'\', "Quest_Desc"= \''.$dsc.'\' where vote."Id" = \''.$id.'\'';
 
+	//$sql = 'UPDATE vote SET "Question"= \''.$que.'\', "Count_num"= \''.$cunt.'\', "Quest_Desc"= \''.$dsc.'\', "user_name"= \''.$use.'\', "poll_id"= \''.$poll.'\' where vote."Id" = \''.$id.'\'';
+	
+	$result_update = pg_query($sql) or die('Query failed: ' . pg_last_error());
+
+    if($result_update)
+	{
+		echo '<script type="text/javascript">'; 
+        echo 'alert("Update successfully");'; 
+        echo 'window.location.href = "http://app.upvoteapp.com/poll-admin/eliteadmin-horizontal-nav-fullwidth/profile.php";';
+        echo '</script>';
+	}
+	else
+	{
+		$message = "Update unsuccessful ";
+	echo "<script type='text/javascript'>alert('$message');</script>";
+	}
+}
+if(isset($_GET['id']))
+{
+	$id= pg_escape_string($_GET['id']);
+	
+	$query = 'SELECT * from vote where vote."Id" = \''.$id.'\'';
+	
+	$result = pg_query($query) or die('Query failed: ' . pg_last_error());	
+	
+	// output data of each row
+	while($row = pg_fetch_array($result)) {
+		$id= $row["Id"];
+		$a= $row["Question"];
+		$b= $row["Count_num"];
+		$d= $row["Quest_Desc"];
+		$e= $row["user_name"];
+		$f= $row["poll_id"];
+	}
+}	
 ?>
 <!DOCTYPE html>  
 <html lang="en">
@@ -13,21 +57,22 @@ include ('config.php');
 <meta name="description" content="">
 <meta name="author" content="">
 <link rel="icon" type="image/png" sizes="16x16" href="../plugins/images/favicon.png">
-<title>Poll Voting Interface</title>
+<title>Update Poll Question</title>
 <!-- Bootstrap Core CSS -->
 <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-<!-- Editable CSS -->
-<link rel="stylesheet" href="../plugins/bower_components/jquery-datatables-editable/datatables.css" />
 <!-- Menu CSS -->
 <link href="../plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css" rel="stylesheet">
+<!-- toast CSS -->
+<link href="../plugins/bower_components/toast-master/css/jquery.toast.css" rel="stylesheet">
+<!-- morris CSS -->
+<link href="../plugins/bower_components/morrisjs/morris.css" rel="stylesheet">
 <!-- animation CSS -->
 <link href="css/animate.css" rel="stylesheet">
 <!-- Custom CSS -->
 <link href="css/style.css" rel="stylesheet">
 <!-- color CSS -->
 <link href="css/colors/blue.css" id="theme"  rel="stylesheet">
-<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-<script src="http://www.w3schools.com/lib/w3data.js"></script>
+
 </head>
 <body>
 <!-- Preloader -->
@@ -35,76 +80,40 @@ include ('config.php');
   <div class="cssload-speeding-wheel"></div>
 </div>
 <div id="wrapper">
-  <!-- Navigation -->
 <?php
 include('nav.php');
+
 include('left-sidebar.php');
 ?>
   <!-- Page Content -->
   <div id="page-wrapper">
     <div class="container-fluid">
       <div class="row bg-title">
-        <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-          <h4 class="page-title"></h4>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+          <h4 class="page-title">Edit <? echo $a ?> Poll Item Record</h4>
         </div>
-	
-	<?php include('right-sidebar.php');?>
-    
+		
+		<div class="col-md-4 col-md-offset-4 col-sm-12 col-xs-12">
+		<div class="code_update">
+			<form method="post" name="update" action="" /> 
+				<input type="hidden" name="Id" value="<?php echo($id); ?>">             
+				<input type="text" name="question_name" placeholder="Question Name" value="<?php echo($a); ?>"/></br>  
+				<input type="text" name="count_number" placeholder="Counts" value="<?php echo($b); ?>"/></br>
+				<input type="text" name="que_desc" placeholder="Question Desc" value="<?php echo($d); ?>"/></br>
+				<input type="hidden" name="my_user" value="<?php echo($e); ?>">	
+				<input type="hidden" name="my_poll_id" value="<?php echo($f); ?>">	
+				<input style="padding: 10px 60px;" type="submit" name="Submit" value="Update"/> 
+			</form> 
+		</div>
+		</div>
+<?php include('right-sidebar.php');?>				
+       
       </div>
-	  
-  <div class="row">
-        <div class="col-lg-12">
-          <div class="white-box">
-            <h3 class="box-title">Create or Edit Poll Items</h3>
-            <table class="table table-striped table-bordered" id="editable-datatable">
-				<thead>
-				<tr>
-				  <th>Id</th>
-				  <th>Poll Item</th>
-				  <th>Counts</th>
-				  <th>Poll Item Description</th>
-				  <th>Action</th>
-				</tr>
-				</thead>			
-				<tbody>
-<?php
-
-if(isset($_GET['id']))
-{
-	$poll_id = pg_escape_string($_GET['id']);
-	
-}
-
-$sql = 'SELECT * from vote where vote."poll_id" = \''.$poll_id.'\' ORDER BY vote."Id"';
-$result = pg_query($sql) or die('Query failed: ' . pg_last_error());
-
-	while ($row = pg_fetch_array($result)) {	
-		$id= $row["Id"];
-        echo "<tr id='$id'><td>" . $row["Id"]. "</td><td>" . $row["Question"]. "</td><td>" . $row["Count_num"]. "</td><td>" . $row["Quest_Desc"] . "</td><td>" ."<a href='http://app.upvoteapp.com/poll-admin/eliteadmin-horizontal-nav-fullwidth/update-poll-item.php?id=$id'><img src='edit_one.png' alt='Edit'/></a>"  ."&nbsp;/&nbsp;<a href='#'><img src='close.png' alt='Delete'/></a>"  ."</td></tr>";
-    }
-?>
-				</tbody>
-				<tfoot>
-					<tr>
-					  <th>Id</th>
-					  <th>Poll Item</th>
-					  <th>Counts</th>
-					  <th>Poll Item Description</th>
-					  <th>Action</th>
-					</tr>
-				</tfoot>	
-			</table>
-          </div>
-        </div>
-      </div>
-			
-	<div id="code">
-		<h3 align="center"><u><a href="create-poll-item.php"<button class="button">Create a new poll Item</button></a></u></h3>
-	</div>		
-			
+		
+		
       </div>
    
-    <footer class="footer text-center"> 2017 &copy; UpVoteApp.com </footer>
+    <footer class="footer text-center"> 2017 &copy; Poll Voting Admin Interface </footer>
   </div>
   <!-- /#page-wrapper -->
 </div>
@@ -120,21 +129,19 @@ $result = pg_query($sql) or die('Query failed: ' . pg_last_error());
 <script src="js/jquery.slimscroll.js"></script>
 <!--Wave Effects -->
 <script src="js/waves.js"></script>
+<!--Counter js -->
+<script src="../plugins/bower_components/waypoints/lib/jquery.waypoints.js"></script>
+<script src="../plugins/bower_components/counterup/jquery.counterup.min.js"></script>
+<!--Morris JavaScript -->
+<script src="../plugins/bower_components/raphael/raphael-min.js"></script>
+<script src="../plugins/bower_components/morrisjs/morris.js"></script>
 <!-- Custom Theme JavaScript -->
 <script src="js/custom.min.js"></script>
-<!-- Editable -->
-<script src="../plugins/bower_components/jquery-datatables-editable/jquery.dataTables.js"></script>
-<script src="../plugins/bower_components/datatables/dataTables.bootstrap.js"></script>
-<script src="../plugins/bower_components/tiny-editable/mindmup-editabletable.js"></script>
-<script src="../plugins/bower_components/tiny-editable/numeric-input-example.js"></script>
-<script>
-$('#mainTable').editableTableWidget().numericInputExample().find('td:first').focus();
-$('#editable-datatable').editableTableWidget().numericInputExample().find('td:first').focus();
-  $(document).ready(function(){
-      $('#editable-datatable').DataTable();
-});
-    
-</script>
+<script src="js/dashboard1.js"></script>
+<!-- Sparkline chart JavaScript -->
+<script src="../plugins/bower_components/jquery-sparkline/jquery.sparkline.min.js"></script>
+<script src="../plugins/bower_components/jquery-sparkline/jquery.charts-sparkline.js"></script>
+<script src="../plugins/bower_components/toast-master/js/jquery.toast.js"></script>
 <!--Style Switcher -->
 <script src="../plugins/bower_components/styleswitcher/jQuery.style.switcher.js"></script>
 </body>
