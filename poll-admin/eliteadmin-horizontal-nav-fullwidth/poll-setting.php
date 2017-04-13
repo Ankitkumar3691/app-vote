@@ -3,7 +3,7 @@ include('session.php');
 
 include ('config.php');	
 
-if(isset($_POST['submit'])){
+if(isset($_POST['submit_image'])){
 	
 	$poll_id = pg_escape_string($_GET['id']);
 
