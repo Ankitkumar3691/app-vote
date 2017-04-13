@@ -8,7 +8,7 @@ if(isset($_POST['submit_image'])){
 	$poll_id = pg_escape_string($_GET['id']);
 	
 	// Poll Logo Upload and Show
-	$uploaddir = 'http://app.upvoteapp.com/poll-admin/poll-logo/';
+	$uploaddir = '/poll-logo/';
 	$uploadfile = $uploaddir . basename($_FILES['myimage']['name']);	
 	
 	if (move_uploaded_file($_FILES['myimage']['tmp_name'], $uploadfile))
