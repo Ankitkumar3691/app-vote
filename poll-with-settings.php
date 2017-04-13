@@ -1,6 +1,3 @@
-<?php
-include ('config.php');
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +14,7 @@ include ('config.php');
 			<div id="show-image">
 			<?php 
 			
-			//include ('config.php');	
+			include ('config.php');	
 			
 				$sql = 'SELECT * from poll_setting where poll_setting."poll_id" = "1"';
 				
@@ -36,6 +33,8 @@ include ('config.php');
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 content_main">
 				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 content">
 <?php
+
+include ('config.php');
 	
 $query = 'SELECT * from vote ORDER BY vote."Id"';
 $result = pg_query($query) or die('Query failed: ' . pg_last_error());	
