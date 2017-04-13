@@ -6,7 +6,7 @@ include ('config.php');
 if(isset($_POST['submit'])){
 	
 	$poll_id = pg_escape_string($_GET['id']);
-	$poll_title = pg_escape_string($_GET['poll-title']);
+	$poll_title = pg_escape_string($_POST['poll-title']);
 	
 	// Poll Logo Upload and Show
 	$uploaddir = 'poll-logo/';
