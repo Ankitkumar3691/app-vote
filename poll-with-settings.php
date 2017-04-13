@@ -22,7 +22,7 @@
 				
 				while ($row = pg_fetch_array($sql_result)) {	
 					$image_path=$row["logo_path"];	
-					echo "<img src=".$image_path." width=100 height=100/>";		
+					echo "<img src=http://app.upvoteapp.com/poll-admin/eliteadmin-horizontal-nav-fullwidth".$image_path." width=100 height=100/>";		
 				}			
 			?>
 			</div>
