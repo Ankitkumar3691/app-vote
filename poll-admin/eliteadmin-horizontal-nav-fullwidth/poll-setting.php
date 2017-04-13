@@ -7,19 +7,10 @@ if(isset($_POST['submit_image'])){
 	
 	$poll_id = pg_escape_string($_GET['id']);
 	
-	$uploaddir = '/poll-logo/';
+	$uploaddir = 'http://app.upvoteapp.com/poll-admin/eliteadmin-horizontal-nav-fullwidth/poll-logo/';
 	$uploadfile = $uploaddir . basename($_FILES['myimage']['name']);	
 
-	//$upload_image= $_FILES[" myimage "][ "name" ];
-
-	//$folder="/poll-logo/";
-
-	//move_uploaded_file($_FILES[" myimage "][" tmp_name "], "$folder".$_FILES[" myimage "][" name "]);
-	
-	$sql = 'INSERT INTO poll_setting ("poll_id","logo_name","logo_path") VALUES (\''.$poll_id.'\',,\''.$uploadfile.'\')';
-	
-	echo $sql;
-	die();
+	$sql = 'INSERT INTO poll_setting ("poll_id","logo_path") VALUES (\''.$poll_id.'\',\''.$uploadfile.'\')';
 	
 	$insert_result = pg_query($sql) or die('Query failed: ' . pg_last_error());	
 
@@ -85,9 +76,8 @@ include('left-sidebar.php');
 				$result = pg_query($sql) or die('Query failed: ' . pg_last_error());
 				
 				while ($row = pg_fetch_array($result)) {	
-					$image_name=$row["logo_name"];
 					$image_path=$row["logo_path"];	
-					echo "img src=".$image_path."/".$image_name." width=100 height=100";		
+					echo "<img src=".$image_path." width=100 height=100/>";		
 				}			
 			?>
 			</div>
