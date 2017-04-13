@@ -7,6 +7,7 @@ if(isset($_POST['submit'])){
 	
 	$poll_id = pg_escape_string($_GET['id']);
 	$poll_title = pg_escape_string($_POST['poll-title']);
+	$page_background = pg_escape_string($_POST['page_bg']);
 	$poll_background = pg_escape_string($_POST['poll_bg']);
 	
 	// Poll Logo Upload and Show
@@ -27,14 +28,14 @@ if(isset($_POST['submit'])){
 	
 	if ($rows == 1) {
 		// Update Exiting Poll Logo
-		$update = 'UPDATE poll_setting SET "poll_id"= \''.$poll_id.'\', "logo_path"= \''.$uploadfile.'\', "poll_title"= \''.$poll_title.'\', "page_bg"= \''.$poll_background.'\' where poll_setting."poll_id" = \''.$poll_id.'\'';	
+		$update = 'UPDATE poll_setting SET "poll_id"= \''.$poll_id.'\', "logo_path"= \''.$uploadfile.'\', "poll_title"= \''.$poll_title.'\', "page_bg"= \''.$page_background.'\', "poll_bg"= \''.$poll_background.'\' where poll_setting."poll_id" = \''.$poll_id.'\'';	
 		
 		$update_result = pg_query($update) or die('Query failed: ' . pg_last_error());
 	
 	} 
 	else {
 		// Insert New Poll Logo
-		$insert = 'INSERT INTO poll_setting ("poll_id","logo_path","poll_title","page_bg") VALUES (\''.$poll_id.'\',\''.$uploadfile.'\',\''.$poll_title.'\',\''.$poll_background.'\')';
+		$insert = 'INSERT INTO poll_setting ("poll_id","logo_path","poll_title","page_bg","poll_bg") VALUES (\''.$poll_id.'\',\''.$uploadfile.'\',\''.$poll_title.'\',\''.$page_background.'\',\''.$poll_background.'\')';
 		$insert_result = pg_query($insert) or die('Query failed: ' . pg_last_error());
 	}
 } 
@@ -52,6 +53,7 @@ if(isset($_GET['id']))
 		$a= $row["logo_path"];
 		$b= $row["poll_title"];
 		$c= $row["page_bg"];
+		$d= $row["poll_bg"];
 	}
 }
 ?> 
@@ -110,7 +112,10 @@ include('left-sidebar.php');
 					</div>			
 				<input id="" name="poll-title" type="text" placeholder="Poll Title" value="<?php echo($b); ?>">
 				<p>
-				Poll Page Background Color :<input type="text" name="poll_bg" class="colorpicker" value="<?php echo($c); ?>" />
+				Page Background Color :<input type="text" name="page_bg" class="colorpicker" value="<?php echo($c); ?>" />
+				</p>	
+				<p>
+				Poll Background Color :<input type="text" name="poll_bg" class="colorpicker" value="<?php echo($d); ?>" />
 				</p>				
 				<input id="setting_submit" type="submit" name="submit" value="Save">
 			</form>
