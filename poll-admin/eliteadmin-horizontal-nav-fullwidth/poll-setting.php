@@ -70,7 +70,7 @@ if(isset($_POST['submit'])){
 <link href="css/colors/blue.css" id="theme"  rel="stylesheet">
 <script>
 $(document).ready(function(){
-	$("submit").click(function(){
+	$("#setting_submit").click(function(){
 		var color_code = $(".colorpicker ").text();	
 		alert (color_code);
 		$.ajax(
@@ -126,7 +126,7 @@ include('left-sidebar.php');
 				<p>
 				Poll Page Background Color :<input type="text" name="color1" class="colorpicker" value="#7ab2fa" />
 				</p>				
-				<input type="submit" name="submit" value="Save">
+				<input id="setting_submit" type="submit" name="submit" value="Save">
 				
 				<?php } ?>	
 			</form>
