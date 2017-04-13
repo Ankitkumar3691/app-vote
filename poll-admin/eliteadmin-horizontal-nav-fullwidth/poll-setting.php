@@ -3,9 +3,10 @@ include('session.php');
 
 include ('config.php');	
 
-if(isset($_POST['submit_image'])){
+if(isset($_POST['submit'])){
 	
 	$poll_id = pg_escape_string($_GET['id']);
+	$poll_title = pg_escape_string($_GET['poll-title']);
 	
 	// Poll Logo Upload and Show
 	$uploaddir = 'poll-logo/';
@@ -25,14 +26,14 @@ if(isset($_POST['submit_image'])){
 	
 	if ($rows == 1) {
 		// Update Exiting Poll Logo
-		$update = 'UPDATE poll_setting SET "poll_id"= \''.$poll_id.'\', "logo_path"= \''.$uploadfile.'\' where poll_setting."poll_id" = \''.$poll_id.'\'';	
+		$update = 'UPDATE poll_setting SET "poll_id"= \''.$poll_id.'\', "logo_path"= \''.$uploadfile.'\', "poll_title"= \''.$poll_title.'\' where poll_setting."poll_id" = \''.$poll_id.'\'';	
 		
 		$update_result = pg_query($update) or die('Query failed: ' . pg_last_error());
 	
 	} 
 	else {
 		// Insert New Poll Logo
-		$insert = 'INSERT INTO poll_setting ("poll_id","logo_path") VALUES (\''.$poll_id.'\',\''.$uploadfile.'\')';
+		$insert = 'INSERT INTO poll_setting ("poll_id","logo_path","poll_title") VALUES (\''.$poll_id.'\',\''.$uploadfile.'\',\''.$poll_title.'\')';
 		$insert_result = pg_query($insert) or die('Query failed: ' . pg_last_error());
 	}
 }
@@ -83,26 +84,29 @@ include('left-sidebar.php');
         </div>
 		<div class="col-md-4 col-md-offset-4 col-sm-12 col-xs-12">
 			<!-- Logo Upload -->
+			<div id="poll-settings">
 			<form method="POST" action="" enctype="multipart/form-data">
 				<input type="file" name="myimage"/>
-				 <input type="submit" name="submit_image" value="Upload">
+					<div id="show-image">
+					<?php 
+						$poll_id = pg_escape_string($_GET['id']);
+						
+						$sql = 'SELECT * from poll_setting where poll_setting."poll_id" = \''.$poll_id.'\'';
+						
+						$result = pg_query($sql) or die('Query failed: ' . pg_last_error());
+						
+						while ($row = pg_fetch_array($result)) {	
+							$image_path=$row["logo_path"];	
+							echo "<img src=".$image_path." width=100 height=100/>";		
+					?>
+					</div>			
+				<input id="d_name" name="poll-title" type="text" placeholder="Poll Title" >
+				<span class="" id=""><?php echo $row['poll_title'];?></span>	
+				<input type="submit" name="submit" value="Save">
+				
+				<?php } ?>	
 			</form>
-			
-			<div id="show-image">
-			<?php 
-				$poll_id = pg_escape_string($_GET['id']);
-				
-				$sql = 'SELECT * from poll_setting where poll_setting."poll_id" = \''.$poll_id.'\'';
-				
-				$result = pg_query($sql) or die('Query failed: ' . pg_last_error());
-				
-				while ($row = pg_fetch_array($result)) {	
-					$image_path=$row["logo_path"];	
-					echo "<img src=".$image_path." width=100 height=100/>";		
-				}			
-			?>
 			</div>
-
 		</div>
 <?php include('right-sidebar.php');?>
 
