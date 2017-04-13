@@ -108,7 +108,7 @@ include('left-sidebar.php');
 					<div id="show-image">
 					<img src="http://app.upvoteapp.com/poll-admin/eliteadmin-horizontal-nav-fullwidth/<?php echo ($a); ?>">
 					</div>			
-				<input id="" name="poll-title" type="text" placeholder="Poll Title" value="<?php echo(ba); ?>">
+				<input id="" name="poll-title" type="text" placeholder="Poll Title" value="<?php echo($ba); ?>">
 				<p>
 				Poll Page Background Color :<input type="text" name="poll_bg" class="colorpicker" value="<?php echo($c); ?>" />
 				</p>				
