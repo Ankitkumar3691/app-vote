@@ -40,8 +40,10 @@ include 'config.php';
 				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 content">
 <?php
 include 'config.php';
+
+$poll= 2;
 	
-$query = 'SELECT * from vote ORDER BY vote."Id"';
+$query = 'SELECT * from vote where vote."poll_id" = \''.$poll.'\' ORDER BY vote."Id"';
 $result = pg_query($query) or die('Query failed: ' . pg_last_error());	
 
 // Printing results in HTML
