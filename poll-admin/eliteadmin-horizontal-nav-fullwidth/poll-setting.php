@@ -6,14 +6,17 @@ include ('config.php');
 if(isset($_POST['submit_image'])){
 	
 	$poll_id = pg_escape_string($_GET['id']);
-
-	$upload_image= $_FILES[" myimage "][ "name" ];
-
-	$folder="/poll-logo/";
-
-	move_uploaded_file($_FILES[" myimage "][" tmp_name "], "$folder".$_FILES[" myimage "][" name "]);
 	
-	$sql = 'INSERT INTO poll_setting ("poll_id","logo_name","logo_path") VALUES (\''.$poll_id.'\',\''.$upload_image.'\',\''.$folder.'\')';
+	$uploaddir = '/poll-logo/';
+	$uploadfile = $uploaddir . basename($_FILES['myimage']['name']);	
+
+	//$upload_image= $_FILES[" myimage "][ "name" ];
+
+	//$folder="/poll-logo/";
+
+	//move_uploaded_file($_FILES[" myimage "][" tmp_name "], "$folder".$_FILES[" myimage "][" name "]);
+	
+	$sql = 'INSERT INTO poll_setting ("poll_id","logo_name","logo_path") VALUES (\''.$poll_id.'\',,\''.$uploadfile.'\')';
 	
 	echo $sql;
 	die();
