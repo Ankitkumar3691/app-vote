@@ -1,7 +1,7 @@
 <?php
 include 'config.php';
 
-	$p_id= 1;
+	$p_id= 2;
 	
 	$query = 'SELECT * from poll_setting where poll_setting."poll_id" = \''.$p_id.'\'';
 	
@@ -25,9 +25,9 @@ include 'config.php';
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script> 
 	<script type="text/javascript" src="myvote.js"></script>
 </head>
-<body>
+<body style="background-color:<?php echo($c);?>!important;">
 
-	<div style="background-color:<?php echo($c);?>!important;" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 main">
+	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 main">
 		<div class="container">
 			<!-- Show Logo -->
 			<div id="show-image">
