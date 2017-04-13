@@ -52,6 +52,8 @@ if(isset($_POST['submit'])){
 <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 <!-- Menu CSS -->
 <link href="../plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css" rel="stylesheet">
+<!-- Color picker plugins css -->
+<link href="../plugins/bower_components/jquery-asColorPicker-master/css/asColorPicker.css" rel="stylesheet">
 <!-- toast CSS -->
 <link href="../plugins/bower_components/toast-master/css/jquery.toast.css" rel="stylesheet">
 <!-- morris CSS -->
@@ -62,8 +64,6 @@ if(isset($_POST['submit'])){
 <link href="css/style.css" rel="stylesheet">
 <!-- color CSS -->
 <link href="css/colors/blue.css" id="theme"  rel="stylesheet">
-<!-- Color picker plugins css -->
-<link href="../plugins/bower_components/jquery-asColorPicker-master/css/asColorPicker.css" rel="stylesheet">
 
 </head>
 <body>
@@ -106,8 +106,7 @@ include('left-sidebar.php');
 				<span class="" id=""><?php echo $row['poll_title'];?></span><br />
 				<h3>Color for Poll : <h3>	
 				<p>
-					Page Background Color :
-					<input type="text" name="color1" class="colorpicker form-control" value="#7ab2fa" />
+				Page Background Color :	<input type="text" name="color1" class="colorpicker" value="#7ab2fa" />
 				</p>				
 				<input type="submit" name="submit" value="Save">
 				
@@ -151,8 +150,6 @@ include('left-sidebar.php');
 <script src="../plugins/bower_components/jquery-sparkline/jquery.sparkline.min.js"></script>
 <script src="../plugins/bower_components/jquery-sparkline/jquery.charts-sparkline.js"></script>
 <script src="../plugins/bower_components/toast-master/js/jquery.toast.js"></script>
-<!--Style Switcher -->
-<script src="../plugins/bower_components/styleswitcher/jQuery.style.switcher.js"></script>
 <!-- Color Picker Plugin JavaScript -->
 <script src="../plugins/bower_components/jquery-asColorPicker-master/libs/jquery-asColor.js"></script>
 <script src="../plugins/bower_components/jquery-asColorPicker-master/libs/jquery-asGradient.js"></script>
@@ -166,5 +163,7 @@ $(".gradient-colorpicker").asColorPicker({
     mode: 'gradient'
 });
 </script>
+<!--Style Switcher -->
+<script src="../plugins/bower_components/styleswitcher/jQuery.style.switcher.js"></script>
 </body>
 </html>
