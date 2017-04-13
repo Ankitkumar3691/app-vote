@@ -1,5 +1,5 @@
 <?php
-include ('config.php');	
+include ('config.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,11 +17,13 @@ include ('config.php');
 			<div id="show-image">
 			<?php 
 			
+			//include ('config.php');	
+			
 				$sql = 'SELECT * from poll_setting where poll_setting."poll_id" = "1"';
 				
-				$result = pg_query($sql) or die('Query failed: ' . pg_last_error());
+				$sql_result = pg_query($sql) or die('Query failed: ' . pg_last_error());
 				
-				while ($row = pg_fetch_array($result)) {	
+				while ($row = pg_fetch_array($sql_result)) {	
 					$image_path=$row["logo_path"];	
 					echo "<img src=".$image_path." width=100 height=100/>";		
 				}			
