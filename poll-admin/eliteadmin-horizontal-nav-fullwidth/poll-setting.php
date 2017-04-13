@@ -7,15 +7,17 @@ if(isset($_POST['submit_image'])){
 	
 	$poll_id = pg_escape_string($_GET['id']);
 	
-	$uploaddir = '../plugins/images/';
+	$uploaddir = '../poll-logo/';
 	$uploadfile = $uploaddir . basename($_FILES['myimage']['name']);	
 	
 	if (move_uploaded_file($_FILES['myimage']['tmp_name'], $uploadfile))
-	{    echo "File is valid, and was successfully uploaded.\n";
+	{    //echo "File is valid, and was successfully uploaded.\n";
 	}
 	else   {   echo "File size greater than 300kb!\n\n";   }	
 
-	$sql = 'INSERT INTO poll_setting ("poll_id","logo_path") VALUES (\''.$poll_id.'\',\''.$uploadfile.'\')';
+	//$sql = 'INSERT INTO poll_setting ("poll_id","logo_path") VALUES (\''.$poll_id.'\',\''.$uploadfile.'\')';
+	
+	$sql = 'UPDATE poll_setting SET "poll_id"= \''.$poll_id.'\', "logo_path"= \''.$uploadfile.'\' where poll_setting."poll_id" = \''.$poll_id.'\'';	
 	
 	$insert_result = pg_query($sql) or die('Query failed: ' . pg_last_error());	
 
