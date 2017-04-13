@@ -28,7 +28,7 @@
 			?>
 			</div>
 			<div class="heading">
-				<h1><?php echo $row['poll_title'];?></h1>
+				<h1><?php echo $mypoll_title;?></h1>
 			</div>
 			<?php } ?>	
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 content_main">
