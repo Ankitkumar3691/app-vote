@@ -62,6 +62,8 @@ if(isset($_POST['submit'])){
 <link href="css/style.css" rel="stylesheet">
 <!-- color CSS -->
 <link href="css/colors/blue.css" id="theme"  rel="stylesheet">
+<!-- Color picker plugins css -->
+<link href="../plugins/bower_components/jquery-asColorPicker-master/css/asColorPicker.css" rel="stylesheet">
 
 </head>
 <body>
@@ -101,7 +103,12 @@ include('left-sidebar.php');
 					?>
 					</div>			
 				<input id="d_name" name="poll-title" type="text" placeholder="Poll Title" >
-				<span class="" id=""><?php echo $row['poll_title'];?></span>	
+				<span class="" id=""><?php echo $row['poll_title'];?></span><br />
+				<h3>Color for Poll : <h3>	
+				<p>
+					Page Background Color :
+					<input type="text" name="color1" class="colorpicker form-control" value="#7ab2fa" />
+				</p>				
 				<input type="submit" name="submit" value="Save">
 				
 				<?php } ?>	
@@ -146,5 +153,18 @@ include('left-sidebar.php');
 <script src="../plugins/bower_components/toast-master/js/jquery.toast.js"></script>
 <!--Style Switcher -->
 <script src="../plugins/bower_components/styleswitcher/jQuery.style.switcher.js"></script>
+<!-- Color Picker Plugin JavaScript -->
+<script src="../plugins/bower_components/jquery-asColorPicker-master/libs/jquery-asColor.js"></script>
+<script src="../plugins/bower_components/jquery-asColorPicker-master/libs/jquery-asGradient.js"></script>
+<script src="../plugins/bower_components/jquery-asColorPicker-master/dist/jquery-asColorPicker.min.js"></script>
+<script>
+$(".colorpicker").asColorPicker();
+$(".complex-colorpicker").asColorPicker({
+    mode: 'complex'
+});
+$(".gradient-colorpicker").asColorPicker({
+    mode: 'gradient'
+});
+</script>
 </body>
 </html>
