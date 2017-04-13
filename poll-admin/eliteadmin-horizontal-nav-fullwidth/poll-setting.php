@@ -106,9 +106,9 @@ include('left-sidebar.php');
 			<form method="POST" action="" enctype="multipart/form-data">
 				<input type="file" name="myimage"/>
 					<div id="show-image">
-					<img src="http://app.upvoteapp.com/poll-admin/eliteadmin-horizontal-nav-fullwidth/<?php echo ($a); ?>">
+					<img src="http://app.upvoteapp.com/poll-admin/eliteadmin-horizontal-nav-fullwidth/<?php echo ($a); ?>" width="100" height="100">
 					</div>			
-				<input id="" name="poll-title" type="text" placeholder="Poll Title" value="<?php echo($ba); ?>">
+				<input id="" name="poll-title" type="text" placeholder="Poll Title" value="<?php echo($b); ?>">
 				<p>
 				Poll Page Background Color :<input type="text" name="poll_bg" class="colorpicker" value="<?php echo($c); ?>" />
 				</p>				
