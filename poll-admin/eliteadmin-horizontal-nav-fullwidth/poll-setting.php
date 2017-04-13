@@ -10,7 +10,10 @@ if(isset($_POST['submit_image'])){
 	$uploaddir = '../plugins/images/';
 	$uploadfile = $uploaddir . basename($_FILES['myimage']['name']);	
 	
-	move_uploaded_file($_FILES['myimage']['tmp_name'], $uploadfile)
+	if (move_uploaded_file($_FILES['myimage']['tmp_name'], $uploadfile))
+	{    echo "File is valid, and was successfully uploaded.\n";
+	}
+	else   {   echo "File size greater than 300kb!\n\n";   }	
 
 	$sql = 'INSERT INTO poll_setting ("poll_id","logo_path") VALUES (\''.$poll_id.'\',\''.$uploadfile.'\')';
 	
