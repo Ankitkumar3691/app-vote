@@ -3,6 +3,21 @@ include('session.php');
 
 include ('config.php');	
 
+if(isset($_POST['submit'])){
+	
+	$poll_id = pg_escape_string($_GET['id']);
+
+	$upload_image= $_FILES[" myimage "][ "name" ];
+
+	$folder="/poll-logo/";
+
+	move_uploaded_file($_FILES[" myimage "][" tmp_name "], "$folder".$_FILES[" myimage "][" name "]);
+	
+	$sql = 'INSERT INTO poll_setting ("poll_id","logo_name","logo_path") VALUES (\''.$poll_id.'\',\''.$upload_image.'\',\''.$folder.'\')';
+	
+	$insert_result = pg_query($sql) or die('Query failed: ' . pg_last_error());	
+
+}
 ?> 
 <!DOCTYPE html>  
 <html lang="en">
@@ -49,6 +64,11 @@ include('left-sidebar.php');
           <h4 class="page-title"> </h4>
         </div>
 		<div class="col-md-4 col-md-offset-4 col-sm-12 col-xs-12">
+			<!-- Logo Upload -->
+			<form method="POST" action="" enctype="multipart/form-data">
+				 <input type="file" name="myimage">
+				 <input type="submit" name="submit_image" value="Upload">
+			</form>
 
 		</div>
 <?php include('right-sidebar.php');?>
