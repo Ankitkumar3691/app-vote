@@ -7,7 +7,7 @@ if(isset($_POST['submit_image'])){
 	
 	$poll_id = pg_escape_string($_GET['id']);
 	
-	$uploaddir = 'http://app.upvoteapp.com/poll-admin/eliteadmin-horizontal-nav-fullwidth/poll-logo/';
+	$uploaddir = 'http://app.upvoteapp.com/poll-admin/poll-logo/';
 	$uploadfile = $uploaddir . basename($_FILES['myimage']['name']);	
 
 	$sql = 'INSERT INTO poll_setting ("poll_id","logo_path") VALUES (\''.$poll_id.'\',\''.$uploadfile.'\')';
