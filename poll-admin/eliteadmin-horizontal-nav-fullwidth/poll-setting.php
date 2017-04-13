@@ -3,18 +3,11 @@ include('session.php');
 
 include ('config.php');	
 
-//$poll_bg_color = pg_escape_string($_GET['pollcolor']);
-
-//echo $poll_bg_color;
-
 if(isset($_POST['submit'])){
 	
 	$poll_id = pg_escape_string($_GET['id']);
 	$poll_title = pg_escape_string($_POST['poll-title']);
 	$poll_background = pg_escape_string($_POST['poll_bg']);
-	
-	echo $poll_background;
-	die ();
 	
 	// Poll Logo Upload and Show
 	$uploaddir = 'poll-logo/';
@@ -34,14 +27,14 @@ if(isset($_POST['submit'])){
 	
 	if ($rows == 1) {
 		// Update Exiting Poll Logo
-		$update = 'UPDATE poll_setting SET "poll_id"= \''.$poll_id.'\', "logo_path"= \''.$uploadfile.'\', "poll_title"= \''.$poll_title.'\' where poll_setting."poll_id" = \''.$poll_id.'\'';	
+		$update = 'UPDATE poll_setting SET "poll_id"= \''.$poll_id.'\', "logo_path"= \''.$uploadfile.'\', "poll_title"= \''.$poll_title.'\', "page_bg"= \''.$poll_background.'\' where poll_setting."poll_id" = \''.$poll_id.'\'';	
 		
 		$update_result = pg_query($update) or die('Query failed: ' . pg_last_error());
 	
 	} 
 	else {
 		// Insert New Poll Logo
-		$insert = 'INSERT INTO poll_setting ("poll_id","logo_path","poll_title") VALUES (\''.$poll_id.'\',\''.$uploadfile.'\',\''.$poll_title.'\')';
+		$insert = 'INSERT INTO poll_setting ("poll_id","logo_path","poll_title","page_bg") VALUES (\''.$poll_id.'\',\''.$uploadfile.'\',\''.$poll_title.'\',\''.$poll_background.'\')';
 		$insert_result = pg_query($insert) or die('Query failed: ' . pg_last_error());
 	}
 } 
@@ -72,24 +65,6 @@ if(isset($_POST['submit'])){
 <link href="css/style.css" rel="stylesheet">
 <!-- color CSS -->
 <link href="css/colors/blue.css" id="theme"  rel="stylesheet">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script> 
-<!--script type="text/javascript">
-$(document).ready(function(){
-	$("#setting_submit").click(function(){
-		var color_code = $(".colorpicker").html();	
-		alert ('Work');
-		alert (color_code);
-		$.ajax(
-			{
-			type: "POST",	
-			data: ({'pollcolor' : color_code}),
-			success: function (result) {
-					alert('success');
-			}
-		});     
-   });
-});
- </script-->
 </head>
 <body>
 <!-- Preloader -->
