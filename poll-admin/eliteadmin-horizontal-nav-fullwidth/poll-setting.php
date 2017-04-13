@@ -3,14 +3,18 @@ include('session.php');
 
 include ('config.php');	
 
-$poll_bg_color = pg_escape_string($_GET['pollcolor']);
+//$poll_bg_color = pg_escape_string($_GET['pollcolor']);
 
 //echo $poll_bg_color;
 
-/* if(isset($_POST['submit'])){
+if(isset($_POST['submit'])){
 	
 	$poll_id = pg_escape_string($_GET['id']);
 	$poll_title = pg_escape_string($_POST['poll-title']);
+	$poll_background = pg_escape_string($_POST['poll_bg']);
+	
+	echo $poll_background;
+	die ();
 	
 	// Poll Logo Upload and Show
 	$uploaddir = 'poll-logo/';
@@ -40,7 +44,7 @@ $poll_bg_color = pg_escape_string($_GET['pollcolor']);
 		$insert = 'INSERT INTO poll_setting ("poll_id","logo_path","poll_title") VALUES (\''.$poll_id.'\',\''.$uploadfile.'\',\''.$poll_title.'\')';
 		$insert_result = pg_query($insert) or die('Query failed: ' . pg_last_error());
 	}
-} */
+} 
 ?> 
 <!DOCTYPE html>  
 <html lang="en">
@@ -69,10 +73,10 @@ $poll_bg_color = pg_escape_string($_GET['pollcolor']);
 <!-- color CSS -->
 <link href="css/colors/blue.css" id="theme"  rel="stylesheet">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script> 
-<script type="text/javascript">
+<!--script type="text/javascript">
 $(document).ready(function(){
 	$("#setting_submit").click(function(){
-		var color_code = $(".colorpicker").text();	
+		var color_code = $(".colorpicker").html();	
 		alert ('Work');
 		alert (color_code);
 		$.ajax(
@@ -85,7 +89,7 @@ $(document).ready(function(){
 		});     
    });
 });
- </script>
+ </script-->
 </head>
 <body>
 <!-- Preloader -->
@@ -126,7 +130,7 @@ include('left-sidebar.php');
 				<input id="" name="poll-title" type="text" placeholder="Poll Title" >
 				<p class="" id="">Current Poll Title is : <?php echo $row['poll_title'];?></p><br />
 				<p>
-				Poll Page Background Color :<input type="text" name="color1" class="colorpicker" value="#7ab2fa" />
+				Poll Page Background Color :<input type="text" name="poll_bg" class="colorpicker" value="#7ab2fa" />
 				</p>				
 				<input id="setting_submit" type="submit" name="submit" value="Save">
 				
