@@ -15,6 +15,9 @@ if(isset($_POST['submit'])){
 	
 	$sql = 'INSERT INTO poll_setting ("poll_id","logo_name","logo_path") VALUES (\''.$poll_id.'\',\''.$upload_image.'\',\''.$folder.'\')';
 	
+	echo $sql;
+	die();
+	
 	$insert_result = pg_query($sql) or die('Query failed: ' . pg_last_error());	
 
 }
