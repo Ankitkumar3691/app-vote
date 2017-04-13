@@ -27,13 +27,13 @@ if(isset($_POST['submit_image'])){
 		// Update Exiting Poll Logo
 		$update = 'UPDATE poll_setting SET "poll_id"= \''.$poll_id.'\', "logo_path"= \''.$uploadfile.'\' where poll_setting."poll_id" = \''.$poll_id.'\'';	
 		
-		$update_result = pg_query($sql) or die('Query failed: ' . pg_last_error());
+		$update_result = pg_query($update) or die('Query failed: ' . pg_last_error());
 	
 	} 
 	else {
 		// Insert New Poll Logo
 		$insert = 'INSERT INTO poll_setting ("poll_id","logo_path") VALUES (\''.$poll_id.'\',\''.$uploadfile.'\')';
-		$insert_result = pg_query($sql) or die('Query failed: ' . pg_last_error());
+		$insert_result = pg_query($insert) or die('Query failed: ' . pg_last_error());
 	}
 }
 ?> 
