@@ -7,7 +7,7 @@ if(isset($_POST['submit'])){
 	
 	$poll_id = pg_escape_string($_GET['id']);
 
-	$upload_image= $_FILES[" myimage "][ "name" ];
+	$upload_image= pg_escape_string($_FILES[" myimage "][ "name" ]);
 
 	$folder="/poll-logo/";
 
@@ -69,6 +69,22 @@ include('left-sidebar.php');
 				 <input type="file" name="myimage">
 				 <input type="submit" name="submit_image" value="Upload">
 			</form>
+			
+			<div id="show-image">
+			<?php 
+				$poll_id = pg_escape_string($_GET['id']);
+				
+				$sql = 'SELECT * from poll_setting where poll_setting."poll_id" = \''.$poll_id.'\'';
+				
+				$result = pg_query($sql) or die('Query failed: ' . pg_last_error());
+				
+				while ($row = pg_fetch_array($result)) {	
+					$image_name=$row["logo_name"];
+					$image_path=$row["logo_path"];	
+					echo "img src=".$image_path."/".$image_name." width=100 height=100";		
+				}			
+			?>
+			</div>
 
 		</div>
 <?php include('right-sidebar.php');?>
