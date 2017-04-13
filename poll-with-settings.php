@@ -24,7 +24,8 @@ include 'config.php';
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script> 
 	<script type="text/javascript" src="myvote.js"></script>
 </head>
-<body style="background-color:<?php ($c);?>">
+<body style="background-color:<?php echo($c);?>!important;">
+
 	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 main">
 		<div class="container">
 			<!-- Show Logo -->
