@@ -82,7 +82,7 @@ include('left-sidebar.php');
     <div class="container-fluid">
       <div class="row bg-title">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-          <h4 class="page-title"> </h4>
+          <h4 class="page-title">Settings for Poll</h4>
         </div>
 		<div class="col-md-4 col-md-offset-4 col-sm-12 col-xs-12">
 			<!-- Logo Upload -->
@@ -99,14 +99,13 @@ include('left-sidebar.php');
 						
 						while ($row = pg_fetch_array($result)) {	
 							$image_path=$row["logo_path"];	
-							echo "<img src=".$image_path." width=100 height=100/>";		
+							echo "<img src=http://app.upvoteapp.com/poll-admin/eliteadmin-horizontal-nav-fullwidth/".$image_path." width=100 height=100/>";		
 					?>
 					</div>			
-				<input id="d_name" name="poll-title" type="text" placeholder="Poll Title" >
-				<span class="" id=""><?php echo $row['poll_title'];?></span><br />
-				<h3>Color for Poll : <h3>	
+				<input id="" name="poll-title" type="text" placeholder="Poll Title" >
+				<span class="" id="">Current Poll Title is : <?php echo $row['poll_title'];?></span><br />
 				<p>
-				Page Background Color :	<input type="text" name="color1" class="colorpicker" value="#7ab2fa" />
+				Poll Page Background Color :	<input type="text" name="color1" class="colorpicker" value="#7ab2fa" />
 				</p>				
 				<input type="submit" name="submit" value="Save">
 				
