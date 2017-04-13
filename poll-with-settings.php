@@ -11,14 +11,10 @@
 	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 main">
 		<div class="container">
 			<!-- Show Logo -->
-			<div class="heading">
-				<h1>Vote on Upcoming Features</h1>
-			</div>
+			<div id="show-image">
 			<?php 
-			
 			// Connecting, selecting database
-			$dbconn = pg_connect("host=ec2-23-23-223-2.compute-1.amazonaws.com dbname=d1filjgshltm5 user=mtracxsevywyhp password=d1950f8ce89de40987a180f56de2bc99250da5810e346b57e6bdf5e957c18c3c")
-				or die('Could not connect: ' . pg_last_error());
+			include 'config.php';
 			
 				$sql = 'SELECT * from poll_setting where poll_setting."poll_id" = 1';
 				
@@ -26,9 +22,13 @@
 				
 				while ($row = pg_fetch_array($sql_result)) {	
 					$image_path=$row["logo_path"];	
-					echo "<img src=".$image_path." width=100 height=100/>";		
+					echo "<img src=http://app.upvoteapp.com/poll-admin/".$image_path." width=100 height=100/>";		
 				}			
-			?>			
+			?>
+			</div>
+			<div class="heading">
+				<h1>Vote on Upcoming Features</h1>
+			</div>			
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 content_main">
 				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 content">
 <?php
