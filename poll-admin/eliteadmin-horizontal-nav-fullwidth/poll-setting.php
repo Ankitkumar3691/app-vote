@@ -7,7 +7,7 @@ if(isset($_POST['submit_image'])){
 	
 	$poll_id = pg_escape_string($_GET['id']);
 
-	$upload_image= pg_escape_string($_FILES[" myimage "][ "name" ]);
+	$upload_image= $_FILES[" myimage "][ "name" ];
 
 	$folder="/poll-logo/";
 
