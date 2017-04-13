@@ -3,6 +3,10 @@ include('session.php');
 
 include ('config.php');	
 
+$poll_bg_color = pg_escape_string($_GET['pollcolor']);
+
+//echo $poll_bg_color;
+
 if(isset($_POST['submit'])){
 	
 	$poll_id = pg_escape_string($_GET['id']);
@@ -64,7 +68,22 @@ if(isset($_POST['submit'])){
 <link href="css/style.css" rel="stylesheet">
 <!-- color CSS -->
 <link href="css/colors/blue.css" id="theme"  rel="stylesheet">
-
+<script>
+$(document).ready(function(){
+	$("submit").click(function(){
+		var color_code = $(".colorpicker ").text();	
+		alert (color_code);
+		$.ajax(
+			{
+			type: "POST",	
+			data: ({'pollcolor' : color_code}),
+			success: function (result) {
+					alert('success');
+			}
+		});     
+   });
+});
+ </script>
 </head>
 <body>
 <!-- Preloader -->
@@ -103,9 +122,9 @@ include('left-sidebar.php');
 					?>
 					</div>			
 				<input id="" name="poll-title" type="text" placeholder="Poll Title" >
-				<span class="" id="">Current Poll Title is : <?php echo $row['poll_title'];?></span><br />
+				<p class="" id="">Current Poll Title is : <?php echo $row['poll_title'];?></p><br />
 				<p>
-				Poll Page Background Color :	<input type="text" name="color1" class="colorpicker" value="#7ab2fa" />
+				Poll Page Background Color :<input type="text" name="color1" class="colorpicker" value="#7ab2fa" />
 				</p>				
 				<input type="submit" name="submit" value="Save">
 				
