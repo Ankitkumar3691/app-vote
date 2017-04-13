@@ -13,6 +13,7 @@ include 'config.php';
 		$a= $row["logo_path"];
 		$b= $row["poll_title"];
 		$c= $row["page_bg"];
+		$d= $row["poll_bg"];		
 	}
 ?>
 <!DOCTYPE html>
@@ -26,7 +27,7 @@ include 'config.php';
 </head>
 <body style="background-color:<?php echo($c);?>!important;">
 
-	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 main">
+	<div style="background-color:<?php echo($d);?>!important;" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 main">
 		<div class="container">
 			<!-- Show Logo -->
 			<div id="show-image">
