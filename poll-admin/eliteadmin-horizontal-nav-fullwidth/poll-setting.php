@@ -38,6 +38,22 @@ if(isset($_POST['submit'])){
 		$insert_result = pg_query($insert) or die('Query failed: ' . pg_last_error());
 	}
 } 
+if(isset($_GET['id']))
+{
+	$p_id= pg_escape_string($_GET['id']);
+	
+	$query = 'SELECT * from poll_setting where poll_setting."poll_id" = \''.$p_id.'\'';
+	
+	$result = pg_query($query) or die('Query failed: ' . pg_last_error());	
+	
+	// output data of each row
+	while($row = pg_fetch_array($result)) {
+		$id= $row["poll_id"];
+		$a= $row["logo_path"];
+		$b= $row["poll_title"];
+		$c= $row["page_bg"];
+	}
+}
 ?> 
 <!DOCTYPE html>  
 <html lang="en">
@@ -90,26 +106,13 @@ include('left-sidebar.php');
 			<form method="POST" action="" enctype="multipart/form-data">
 				<input type="file" name="myimage"/>
 					<div id="show-image">
-					<?php 
-						$poll_id = pg_escape_string($_GET['id']);
-						
-						$sql = 'SELECT * from poll_setting where poll_setting."poll_id" = \''.$poll_id.'\'';
-						
-						$result = pg_query($sql) or die('Query failed: ' . pg_last_error());
-						
-						while ($row = pg_fetch_array($result)) {	
-							$image_path=$row["logo_path"];	
-							echo "<img src=http://app.upvoteapp.com/poll-admin/eliteadmin-horizontal-nav-fullwidth/".$image_path." width=100 height=100/>";		
-					?>
+					<img src="http://app.upvoteapp.com/poll-admin/eliteadmin-horizontal-nav-fullwidth/<?php echo ($a); ?>">
 					</div>			
-				<input id="" name="poll-title" type="text" placeholder="Poll Title" >
-				<p class="" id="">Current Poll Title is : <?php echo $row['poll_title'];?></p><br />
+				<input id="" name="poll-title" type="text" placeholder="Poll Title" value="<?php echo(ba); ?>">
 				<p>
-				Poll Page Background Color :<input type="text" name="poll_bg" class="colorpicker" value="#7ab2fa" />
+				Poll Page Background Color :<input type="text" name="poll_bg" class="colorpicker" value="<?php echo($c); ?>" />
 				</p>				
 				<input id="setting_submit" type="submit" name="submit" value="Save">
-				
-				<?php } ?>	
 			</form>
 			</div>
 		</div>
