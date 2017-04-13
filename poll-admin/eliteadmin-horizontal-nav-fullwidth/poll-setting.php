@@ -7,20 +7,34 @@ if(isset($_POST['submit_image'])){
 	
 	$poll_id = pg_escape_string($_GET['id']);
 	
+	// Poll Logo Upload and Show
 	$uploaddir = '../poll-logo/';
 	$uploadfile = $uploaddir . basename($_FILES['myimage']['name']);	
 	
 	if (move_uploaded_file($_FILES['myimage']['tmp_name'], $uploadfile))
-	{    //echo "File is valid, and was successfully uploaded.\n";
+	{    
+		//echo "File is valid, and was successfully uploaded.\n"; 
 	}
 	else   {   echo "File size greater than 300kb!\n\n";   }	
 
-	//$sql = 'INSERT INTO poll_setting ("poll_id","logo_path") VALUES (\''.$poll_id.'\',\''.$uploadfile.'\')';
+	// Checking exiting Record 	
+	$select = 'SELECT * from poll_setting where poll_setting."poll_id" = \''.$poll_id.'\'';
+	$select_result = pg_query($select) or die('Query failed: ' . pg_last_error());
 	
-	$sql = 'UPDATE poll_setting SET "poll_id"= \''.$poll_id.'\', "logo_path"= \''.$uploadfile.'\' where poll_setting."poll_id" = \''.$poll_id.'\'';	
+	$rows = pg_num_rows($select_result);
 	
-	$insert_result = pg_query($sql) or die('Query failed: ' . pg_last_error());	
-
+	if ($rows == 1) {
+		// Update Exiting Poll Logo
+		$update = 'UPDATE poll_setting SET "poll_id"= \''.$poll_id.'\', "logo_path"= \''.$uploadfile.'\' where poll_setting."poll_id" = \''.$poll_id.'\'';	
+		
+		$update_result = pg_query($sql) or die('Query failed: ' . pg_last_error());
+	
+	} 
+	else {
+		// Insert New Poll Logo
+		$insert = 'INSERT INTO poll_setting ("poll_id","logo_path") VALUES (\''.$poll_id.'\',\''.$uploadfile.'\')';
+		$insert_result = pg_query($sql) or die('Query failed: ' . pg_last_error());
+	}
 }
 ?> 
 <!DOCTYPE html>  
