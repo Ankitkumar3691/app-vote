@@ -29,7 +29,7 @@ include 'config.php';
 		<div class="container">
 			<!-- Show Logo -->
 			<div id="show-image">
-				<img src="http://app.upvoteapp.com/poll-admin/eliteadmin-horizontal-nav-fullwidth/<?php echo ($a); ?>">
+				<img src="http://app.upvoteapp.com/poll-admin/eliteadmin-horizontal-nav-fullwidth/<?php echo ($a); ?>" width="100" height="100">
 			</div>	
 			<div class="heading">
 				<h1><?php echo ($b);?></h1>
