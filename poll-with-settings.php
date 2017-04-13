@@ -25,9 +25,9 @@ include 'config.php';
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script> 
 	<script type="text/javascript" src="myvote.js"></script>
 </head>
-<body style="background-color:<?php echo($c);?>!important;">
+<body>
 
-	<div style="background-color:<?php echo($d);?>!important;" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 main">
+	<div style="background-color:<?php echo($c);?>!important;" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 main">
 		<div class="container">
 			<!-- Show Logo -->
 			<div id="show-image">
@@ -36,7 +36,7 @@ include 'config.php';
 			<div class="heading">
 				<h1><?php echo ($b);?></h1>
 			</div>
-			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 content_main">
+			<div style="background-color:<?php echo($d);?>!important;" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 content_main">
 				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 content">
 <?php
 include 'config.php';
