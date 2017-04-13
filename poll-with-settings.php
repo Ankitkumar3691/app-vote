@@ -1,3 +1,20 @@
+<?php
+include 'config.php';
+
+	$p_id= 1;
+	
+	$query = 'SELECT * from poll_setting where poll_setting."poll_id" = \''.$p_id.'\'';
+	
+	$result = pg_query($query) or die('Query failed: ' . pg_last_error());	
+	
+	// output data of each row
+	while($row = pg_fetch_array($result)) {
+		$id= $row["poll_id"];
+		$a= $row["logo_path"];
+		$b= $row["poll_title"];
+		$c= $row["page_bg"];
+	}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,25 +29,11 @@
 		<div class="container">
 			<!-- Show Logo -->
 			<div id="show-image">
-			<?php 
-			// Connecting, selecting database
-			include 'config.php';
-			
-				$sql = 'SELECT * from poll_setting where poll_setting."poll_id" = 1';
-				
-				$sql_result = pg_query($sql) or die('Query failed: ' . pg_last_error());
-				
-				while ($row = pg_fetch_array($sql_result)) {	
-					$image_path=$row["logo_path"];	
-					$mypoll_title=$row["poll_title"];
-					echo "<img src=http://app.upvoteapp.com/poll-admin/eliteadmin-horizontal-nav-fullwidth/".$image_path." width=100 height=100/>";		
-			
-			?>
-			</div>
+				<img src="http://app.upvoteapp.com/poll-admin/eliteadmin-horizontal-nav-fullwidth/<?php echo ($a); ?>">
+			</div>	
 			<div class="heading">
-				<h1><?php echo $mypoll_title;?></h1>
+				<h1><?php echo ($b);?></h1>
 			</div>
-			<?php } ?>	
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 content_main">
 				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 content">
 <?php
