@@ -68,7 +68,7 @@ if(isset($_POST['submit'])){
 <link href="css/style.css" rel="stylesheet">
 <!-- color CSS -->
 <link href="css/colors/blue.css" id="theme"  rel="stylesheet">
-<script>
+<script type="text/javascript">
 $(document).ready(function(){
 	$("#setting_submit").click(function(){
 		var color_code = $(".colorpicker ").text();	
