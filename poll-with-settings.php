@@ -22,13 +22,15 @@
 				
 				while ($row = pg_fetch_array($sql_result)) {	
 					$image_path=$row["logo_path"];	
+					$mypoll_title=$row["poll_title"];
 					echo "<img src=http://app.upvoteapp.com/poll-admin/eliteadmin-horizontal-nav-fullwidth/".$image_path." width=100 height=100/>";		
-				}			
+			
 			?>
 			</div>
 			<div class="heading">
-				<h1>Vote on Upcoming Features</h1>
-			</div>			
+				<h1><?php echo $row['poll_title'];?></h1>
+			</div>
+			<?php } ?>	
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 content_main">
 				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 content">
 <?php
