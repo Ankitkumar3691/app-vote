@@ -68,6 +68,7 @@ $poll_bg_color = pg_escape_string($_GET['pollcolor']);
 <link href="css/style.css" rel="stylesheet">
 <!-- color CSS -->
 <link href="css/colors/blue.css" id="theme"  rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script> 
 <script type="text/javascript">
 $(document).ready(function(){
 	$("#setting_submit").click(function(){
