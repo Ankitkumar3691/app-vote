@@ -84,8 +84,7 @@ include('left-sidebar.php');
 		<div class="col-md-4 col-md-offset-4 col-sm-12 col-xs-12">
 			<!-- Logo Upload -->
 			<form method="POST" action="" enctype="multipart/form-data">
-				<input type="hidden" name="MAX_FILE_SIZE" value="300000" />
-				Logo for Poll : <input type="file" name="myimage"/>
+				<input type="file" name="myimage"/>
 				 <input type="submit" name="submit_image" value="Upload">
 			</form>
 			
