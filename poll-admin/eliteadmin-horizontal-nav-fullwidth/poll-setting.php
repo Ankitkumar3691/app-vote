@@ -9,6 +9,8 @@ if(isset($_POST['submit_image'])){
 	
 	$uploaddir = '../plugins/images/';
 	$uploadfile = $uploaddir . basename($_FILES['myimage']['name']);	
+	
+	move_uploaded_file($_FILES['myimage']['tmp_name'], $uploadfile)
 
 	$sql = 'INSERT INTO poll_setting ("poll_id","logo_path") VALUES (\''.$poll_id.'\',\''.$uploadfile.'\')';
 	
