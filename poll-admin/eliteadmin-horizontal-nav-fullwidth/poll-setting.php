@@ -7,7 +7,7 @@ $poll_bg_color = pg_escape_string($_GET['pollcolor']);
 
 //echo $poll_bg_color;
 
-if(isset($_POST['submit'])){
+/* if(isset($_POST['submit'])){
 	
 	$poll_id = pg_escape_string($_GET['id']);
 	$poll_title = pg_escape_string($_POST['poll-title']);
@@ -40,7 +40,7 @@ if(isset($_POST['submit'])){
 		$insert = 'INSERT INTO poll_setting ("poll_id","logo_path","poll_title") VALUES (\''.$poll_id.'\',\''.$uploadfile.'\',\''.$poll_title.'\')';
 		$insert_result = pg_query($insert) or die('Query failed: ' . pg_last_error());
 	}
-}
+} */
 ?> 
 <!DOCTYPE html>  
 <html lang="en">
@@ -71,7 +71,8 @@ if(isset($_POST['submit'])){
 <script type="text/javascript">
 $(document).ready(function(){
 	$("#setting_submit").click(function(){
-		var color_code = $(".colorpicker ").text();	
+		var color_code = $(".colorpicker").text();	
+		alert ('Work');
 		alert (color_code);
 		$.ajax(
 			{
