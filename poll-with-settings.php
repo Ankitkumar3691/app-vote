@@ -19,6 +19,7 @@ include 'config.php';
 		$g= $row["Description_Color"];
 		$h= $row["Count_BG_Color"];
 		$i= $row["Count_Text_Color"];		
+		$j= $row["Status_Option"];		
 	}
 ?>
 <!DOCTYPE html>
@@ -38,6 +39,9 @@ include 'config.php';
 			<div id="show-image">
 				<img src="http://app.upvoteapp.com/poll-admin/eliteadmin-horizontal-nav-fullwidth/<?php echo ($a); ?>" width="100" height="100">
 			</div>	
+			<div id="poll_status">
+				<h3><?php echo($j);?></h3>
+			</div>
 			<div class="heading">
 				<h1 style="color:<?php echo ($e);?>;"><?php echo ($b);?></h1>
 			</div>
@@ -56,8 +60,6 @@ while ($row = pg_fetch_array($result)) {
 	//echo $row[Count_num];
 	//echo '<pre>';
 	//print_r ($row);
-
-
 ?>
 				<div class="list">
 					<div class="toggle">
