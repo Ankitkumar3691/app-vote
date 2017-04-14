@@ -30,8 +30,15 @@ include 'config.php';
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script> 
 	<script type="text/javascript" src="myvote.js"></script>
-<!-- Custom CSS -->
-<link href="http://app.upvoteapp.com/poll-admin/eliteadmin-horizontal-nav-fullwidth/css/style.css" rel="stylesheet">
+<style type="text/css">
+#show-image {
+    float: left;
+}
+#poll_status {
+    color: #fff;
+    float: right;
+}
+</style>	
 </head>
 <body style="background-color:<?php echo($c);?>!important;">
 
