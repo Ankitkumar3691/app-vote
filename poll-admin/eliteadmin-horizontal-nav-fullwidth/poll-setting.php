@@ -9,12 +9,13 @@ if(isset($_POST['submit'])){
 	$poll_title = pg_escape_string($_POST['poll-title']);
 	$page_background = pg_escape_string($_POST['page_bg']);
 	$poll_background = pg_escape_string($_POST['poll_bg']);
+	$title_color = pg_escape_string($_POST['poll_title']);
 	
 	// Poll Logo Upload and Show
 	$uploaddir = 'poll-logo/';
 	$uploadfile = $uploaddir . basename($_FILES['myimage']['name']);	
 	
-	if (move_uploaded_file($_FILES['myimage']['tmp_name'], $uploadfile))
+	if (move_uploaded_file($_FILES['myimage']['name'], $uploadfile))
 	{    
 		//echo "File is valid, and was successfully uploaded.\n"; 
 	}
@@ -28,14 +29,14 @@ if(isset($_POST['submit'])){
 	
 	if ($rows == 1) {
 		// Update Exiting Poll Logo
-		$update = 'UPDATE poll_setting SET "poll_id"= \''.$poll_id.'\', "logo_path"= \''.$uploadfile.'\', "poll_title"= \''.$poll_title.'\', "page_bg"= \''.$page_background.'\', "poll_bg"= \''.$poll_background.'\' where poll_setting."poll_id" = \''.$poll_id.'\'';	
+		$update = 'UPDATE poll_setting SET "poll_id"= \''.$poll_id.'\', "logo_path"= \''.$uploadfile.'\', "poll_title"= \''.$poll_title.'\', "page_bg"= \''.$page_background.'\', "poll_bg"= \''.$poll_background.'\', "title_color"= \''.$title_color.'\' where poll_setting."poll_id" = \''.$poll_id.'\'';	
 		
 		$update_result = pg_query($update) or die('Query failed: ' . pg_last_error());
 	
 	} 
 	else {
 		// Insert New Poll Logo
-		$insert = 'INSERT INTO poll_setting ("poll_id","logo_path","poll_title","page_bg","poll_bg") VALUES (\''.$poll_id.'\',\''.$uploadfile.'\',\''.$poll_title.'\',\''.$page_background.'\',\''.$poll_background.'\')';
+		$insert = 'INSERT INTO poll_setting ("poll_id","logo_path","poll_title","page_bg","poll_bg",title_color) VALUES (\''.$poll_id.'\',\''.$uploadfile.'\',\''.$poll_title.'\',\''.$page_background.'\',\''.$poll_background.'\',\''.$title_color.'\')';
 		$insert_result = pg_query($insert) or die('Query failed: ' . pg_last_error());
 	}
 } 
@@ -54,6 +55,7 @@ if(isset($_GET['id']))
 		$b= $row["poll_title"];
 		$c= $row["page_bg"];
 		$d= $row["poll_bg"];
+		$e= $row["title_color"];
 	}
 }
 ?> 
@@ -106,17 +108,14 @@ include('left-sidebar.php');
 			<!-- Logo Upload -->
 			<div id="poll-settings">
 			<form method="POST" action="" enctype="multipart/form-data">
-				<input type="file" name="myimage"/>
+				<p>Upload Logo : <input type="file" name="myimage"/></p>
 					<div id="show-image">
-					<img src="http://app.upvoteapp.com/poll-admin/eliteadmin-horizontal-nav-fullwidth/<?php echo ($a); ?>" width="100" height="100">
+						<img src="http://app.upvoteapp.com/poll-admin/eliteadmin-horizontal-nav-fullwidth/<?php echo ($a); ?>" width="100" height="100">
 					</div>			
-				<input id="" name="poll-title" type="text" placeholder="Poll Title" value="<?php echo($b); ?>">
-				<p>
-				Page Background Color :<input type="text" name="page_bg" class="colorpicker" value="<?php echo($c); ?>" />
-				</p>	
-				<p>
-				Poll Background Color :<input type="text" name="poll_bg" class="colorpicker" value="<?php echo($d); ?>" />
-				</p>				
+				<p>Poll Title : <input id="" name="poll-title" type="text" placeholder="Poll Title" value="<?php echo($b); ?>"></p>
+				<p>Page Background Color : <input type="text" name="page_bg" class="colorpicker" value="<?php echo($c); ?>" /></p>	
+				<p>Poll Background Color : <input type="text" name="poll_bg" class="colorpicker" value="<?php echo($d); ?>" /></p>
+				<p>Poll Title Color : <input type="text" name="poll_title" class="colorpicker" value="<?php echo($e); ?>" /></p>	
 				<input id="setting_submit" type="submit" name="submit" value="Save">
 			</form>
 			</div>
