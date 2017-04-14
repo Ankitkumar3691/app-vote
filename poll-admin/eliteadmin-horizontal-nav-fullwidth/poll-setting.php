@@ -19,7 +19,7 @@ if(isset($_POST['submit'])){
 	$uploaddir = 'poll-logo/';
 	$uploadfile = $uploaddir . basename($_FILES['myimage']['name']);	
 	
-	if (move_uploaded_file($_FILES['myimage']['temp_name'], $uploadfile))
+	if (move_uploaded_file($_FILES['myimage']['tmp_name'], $uploadfile))
 	{    
 		//echo "File is valid, and was successfully uploaded.\n"; 
 	}
