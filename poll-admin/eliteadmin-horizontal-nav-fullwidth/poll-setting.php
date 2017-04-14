@@ -118,6 +118,13 @@ include('left-sidebar.php');
 			<!-- Logo Upload -->
 			<div id="poll-settings">
 			<form method="POST" action="" enctype="multipart/form-data">
+				<div class="col-sm-6 ol-md-6 col-xs-12">
+				  <div class="white-box">
+					<h3 class="box-title">Upload Logo</h3>
+					<label for="input-file-max-fs">You can add a max file size of 2Mb </label>
+					<input type="file" id="input-file-max-fs" class="dropify" data-max-file-size="2M" />
+				  </div>
+				</div>			
 				<h3>Upload Logo : </h3><p><input type="file" name="myimage"/></p>
 					<div id="show-image">
 						<img src="http://app.upvoteapp.com/poll-admin/eliteadmin-horizontal-nav-fullwidth/<?php echo ($a); ?>" width="100" height="100">
@@ -189,6 +196,50 @@ $(".gradient-colorpicker").asColorPicker({
     mode: 'gradient'
 });
 </script>
+<!-- jQuery file upload -->
+<script src="../plugins/bower_components/dropify/dist/js/dropify.min.js"></script>
+<script>
+            $(document).ready(function(){
+                // Basic
+                $('.dropify').dropify();
+
+                // Translated
+                $('.dropify-fr').dropify({
+                    messages: {
+                        default: 'Glissez-déposez un fichier ici ou cliquez',
+                        replace: 'Glissez-déposez un fichier ou cliquez pour remplacer',
+                        remove:  'Supprimer',
+                        error:   'Désolé, le fichier trop volumineux'
+                    }
+                });
+
+                // Used events
+                var drEvent = $('#input-file-events').dropify();
+
+                drEvent.on('dropify.beforeClear', function(event, element){
+                    return confirm("Do you really want to delete \"" + element.file.name + "\" ?");
+                });
+
+                drEvent.on('dropify.afterClear', function(event, element){
+                    alert('File deleted');
+                });
+
+                drEvent.on('dropify.errors', function(event, element){
+                    console.log('Has Errors');
+                });
+
+                var drDestroy = $('#input-file-to-destroy').dropify();
+                drDestroy = drDestroy.data('dropify')
+                $('#toggleDropify').on('click', function(e){
+                    e.preventDefault();
+                    if (drDestroy.isDropified()) {
+                        drDestroy.destroy();
+                    } else {
+                        drDestroy.init();
+                    }
+                })
+            });
+        </script>
 <!--Style Switcher -->
 <script src="../plugins/bower_components/styleswitcher/jQuery.style.switcher.js"></script>
 </body>
