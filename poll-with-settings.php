@@ -3,18 +3,22 @@ include 'config.php';
 
 	$p_id= 1;
 	
-	$query = 'SELECT * from poll_setting where poll_setting."poll_id" = \''.$p_id.'\'';
+	$query = 'SELECT * from poll_setting where poll_setting."Poll_id" = \''.$p_id.'\'';
 	
 	$result = pg_query($query) or die('Query failed: ' . pg_last_error());	
 	
 	// output data of each row
 	while($row = pg_fetch_array($result)) {
-		$id= $row["poll_id"];
-		$a= $row["logo_path"];
-		$b= $row["poll_title"];
-		$c= $row["page_bg"];
-		$d= $row["poll_bg"];		
-		$e= $row["title_color"];		
+		$id= $row["Poll_id"];
+		$a= $row["Logo_Path"];
+		$b= $row["Poll_Title"];
+		$c= $row["Page_Bg_Color"];
+		$d= $row["Poll_Bg_Color"];
+		$e= $row["Poll_Title_Color"];
+		$f= $row["Poll_Item_Color"];
+		$g= $row["Description_Color"];
+		$h= $row["Count_BG_Color"];
+		$i= $row["Count_Text_Color"];		
 	}
 ?>
 <!DOCTYPE html>
@@ -35,7 +39,7 @@ include 'config.php';
 				<img src="http://app.upvoteapp.com/poll-admin/eliteadmin-horizontal-nav-fullwidth/<?php echo ($a); ?>" width="100" height="100">
 			</div>	
 			<div class="heading">
-				<h1 style="color:<?php echo ($b);?>;"><?php echo ($b);?></h1>
+				<h1 style="color:<?php echo ($e);?>;"><?php echo ($b);?></h1>
 			</div>
 			<div style="background-color:<?php echo($d);?>!important;" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 content_main">
 				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 content">
@@ -57,14 +61,14 @@ while ($row = pg_fetch_array($result)) {
 ?>
 				<div class="list">
 					<div class="toggle">
-						<div class="total">
+						<div class="total" style="background-color:<?php echo($h);?>;">
 							<span class="icon"><img src="images\arrow.png"> </span>
-							<span class="number" id="<?php echo $row['Id']?>"><?php echo $row['Count_num'];?></span>
+							<span class="number" id="<?php echo $row['Id']?>" style="color:<?php echo ($i);?>;"><?php echo $row['Count_num'];?></span>
 						</div>
 					</div>
 					<div class="list_innr">
-						<h2><?php echo $row['Question']?></h2>
-						<p><?php echo $row['Quest_Desc']?></p>
+						<h2 style="color:<?php echo ($f);?>;"><?php echo $row['Question']?></h2>
+						<p style="color:<?php echo ($g);?>;"><?php echo $row['Quest_Desc']?></p>
 					</div>	
 				</div>
 <?php
