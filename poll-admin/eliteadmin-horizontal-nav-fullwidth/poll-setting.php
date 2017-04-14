@@ -83,6 +83,7 @@ if(isset($_GET['id']))
 <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 <!-- Menu CSS -->
 <link href="../plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css" rel="stylesheet">
+<link rel="stylesheet" href="../plugins/bower_components/dropify/dist/css/dropify.min.css">
 <!-- Color picker plugins css -->
 <link href="../plugins/bower_components/jquery-asColorPicker-master/css/asColorPicker.css" rel="stylesheet">
 <!-- toast CSS -->
