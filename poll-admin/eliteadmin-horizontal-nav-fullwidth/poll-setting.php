@@ -119,17 +119,15 @@ include('left-sidebar.php');
 			<!-- Logo Upload -->
 			<div id="poll-settings">
 			<form method="POST" action="" enctype="multipart/form-data">
+				<div class="row">
 				<div class="col-sm-6 ol-md-6 col-xs-12">
 				  <div class="white-box">
 					<h3 class="box-title">Upload Logo</h3>
 					<label for="input-file-max-fs">You can add a max file size of 2Mb </label>
-					<input type="file" id="input-file-max-fs" class="dropify" data-max-file-size="2M" />
+					<input type="file" id="input-file-max-fs" name="myimage" class="dropify" data-max-file-size="2M" />
 				  </div>
-				</div>			
-				<h3>Upload Logo : </h3><p><input type="file" name="myimage"/></p>
-					<div id="show-image">
-						<img src="http://app.upvoteapp.com/poll-admin/eliteadmin-horizontal-nav-fullwidth/<?php echo ($a); ?>" width="100" height="100">
-					</div>			
+				</div>
+				</div>	
 				<h3>Poll Title : </h3><p><input id="" name="poll-title" type="text" placeholder="Poll Title" value="<?php echo($b); ?>"></p>
 				<h3>Page Background Color : </h3><p><input type="text" name="page_bg" class="colorpicker" value="<?php echo($c); ?>" /></p>	
 				<h3>Poll Background Color : </h3><p><input type="text" name="poll_bg_color" class="colorpicker" value="<?php echo($d); ?>" /></p>
