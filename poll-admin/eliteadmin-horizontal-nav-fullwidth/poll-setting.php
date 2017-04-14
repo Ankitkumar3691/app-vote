@@ -160,11 +160,12 @@ include('left-sidebar.php');
 						<option value="Beta"><b>Beta</b></option>
 						<option value="Completed"><b>Completed</b></option>
 					</select> </p>				
-				<input id="setting_submit" type="submit" name="submit" value="Save">
+				
 				</center>
 			
 			</div>
 			</div>
+			<input id="setting_submit" type="submit" name="submit" value="Save">
 			</form>
 			
 			</div>
