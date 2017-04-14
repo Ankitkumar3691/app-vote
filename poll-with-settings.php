@@ -14,6 +14,7 @@ include 'config.php';
 		$b= $row["poll_title"];
 		$c= $row["page_bg"];
 		$d= $row["poll_bg"];		
+		$e= $row["title_color"];		
 	}
 ?>
 <!DOCTYPE html>
@@ -34,7 +35,7 @@ include 'config.php';
 				<img src="http://app.upvoteapp.com/poll-admin/eliteadmin-horizontal-nav-fullwidth/<?php echo ($a); ?>" width="100" height="100">
 			</div>	
 			<div class="heading">
-				<h1><?php echo ($b);?></h1>
+				<h1 style="color:<?php echo ($b);?>;"><?php echo ($b);?></h1>
 			</div>
 			<div style="background-color:<?php echo($d);?>!important;" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 content_main">
 				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 content">
