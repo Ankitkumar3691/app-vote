@@ -119,18 +119,23 @@ include('left-sidebar.php');
 			<!-- Logo Upload -->
 			<div id="poll-settings">
 			<form method="POST" action="" enctype="multipart/form-data">
-			<div class="col-md-4 col-md-offset-4 col-sm-12 col-xs-12">
+  <div class="col-md-12">
+<div class="col-md-6 col-sm-12 col-xs-12">
 			    <h3 class="box-title">Upload Logo</h3>
 				<label for="input-file-max-fs">You can add a max file size of 2Mb </label>
 				<input type="file" id="input-file-max-fs" name="myimage" class="dropify" data-max-file-size="2M" />
-				<h3>Poll Title : </h3><p><input id="" name="poll-title" type="text" placeholder="Poll Title" value="<?php echo($b); ?>"></p>
-			</div>
+</div>
+<div class="col-md-6 col-sm-12 col-xs-12">
+					<h3>Poll Title : </h3><p><input id="" name="poll-title" type="text" placeholder="Poll Title" value="<?php echo($b); ?>"></p>
+</div>
+  </div>
+
 				
 			<div class="col-md-4 col-sm-4 col-xs-12">	
-				<h3>Page Background Color : </h3><p><input type="text" name="page_bg" class="colorpicker" value="<?php echo($c); ?>" /></p>	
+				<h3>Page Background Color : </h3><p><input type="text" name="page_bg" class="colorpicker" value="<?php echo($c); ?>" /></p>		
 			</div>
             <div class="col-md-4 col-sm-4 col-xs-12">	
-			    <h3>Poll Background Color : </h3><p><input type="text" name="poll_bg_color" class="colorpicker" value="<?php echo($d); ?>" /></p>
+			   <h3>Poll Background Color : </h3><p><input type="text" name="poll_bg_color" class="colorpicker" value="<?php echo($d); ?>" /></p>
 			</div>	
 			<div class="col-md-4 col-sm-4 col-xs-12">	
 				<h3>Poll Title Color : </h3><p><input type="text" name="poll_title_color" class="colorpicker" value="<?php echo($e); ?>" /></p>
@@ -147,20 +152,24 @@ include('left-sidebar.php');
 			<div class="col-md-4 col-sm-4 col-xs-12">	
 				<h3>Count Text Color : </h3><p><input type="text" name="count_text_color" class="colorpicker" value="<?php echo($i); ?>" /></p>
 			</div>
-			<div class="col-md-4 col-md-offset-4 col-sm-12 col-xs-12">
-				<h3>Select Status to Display : </h3>
+			<div class="col-md-12 col-sm-12 col-xs-12">
+  <div class="col-md-4 col-md-offset-4 col-sm-12"> 
+					<h3>Select Status to Display : </h3>
 					<p><select name="display_status" value="<?php echo($j); ?>"></br>
 						<option value="In Progress"><b>In Progress</b></option>
 						<option value="Beta"><b>Beta</b></option>
 						<option value="Completed"><b>Completed</b></option>
 					</select> </p>				
 				<input id="setting_submit" type="submit" name="submit" value="Save">
-			</form>
+			
 			</div>
+			</div>
+			</form>
 			
 			</div>
 		</div>
-<?php include('right-sidebar.php');?>
+    <!-- /.col-lg-12 -->
+      <?php include('right-sidebar.php');?>
 
       </div>
 		
