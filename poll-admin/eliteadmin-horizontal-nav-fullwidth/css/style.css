@@ -139,4 +139,11 @@ input[type="submit"]:hover {
   background: #fff none repeat scroll 0 0;
   padding: 8px;
 }
+#show-image {
+    float: left;
+}
+#poll_status {
+    color: #fff;
+    float: right;
+}
  /* Custom Css End */
