@@ -135,7 +135,7 @@ if(isset($_GET['id']))
 								</div>
 								<div class="col-md-6 col-sm-12 col-xs-12">
 									<h3 style="padding: 13px 0;">Custom JavaScript : </h3><p>
-									<textarea rows="4" cols="50" name="cus_js" placeholder="Custom JavaScript"> <?php echo($k); ?></textarea>								
+									<textarea rows="9" cols="90" name="cus_js" placeholder="Custom JavaScript"> <?php echo($k); ?></textarea>								
 								</div>								
 							</div>
 							<div class="col-md-3 col-sm-3 col-xs-12">	
@@ -159,8 +159,7 @@ if(isset($_GET['id']))
 							<div class="col-md-3 col-sm-3 col-xs-12">		
 								<h3>Count Text Color : </h3><p><input type="text" name="count_text_color" class="colorpicker" value="<?php echo($i); ?>" /></p>
 							</div>
-							<div class="col-md-12 col-sm-12 col-xs-12">
-								<div class="col-md-4 col-md-offset-4 col-sm-12"> 
+							<div class="col-md-6 col-sm-6 col-xs-12">
 									<center><h3 style="padding:5px 0;">Select Status to Display : </h3>
 											<p><select name="display_status" value="<?php echo($j); ?>"></br>
 													<option value="In Progress"><b>In Progress</b></option>
@@ -168,16 +167,14 @@ if(isset($_GET['id']))
 													<option value="Completed"><b>Completed</b></option>
 												</select> </p>				
 									</center>
-								</div>
 							</div>
-							<div class="col-lg-12 bt-switch">
+							<div class="col-md-6 col-sm-6 col-xs-12 bt-switch">
 								<div class="m-b-30">
 								<h3>Allow Users To Subscribe : </h3>
 									<input type="checkbox" name="subscribe" checked data-size="normal" value="Yes" />
 								</div>	
 							</div>	
-	
-							<div class="col-lg-12 ">							
+							<div class="col-md-12">							
 								<input id="setting_submit" type="submit" name="submit" value="Save">
 							</div>
 						</form>
