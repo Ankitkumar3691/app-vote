@@ -19,14 +19,45 @@ if(isset($_POST['submit'])){
 	$cus_jscript = pg_escape_string($_POST['cus_js']);
 	
 	// Poll Logo Upload and Show
-	$uploaddir = 'poll-logo/';
-	$uploadfile = $uploaddir . basename($_FILES['myimage']['name']);	
+	//$uploaddir = 'poll-logo/';
+	//$uploadfile = $uploaddir . basename($_FILES['myimage']['name']);
+
+	// Check for errors
+	if($_FILES['myimage']['error'] > 0){
+		die('An error ocurred when uploading.');
+	}
+
+	if(!getimagesize($_FILES['myimage']['tmp_name'])){
+		die('Please ensure you are uploading an image.');
+	}
+
+	// Check filetype
+	if($_FILES['myimage']['type'] != 'image/png'){
+		die('Unsupported filetype uploaded.');
+	}
+
+	// Check filesize
+	if($_FILES['myimage']['size'] > 500000){
+		die('File uploaded exceeds maximum upload size.');
+	}
+
+	// Check if the file exists
+	if(file_exists('poll-logo/' . $_FILES['myimage']['name'])){
+		die('File with that name already exists.');
+	}
+
+	// Upload file
+	if(!move_uploaded_file($_FILES['myimage']['tmp_name'], 'poll-logo/' . $_FILES['myimage']['name'])){
+		die('Error uploading file - check destination is writeable.');
+	}
+
+	//die('File uploaded successfully.');	
 	
-	if (move_uploaded_file($_FILES['myimage']['tmp_name'], $uploadfile))
+	/* if (move_uploaded_file($_FILES['myimage']['tmp_name'], $uploadfile))
 	{    
 		//echo "File is valid, and was successfully uploaded.\n"; 
 	}
-	else   {   echo "File size greater than 300kb!\n\n";   }	
+	else   {   echo "File size greater than 300kb!\n\n";   }	 */
 
 	// Checking exiting Record 	
 	$select = 'SELECT * from poll_setting where poll_setting."Poll_id" = \''.$poll_id.'\'';
