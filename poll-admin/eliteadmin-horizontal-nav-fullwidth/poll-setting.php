@@ -138,26 +138,28 @@ if(isset($_GET['id']))
 									<textarea rows="9" cols="90" name="cus_js" placeholder="Custom JavaScript"> <?php echo($k); ?></textarea>								
 								</div>								
 							</div>
-							<div class="col-md-3 col-sm-3 col-xs-12">	
+							<div class="col-md-12">
+							<div class="col-md-3 col-sm-6 col-xs-12">	
 								<h3>Page Background Color : </h3><p><input type="text" name="page_bg" class="colorpicker" value="<?php echo($c); ?>" /></p>		
 							</div>
-							<div class="col-md-3 col-sm-3 col-xs-12">	
+							<div class="col-md-3 col-sm-6 col-xs-12">	
 								<h3>Poll Background Color : </h3><p><input type="text" name="poll_bg_color" class="colorpicker" value="<?php echo($d); ?>" /></p>
 							</div>	
-							<div class="col-md-3 col-sm-3 col-xs-12">	
+							<div class="col-md-3 col-sm-6 col-xs-12">	
 								<h3>Poll Title Color : </h3><p><input type="text" name="poll_title_color" class="colorpicker" value="<?php echo($e); ?>" /></p>
 							</div>	
-							<div class="col-md-3 col-sm-3 col-xs-12">	
+							<div class="col-md-3 col-sm-6 col-xs-12">	
 								<h3>Poll Item Color : </h3><p><input type="text" name="poll_item_color" class="colorpicker" value="<?php echo($f); ?>" /></p>
 							</div>
-							<div class="col-md-3 col-sm-3 col-xs-12">	
+							<div class="col-md-3 col-sm-6 col-xs-12">	
 								<h3>Poll Description Color : </h3><p><input type="text" name="poll_desc_color" class="colorpicker" value="<?php echo($g); ?>" /></p>
 							</div>	
-							<div class="col-md-3 col-sm-3 col-xs-12">					
+							<div class="col-md-3 col-sm-6 col-xs-12">					
 								<h3>Count BG Color : </h3><p><input type="text" name="count_bg_color" class="colorpicker" value="<?php echo($h); ?>" /></p>
 							</div>
-							<div class="col-md-3 col-sm-3 col-xs-12">		
+							<div class="col-md-3 col-sm-6 col-xs-12">		
 								<h3>Count Text Color : </h3><p><input type="text" name="count_text_color" class="colorpicker" value="<?php echo($i); ?>" /></p>
+							</div>
 							</div>
 							<div class="col-md-6 col-sm-6 col-xs-12">
 									<center><h3 style="padding:5px 0;">Select Status to Display : </h3>
