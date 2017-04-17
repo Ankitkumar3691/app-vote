@@ -36,22 +36,14 @@ if(isset($_POST['submit'])){
 	
 	if ($rows == 1) {
 		
-	if (!file_exists($_FILES['myimage']['tmp_name']) || !is_uploaded_file($_FILES['myimage']['tmp_name'])) 
-		{
-			echo 'No upload';
-		}
-		else{	
-			echo "Yes, Image here";
-		}		
-
-		// Update Exiting Poll Logo
-		//$update = 'UPDATE poll_setting SET "Poll_id"= \''.$poll_id.'\', "Logo_Path"= \''.$uploadfile.'\', "Poll_Title"= \''.$poll_title.'\', "Page_Bg_Color"= \''.$page_background.'\', "Poll_Bg_Color"= \''.$poll_background.'\', "Poll_Title_Color"= \''.$title_color.'\', "Poll_Item_Color"= \''.$item_color.'\', "Description_Color"= \''.$desc_color.'\', "Count_BG_Color"= \''.$count_back_color.'\', "Count_Text_Color"= \''.$count_text_color.'\', "Status_Option"= \''.$poll_display_st.'\', "User_Subscribe"= \''.$user_subs.'\', "Custom_Javascript"= \''.$cus_jscript.'\' where poll_setting."Poll_id" = \''.$poll_id.'\'';	
+		// Update Exiting Poll Settings
+		$update = 'UPDATE poll_setting SET "Poll_id"= \''.$poll_id.'\', "Logo_Path"= \''.$uploadfile.'\', "Poll_Title"= \''.$poll_title.'\', "Page_Bg_Color"= \''.$page_background.'\', "Poll_Bg_Color"= \''.$poll_background.'\', "Poll_Title_Color"= \''.$title_color.'\', "Poll_Item_Color"= \''.$item_color.'\', "Description_Color"= \''.$desc_color.'\', "Count_BG_Color"= \''.$count_back_color.'\', "Count_Text_Color"= \''.$count_text_color.'\', "Status_Option"= \''.$poll_display_st.'\', "User_Subscribe"= \''.$user_subs.'\', "Custom_Javascript"= \''.$cus_jscript.'\' where poll_setting."Poll_id" = \''.$poll_id.'\'';	
 		
-		//$update_result = pg_query($update) or die('Query failed: ' . pg_last_error());
+		$update_result = pg_query($update) or die('Query failed: ' . pg_last_error());
 		 
 	} 
 	else {
-		// Insert New Poll Logo
+		// Insert New Poll Settings
 		$insert = 'INSERT INTO poll_setting ("Poll_id","Logo_Path","Poll_Title","Page_Bg_Color","Poll_Bg_Color","Poll_Title_Color","Poll_Item_Color","Description_Color","Count_BG_Color","Count_Text_Color","Status_Option","User_Subscribe","Custom_Javascript") VALUES (\''.$poll_id.'\',\''.$uploadfile.'\',\''.$poll_title.'\',\''.$page_background.'\',\''.$poll_background.'\',\''.$title_color.'\',\''.$item_color.'\',\''.$desc_color.'\',\''.$count_back_color.'\',\''.$count_text_color.'\',\''.$poll_display_st.'\',\''.$user_subs.'\',\''.$cus_jscript.'\')';
 		$insert_result = pg_query($insert) or die('Query failed: ' . pg_last_error());
 	}
@@ -183,8 +175,10 @@ if(isset($_GET['id']))
 							<div class="col-md-6 col-sm-12 col-xs-12">
 								<h3 style="padding: 13px 0;">Custom JavaScript : </h3><p>
 								<textarea rows="4" cols="50" name="cus_js" placeholder="Custom JavaScript"> <?php echo($k); ?></textarea>								
-							</div>							
-							<input id="setting_submit" type="submit" name="submit" value="Save">
+							</div>	
+							<div class="col-lg-12 ">							
+								<input id="setting_submit" type="submit" name="submit" value="Save">
+							</div>
 						</form>
 					</div>
 				</div>
