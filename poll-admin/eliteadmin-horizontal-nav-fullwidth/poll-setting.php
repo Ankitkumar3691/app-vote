@@ -125,14 +125,18 @@ if(isset($_GET['id']))
 					<div id="poll-settings">
 						<form method="POST" action="" enctype="multipart/form-data">
 							<div class="col-md-12">
+								<div class="col-md-12 col-sm-12 col-xs-12">
+									<h3 style="padding: 13px 0;">Poll Title : </h3><p><input id="" name="poll-title" type="text" placeholder="Poll Title" value="<?php echo($b); ?>"></p>
+								</div>							
 								<div class="col-md-6 col-sm-12 col-xs-12">
 									<h3 class="box-title">Upload Logo</h3>
 									<label for="input-file-max-fs">You can add a max file size of 2Mb </label>
 									<input type="file" id="input-file-max-fs" name="myimage" class="dropify" data-max-file-size="2M" />
 								</div>
 								<div class="col-md-6 col-sm-12 col-xs-12">
-									<h3 style="padding: 13px 0;">Poll Title : </h3><p><input id="" name="poll-title" type="text" placeholder="Poll Title" value="<?php echo($b); ?>"></p>
-								</div>
+									<h3 style="padding: 13px 0;">Custom JavaScript : </h3><p>
+									<textarea rows="4" cols="50" name="cus_js" placeholder="Custom JavaScript"> <?php echo($k); ?></textarea>								
+								</div>								
 							</div>
 							<div class="col-md-3 col-sm-3 col-xs-12">	
 								<h3>Page Background Color : </h3><p><input type="text" name="page_bg" class="colorpicker" value="<?php echo($c); ?>" /></p>		
@@ -172,10 +176,7 @@ if(isset($_GET['id']))
 									<input type="checkbox" name="subscribe" checked data-size="normal" value="Yes" />
 								</div>	
 							</div>	
-							<div class="col-md-6 col-sm-12 col-xs-12">
-								<h3 style="padding: 13px 0;">Custom JavaScript : </h3><p>
-								<textarea rows="4" cols="50" name="cus_js" placeholder="Custom JavaScript"> <?php echo($k); ?></textarea>								
-							</div>	
+	
 							<div class="col-lg-12 ">							
 								<input id="setting_submit" type="submit" name="submit" value="Save">
 							</div>
