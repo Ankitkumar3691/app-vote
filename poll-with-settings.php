@@ -32,7 +32,8 @@ include 'config.php';
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="myvote.js"></script>
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
-
+	<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+	<script src="jquery.twbsPagination.js"></script>
 <style type="text/css">
 #show-image {
     float: left;
@@ -43,12 +44,9 @@ include 'config.php';
 }
 </style>
 <script type="text/javascript">
-$(function() {
- 
-  $("#demo_pag1").bs_pagination({
-    totalPages: 1
-  });
- 
+$('#pagination-demo').twbsPagination({
+	totalPages: 50,
+	visiblePages: 5
 });
 </script>
 </head>
@@ -102,9 +100,7 @@ pg_free_result($result);
 // Closing connection
 pg_close($dbconn);
 ?>
- <ul class="pagination">
-    <li class=""><a href="#">1</a></li>
-  </ul>
+				<ul id="pagination-demo" class="pagination-lg"></ul>
 					<p class="email">Email:&nbsp;<a href="#">abc@gmail.com</a>&nbsp;enter your account</p>
 				</div>
 			</div>	
