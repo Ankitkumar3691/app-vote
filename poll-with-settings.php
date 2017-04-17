@@ -58,12 +58,12 @@ $(document).ready(function() {
 	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 main">
 		<div class="container">
 			<!-- Show Logo -->
-			<div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+			<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
 				<div id="show-image">
-					<img src="http://app.upvoteapp.com/poll-admin/eliteadmin-horizontal-nav-fullwidth/<?php echo ($a); ?>" style="width: 30%;">
+					<img src="http://app.upvoteapp.com/poll-admin/eliteadmin-horizontal-nav-fullwidth/<?php echo ($a); ?>" style="width: 100%;">
 				</div>	
 			</div>
-			<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+			<div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
 				<div id="poll_status">
 					<h3><?php echo($j);?></h3>
 				</div>
@@ -109,7 +109,7 @@ pg_free_result($result);
 // Closing connection
 pg_close($dbconn);
 ?>
-				<ul id="pagination-demo" class="pagination-lg"></ul>
+				<center><ul id="pagination-demo" class="pagination-lg"></ul></center>
 					<p class="email">Email:&nbsp;<a href="#">abc@gmail.com</a>&nbsp;enter your account</p>
 				</div>
 			</div>	
