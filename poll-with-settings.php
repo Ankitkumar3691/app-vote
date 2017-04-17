@@ -20,6 +20,7 @@ include 'config.php';
 		$h= $row["Count_BG_Color"];
 		$i= $row["Count_Text_Color"];		
 		$j= $row["Status_Option"];		
+		$k= $row["Custom_Javascript"];	
 	}
 ?>
 <!DOCTYPE html>
@@ -44,6 +45,7 @@ include 'config.php';
 }
 </style>
 <script type="text/javascript">
+<?php echo $k; ?>;
 $(document).ready(function() {
 	$('#pagination-demo').twbsPagination({
 		totalPages: 1,
