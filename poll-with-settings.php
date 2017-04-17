@@ -102,12 +102,9 @@ pg_free_result($result);
 // Closing connection
 pg_close($dbconn);
 ?>
-				  <ul class="pagination">
-    <li><a href="#">1</a></li>
-    <li class="active"><a href="#">2</a></li>
-    <li><a href="#">3</a></li>
-    <li><a href="#">4</a></li>
-    <li><a href="#">5</a></li>
+ <ul class="pagination">
+    <li class="active"><a href="#">1</a></li>
+    <li class=""><a href="#">2</a></li>
   </ul>
 					<p class="email">Email:&nbsp;<a href="#">abc@gmail.com</a>&nbsp;enter your account</p>
 				</div>
