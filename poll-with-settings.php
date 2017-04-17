@@ -68,9 +68,11 @@ $(document).ready(function() {
 					<h3><?php echo($j);?></h3>
 				</div>
 			</div>
-			<div class="heading">
-				<h1 style="color:<?php echo ($e);?>;"><?php echo ($b);?></h1>
-			</div>
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+				<div class="heading">
+					<h1 style="color:<?php echo ($e);?>;"><?php echo ($b);?></h1>
+				</div>
+			</div>	
 			<div style="background-color:<?php echo($d);?>!important;" class="col-lg-12 col-md-12 col-sm-12 col-xs-12 content_main">
 				<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 content">
 <?php
