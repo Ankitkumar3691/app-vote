@@ -162,9 +162,11 @@ if(isset($_GET['id']))
 									</center>
 								</div>
 							</div>
-							<div class="m-b-30">
-								<input type="checkbox" checked data-size="normal" />
-							</div>	
+							<div class="col-lg-12 bt-switch">
+								<div class="m-b-30">
+									<input type="checkbox" checked data-size="normal" />
+								</div>	
+							</div>
 							<input id="setting_submit" type="submit" name="submit" value="Save">
 						</form>
 					</div>
