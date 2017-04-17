@@ -44,9 +44,12 @@ include 'config.php';
 }
 </style>
 <script type="text/javascript">
-$('#pagination-demo').twbsPagination({
-	totalPages: 2,
-	visiblePages: 2
+$( document ).ready(function() {
+	alert ('Work');
+	$('#pagination-demo').twbsPagination({
+		totalPages: 2,
+		visiblePages: 2
+	});
 });
 </script>
 </head>
