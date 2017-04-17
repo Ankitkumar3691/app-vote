@@ -103,8 +103,7 @@ pg_free_result($result);
 pg_close($dbconn);
 ?>
  <ul class="pagination">
-    <li class="active"><a href="#">1</a></li>
-    <li class=""><a href="#">2</a></li>
+    <li class=""><a href="#">1</a></li>
   </ul>
 					<p class="email">Email:&nbsp;<a href="#">abc@gmail.com</a>&nbsp;enter your account</p>
 				</div>
