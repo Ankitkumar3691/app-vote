@@ -135,7 +135,7 @@ if(isset($_GET['id']))
 								</div>
 								<div class="col-md-6 col-sm-12 col-xs-12">
 									<h3 style="padding: 13px 0;">Custom JavaScript : </h3><p>
-									<textarea rows="9" cols="90" name="cus_js" placeholder="Custom JavaScript"> <?php echo($k); ?></textarea>								
+									<textarea style="min-height: 199px;width: 100%;" name="cus_js" placeholder="Custom JavaScript"> <?php echo($k); ?></textarea>								
 								</div>								
 							</div>
 							<div class="col-md-12">
