@@ -32,7 +32,7 @@ if(isset($_POST['submit'])){
 	}
 
 	// Check filetype
-	if($_FILES['myimage']['type'] != 'image/png/jpg'){
+	if($_FILES['myimage']['type'] != 'image/jpg'){
 		die('Unsupported filetype uploaded.');
 	}
 
