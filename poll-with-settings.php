@@ -44,13 +44,11 @@ include 'config.php';
 }
 </style>
 <script type="text/javascript">
-$(function() {
 	$('#page-selection').bootpag({
 		total: 3
 	}).on("page", function(event, num){
 		 $(".list").html("Page "+ num); // some ajax content loading...
 	});
-});
 </script>	
 </head>
 <body style="background-color:<?php echo($c);?>!important;">
