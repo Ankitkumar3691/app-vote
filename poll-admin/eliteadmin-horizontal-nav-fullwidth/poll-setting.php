@@ -22,14 +22,6 @@ if(isset($_POST['submit'])){
 	$uploaddir = 'poll-logo/';
 	$uploadfile = $uploaddir . basename($_FILES['myimage']['name']);
 	
-	if (!file_exists($_FILES['myimage']['tmp_name']) || !is_uploaded_file($_FILES['myimage']['tmp_name'])) 
-		{
-			echo 'No upload';
-		}
-		else{	
-			echo "Yes, Image here";
-		}	
-
 	if (move_uploaded_file($_FILES['myimage']['tmp_name'], $uploadfile))
 	{    
 		//echo "File is valid, and was successfully uploaded.\n"; 
@@ -43,6 +35,14 @@ if(isset($_POST['submit'])){
 	$rows = pg_num_rows($select_result);
 	
 	if ($rows == 1) {
+		
+	if (!file_exists($_FILES['myimage']['tmp_name']) || !is_uploaded_file($_FILES['myimage']['tmp_name'])) 
+		{
+			echo 'No upload';
+		}
+		else{	
+			echo "Yes, Image here";
+		}		
 
 		// Update Exiting Poll Logo
 		//$update = 'UPDATE poll_setting SET "Poll_id"= \''.$poll_id.'\', "Logo_Path"= \''.$uploadfile.'\', "Poll_Title"= \''.$poll_title.'\', "Page_Bg_Color"= \''.$page_background.'\', "Poll_Bg_Color"= \''.$poll_background.'\', "Poll_Title_Color"= \''.$title_color.'\', "Poll_Item_Color"= \''.$item_color.'\', "Description_Color"= \''.$desc_color.'\', "Count_BG_Color"= \''.$count_back_color.'\', "Count_Text_Color"= \''.$count_text_color.'\', "Status_Option"= \''.$poll_display_st.'\', "User_Subscribe"= \''.$user_subs.'\', "Custom_Javascript"= \''.$cus_jscript.'\' where poll_setting."Poll_id" = \''.$poll_id.'\'';	
