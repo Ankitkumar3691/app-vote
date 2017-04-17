@@ -2,10 +2,10 @@ body {
     background-color: #31303a!important;
 }
 .heading h1 {
-	text-align: center;
-    color: #fff;
-    margin-bottom: 20px;
-	padding: 32px 6.75rem 16px;
+text-align: center;
+color: #fff;
+margin: 0px 0;
+padding: 10px 0;
 }
 .content_main {
       padding: 45px 30px;
