@@ -19,40 +19,14 @@ if(isset($_POST['submit'])){
 	$cus_jscript = pg_escape_string($_POST['cus_js']);
 	
 	// Poll Logo Upload and Show
-	//$uploaddir = 'poll-logo/';
-	//$uploadfile = $uploaddir . basename($_FILES['myimage']['name']);
+	$uploaddir = 'poll-logo/';
+	$uploadfile = $uploaddir . basename($_FILES['myimage']['name']);
 
-	// Check for errors
-	if($_FILES['myimage']['error'] > 0){
-		die('An error ocurred when uploading.');
-	}
-
-	if(!getimagesize($_FILES['myimage']['tmp_name'])){
-		die('Please ensure you are uploading an image.');
-	}
-
-	// Check filesize
-	if($_FILES['myimage']['size'] > 500000){
-		die('File uploaded exceeds maximum upload size.');
-	}
-
-	// Check if the file exists
-	if(file_exists('poll-logo/' . $_FILES['myimage']['name'])){
-		die('File with that name already exists.');
-	}
-
-	// Upload file
-	if(!move_uploaded_file($_FILES['myimage']['tmp_name'], 'poll-logo/' . $_FILES['myimage']['name'])){
-		die('Error uploading file - check destination is writeable.');
-	}
-
-	//die('File uploaded successfully.');	
-	
-	/* if (move_uploaded_file($_FILES['myimage']['tmp_name'], $uploadfile))
+	if (move_uploaded_file($_FILES['myimage']['tmp_name'], $uploadfile))
 	{    
 		//echo "File is valid, and was successfully uploaded.\n"; 
 	}
-	else   {   echo "File size greater than 300kb!\n\n";   }	 */
+	else   {   echo "File size greater than 300kb!\n\n";   }
 
 	// Checking exiting Record 	
 	$select = 'SELECT * from poll_setting where poll_setting."Poll_id" = \''.$poll_id.'\'';
@@ -61,11 +35,16 @@ if(isset($_POST['submit'])){
 	$rows = pg_num_rows($select_result);
 	
 	if ($rows == 1) {
+		if (isset($_POST["myimage"])) {
+			echo "Yes, mail is set";    
+		}
+		else{
 		// Update Exiting Poll Logo
-		$update = 'UPDATE poll_setting SET "Poll_id"= \''.$poll_id.'\', "Logo_Path"= \''.$uploadfile.'\', "Poll_Title"= \''.$poll_title.'\', "Page_Bg_Color"= \''.$page_background.'\', "Poll_Bg_Color"= \''.$poll_background.'\', "Poll_Title_Color"= \''.$title_color.'\', "Poll_Item_Color"= \''.$item_color.'\', "Description_Color"= \''.$desc_color.'\', "Count_BG_Color"= \''.$count_back_color.'\', "Count_Text_Color"= \''.$count_text_color.'\', "Status_Option"= \''.$poll_display_st.'\', "User_Subscribe"= \''.$user_subs.'\', "Custom_Javascript"= \''.$cus_jscript.'\' where poll_setting."Poll_id" = \''.$poll_id.'\'';	
+		//$update = 'UPDATE poll_setting SET "Poll_id"= \''.$poll_id.'\', "Logo_Path"= \''.$uploadfile.'\', "Poll_Title"= \''.$poll_title.'\', "Page_Bg_Color"= \''.$page_background.'\', "Poll_Bg_Color"= \''.$poll_background.'\', "Poll_Title_Color"= \''.$title_color.'\', "Poll_Item_Color"= \''.$item_color.'\', "Description_Color"= \''.$desc_color.'\', "Count_BG_Color"= \''.$count_back_color.'\', "Count_Text_Color"= \''.$count_text_color.'\', "Status_Option"= \''.$poll_display_st.'\', "User_Subscribe"= \''.$user_subs.'\', "Custom_Javascript"= \''.$cus_jscript.'\' where poll_setting."Poll_id" = \''.$poll_id.'\'';	
 		
-		$update_result = pg_query($update) or die('Query failed: ' . pg_last_error());
-	
+		//$update_result = pg_query($update) or die('Query failed: ' . pg_last_error());
+		 echo "N0, mail is not set";
+		}
 	} 
 	else {
 		// Insert New Poll Logo
