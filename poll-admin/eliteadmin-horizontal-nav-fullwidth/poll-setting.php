@@ -81,6 +81,7 @@ if(isset($_GET['id']))
 	<title>Poll Setting</title>
 	<!-- Bootstrap Core CSS -->
 	<link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link href="../plugins/bower_components/bootstrap-switch/bootstrap-switch.min.css" rel="stylesheet">
 	<!-- Menu CSS -->
 	<link href="../plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="../plugins/bower_components/dropify/dist/css/dropify.min.css">
@@ -161,6 +162,7 @@ if(isset($_GET['id']))
 									</center>
 								</div>
 							</div>
+							<input type="checkbox" checked data-size="normal" />
 							<input id="setting_submit" type="submit" name="submit" value="Save">
 						</form>
 					</div>
@@ -253,6 +255,32 @@ $(".gradient-colorpicker").asColorPicker({
                     }
                 })
             });
+</script>
+<!-- bt-switch -->
+<script src="../plugins/bower_components/bootstrap-switch/bootstrap-switch.min.js"></script>
+<script type="text/javascript">
+   $(".bt-switch input[type='checkbox'], .bt-switch input[type='radio']").bootstrapSwitch();
+   var radioswitch = function() {
+      var bt = function() {
+         $(".radio-switch").on("switch-change", function() {
+            $(".radio-switch").bootstrapSwitch("toggleRadioState")
+         }), 
+         $(".radio-switch").on("switch-change", function() {
+            $(".radio-switch").bootstrapSwitch("toggleRadioStateAllowUncheck")
+         }), 
+         $(".radio-switch").on("switch-change", function() {
+            $(".radio-switch").bootstrapSwitch("toggleRadioStateAllowUncheck", !1)
+         })
+      };
+      return {
+         init: function() {
+            bt()
+         }
+      }
+   }();
+   $(document).ready(function() {
+      radioswitch.init()
+   });
 </script>
 <!--Style Switcher -->
 <script src="../plugins/bower_components/styleswitcher/jQuery.style.switcher.js"></script>
