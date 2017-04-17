@@ -164,7 +164,8 @@ if(isset($_GET['id']))
 							</div>
 							<div class="col-lg-12 bt-switch">
 								<div class="m-b-30">
-									<input type="checkbox" checked data-size="normal" />
+								<h3>Allow Users To Subscribe : </h3>
+									<input type="checkbox" name="subscribe" checked data-size="normal" />
 								</div>	
 							</div>
 							<input id="setting_submit" type="submit" name="submit" value="Save">
