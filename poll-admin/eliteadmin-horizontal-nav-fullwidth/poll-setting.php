@@ -173,7 +173,7 @@ if(isset($_GET['id']))
 							</div>	
 							<div class="col-md-6 col-sm-12 col-xs-12">
 								<h3 style="padding: 13px 0;">Custom JavaScript : </h3><p>
-								<textarea rows="4" cols="50" name="cus_js" form="usrform" placeholder="Custom JavaScript" value="<?php echo($k); ?>"></textarea>								
+								<textarea rows="4" cols="50" name="cus_js" placeholder="Custom JavaScript" value="<?php echo($k); ?>"></textarea>								
 							</div>							
 							<input id="setting_submit" type="submit" name="submit" value="Save">
 						</form>
