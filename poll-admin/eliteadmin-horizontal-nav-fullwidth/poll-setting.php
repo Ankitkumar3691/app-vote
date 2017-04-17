@@ -17,6 +17,13 @@ if(isset($_POST['submit'])){
 	$poll_display_st = pg_escape_string($_POST['display_status']);
 	$user_subs = pg_escape_string($_POST['subscribe']);
 	$cus_jscript = pg_escape_string($_POST['cus_js']);
+
+		if (isset($_POST["myimage"])) {
+			echo "Yes, Image is set";    
+		}
+		else{	
+			echo "No, Image is not set";
+		}
 	
 	// Poll Logo Upload and Show
 	$uploaddir = 'poll-logo/';
@@ -35,16 +42,12 @@ if(isset($_POST['submit'])){
 	$rows = pg_num_rows($select_result);
 	
 	if ($rows == 1) {
-		if (isset($_POST["myimage"])) {
-			echo "Yes, mail is set";    
-		}
-		else{
+
 		// Update Exiting Poll Logo
 		//$update = 'UPDATE poll_setting SET "Poll_id"= \''.$poll_id.'\', "Logo_Path"= \''.$uploadfile.'\', "Poll_Title"= \''.$poll_title.'\', "Page_Bg_Color"= \''.$page_background.'\', "Poll_Bg_Color"= \''.$poll_background.'\', "Poll_Title_Color"= \''.$title_color.'\', "Poll_Item_Color"= \''.$item_color.'\', "Description_Color"= \''.$desc_color.'\', "Count_BG_Color"= \''.$count_back_color.'\', "Count_Text_Color"= \''.$count_text_color.'\', "Status_Option"= \''.$poll_display_st.'\', "User_Subscribe"= \''.$user_subs.'\', "Custom_Javascript"= \''.$cus_jscript.'\' where poll_setting."Poll_id" = \''.$poll_id.'\'';	
 		
 		//$update_result = pg_query($update) or die('Query failed: ' . pg_last_error());
-		 echo "N0, mail is not set";
-		}
+		 
 	} 
 	else {
 		// Insert New Poll Logo
