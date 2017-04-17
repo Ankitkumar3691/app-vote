@@ -30,6 +30,7 @@ include 'config.php';
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script> 
 	<script type="text/javascript" src="myvote.js"></script>
+	<script type="text/javascript" src="jquery.simplePagination"></script>
 <style type="text/css">
 #show-image {
     float: left;
@@ -38,7 +39,16 @@ include 'config.php';
     color: #fff;
     float: right;
 }
-</style>	
+</style>
+<script type="text/javascript">
+$(function() {
+    $('.list').pagination({
+        items: 10,
+        itemsOnPage: 1,
+        cssStyle: 'light-theme'
+    });
+});
+</script>	
 </head>
 <body style="background-color:<?php echo($c);?>!important;">
 
