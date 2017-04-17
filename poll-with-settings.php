@@ -59,7 +59,7 @@ $(document).ready(function() {
 		<div class="container">
 			<!-- Show Logo -->
 			<div id="show-image">
-				<img src="http://app.upvoteapp.com/poll-admin/eliteadmin-horizontal-nav-fullwidth/<?php echo ($a); ?>" width="100" height="100">
+				<img src="http://app.upvoteapp.com/poll-admin/eliteadmin-horizontal-nav-fullwidth/<?php echo ($a); ?>">
 			</div>	
 			<div id="poll_status">
 				<h3><?php echo($j);?></h3>
