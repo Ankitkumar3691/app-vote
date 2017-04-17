@@ -42,9 +42,9 @@ include 'config.php';
 </style>
 <script type="text/javascript">
 $(function() {
+	alert ('Work');
     $('.list').pagination({
-        items: 10,
-        itemsOnPage: 1,
+		pages:2;
         cssStyle: 'light-theme'
     });
 });
