@@ -29,13 +29,9 @@ include 'config.php';
 	<link rel="stylesheet" type="text/css" href="style.css"/>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script> 
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="myvote.js"></script>
 	<script src="http://cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<!--  PAGINATION plugin -->
-<link rel="stylesheet" type="text/css" href="jquery.bs_pagination.min.css">
-<script type="text/javascript" src="jquery.bs_pagination.min.js"></script>
-<script type="text/javascript" src="bs_pagination/localization/en.min.js"></script>
 
 <style type="text/css">
 #show-image {
@@ -106,7 +102,13 @@ pg_free_result($result);
 // Closing connection
 pg_close($dbconn);
 ?>
-				 <div id="demo_pag1"></div>
+				  <ul class="pagination">
+    <li><a href="#">1</a></li>
+    <li class="active"><a href="#">2</a></li>
+    <li><a href="#">3</a></li>
+    <li><a href="#">4</a></li>
+    <li><a href="#">5</a></li>
+  </ul>
 					<p class="email">Email:&nbsp;<a href="#">abc@gmail.com</a>&nbsp;enter your account</p>
 				</div>
 			</div>	
