@@ -16,6 +16,7 @@ if(isset($_POST['submit'])){
 	$count_text_color = pg_escape_string($_POST['count_text_color']);
 	$poll_display_st = pg_escape_string($_POST['display_status']);
 	$user_subs = pg_escape_string($_POST['subscribe']);
+	$cus_jscript = pg_escape_string($_POST['cus_js']);
 	
 	// Poll Logo Upload and Show
 	$uploaddir = 'poll-logo/';
@@ -35,14 +36,14 @@ if(isset($_POST['submit'])){
 	
 	if ($rows == 1) {
 		// Update Exiting Poll Logo
-		$update = 'UPDATE poll_setting SET "Poll_id"= \''.$poll_id.'\', "Logo_Path"= \''.$uploadfile.'\', "Poll_Title"= \''.$poll_title.'\', "Page_Bg_Color"= \''.$page_background.'\', "Poll_Bg_Color"= \''.$poll_background.'\', "Poll_Title_Color"= \''.$title_color.'\', "Poll_Item_Color"= \''.$item_color.'\', "Description_Color"= \''.$desc_color.'\', "Count_BG_Color"= \''.$count_back_color.'\', "Count_Text_Color"= \''.$count_text_color.'\', "Status_Option"= \''.$poll_display_st.'\', "User_Subscribe"= \''.$user_subs.'\' where poll_setting."Poll_id" = \''.$poll_id.'\'';	
+		$update = 'UPDATE poll_setting SET "Poll_id"= \''.$poll_id.'\', "Logo_Path"= \''.$uploadfile.'\', "Poll_Title"= \''.$poll_title.'\', "Page_Bg_Color"= \''.$page_background.'\', "Poll_Bg_Color"= \''.$poll_background.'\', "Poll_Title_Color"= \''.$title_color.'\', "Poll_Item_Color"= \''.$item_color.'\', "Description_Color"= \''.$desc_color.'\', "Count_BG_Color"= \''.$count_back_color.'\', "Count_Text_Color"= \''.$count_text_color.'\', "Status_Option"= \''.$poll_display_st.'\', "User_Subscribe"= \''.$user_subs.'\', "Custom_Javascript"= \''.$cus_jscript.'\' where poll_setting."Poll_id" = \''.$poll_id.'\'';	
 		
 		$update_result = pg_query($update) or die('Query failed: ' . pg_last_error());
 	
 	} 
 	else {
 		// Insert New Poll Logo
-		$insert = 'INSERT INTO poll_setting ("Poll_id","Logo_Path","Poll_Title","Page_Bg_Color","Poll_Bg_Color","Poll_Title_Color","Poll_Item_Color","Description_Color","Count_BG_Color","Count_Text_Color","Status_Option","User_Subscribe") VALUES (\''.$poll_id.'\',\''.$uploadfile.'\',\''.$poll_title.'\',\''.$page_background.'\',\''.$poll_background.'\',\''.$title_color.'\',\''.$item_color.'\',\''.$desc_color.'\',\''.$count_back_color.'\',\''.$count_text_color.'\',\''.$poll_display_st.'\',\''.$user_subs.'\')';
+		$insert = 'INSERT INTO poll_setting ("Poll_id","Logo_Path","Poll_Title","Page_Bg_Color","Poll_Bg_Color","Poll_Title_Color","Poll_Item_Color","Description_Color","Count_BG_Color","Count_Text_Color","Status_Option","User_Subscribe","Custom_Javascript") VALUES (\''.$poll_id.'\',\''.$uploadfile.'\',\''.$poll_title.'\',\''.$page_background.'\',\''.$poll_background.'\',\''.$title_color.'\',\''.$item_color.'\',\''.$desc_color.'\',\''.$count_back_color.'\',\''.$count_text_color.'\',\''.$poll_display_st.'\',\''.$user_subs.'\',\''.$cus_jscript.'\')';
 		$insert_result = pg_query($insert) or die('Query failed: ' . pg_last_error());
 	}
 } 
@@ -67,6 +68,7 @@ if(isset($_GET['id']))
 		$h= $row["Count_BG_Color"];
 		$i= $row["Count_Text_Color"];
 		$j= $row["Status_Option"];
+		$k= $row["Custom_Javascript"];
 	}
 }
 ?> 
@@ -166,9 +168,12 @@ if(isset($_GET['id']))
 							<div class="col-lg-12 bt-switch">
 								<div class="m-b-30">
 								<h3>Allow Users To Subscribe : </h3>
-									<input type="checkbox" name="subscribe" data-size="normal" value="Yes" />
+									<input type="checkbox" name="subscribe" checked data-size="normal" value="Yes" />
 								</div>	
-							</div>
+							</div>	
+							<div class="col-md-6 col-sm-12 col-xs-12">
+								<h3 style="padding: 13px 0;">Custom JavaScript : </h3><p><input id="" name="cus_js" type="textarea" placeholder="Custom JavaScript" value="<?php echo($k); ?>"></p>
+							</div>							
 							<input id="setting_submit" type="submit" name="submit" value="Save">
 						</form>
 					</div>
