@@ -30,7 +30,10 @@ include 'config.php';
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script> 
 	<script type="text/javascript" src="myvote.js"></script>
-	<script type="text/javascript" src="jquery.simplePagination"></script>
+    <script src="http://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="https://raw.githubusercontent.com/botmonster/jquery-bootpag/master/lib/jquery.bootpag.min.js"></script>
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
 <style type="text/css">
 #show-image {
     float: left;
@@ -42,11 +45,11 @@ include 'config.php';
 </style>
 <script type="text/javascript">
 $(function() {
-	alert ('Work');
-    $('.list').pagination({
-		pages:2;
-        cssStyle: 'light-theme'
-    });
+	$('#page-selection').bootpag({
+		total: 3
+	}).on("page", function(event, num){
+		 $(".list").html("Page "+ num); // some ajax content loading...
+	});
 });
 </script>	
 </head>
@@ -100,6 +103,7 @@ pg_free_result($result);
 // Closing connection
 pg_close($dbconn);
 ?>
+				<div id="page-selection">Pagination goes here</div>
 					<p class="email">Email:&nbsp;<a href="#">abc@gmail.com</a>&nbsp;enter your account</p>
 				</div>
 			</div>	
