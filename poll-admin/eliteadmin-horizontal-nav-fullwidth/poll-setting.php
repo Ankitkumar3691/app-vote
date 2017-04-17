@@ -31,11 +31,6 @@ if(isset($_POST['submit'])){
 		die('Please ensure you are uploading an image.');
 	}
 
-	// Check filetype
-	if($_FILES['myimage']['type'] != 'image/jpg'){
-		die('Unsupported filetype uploaded.');
-	}
-
 	// Check filesize
 	if($_FILES['myimage']['size'] > 500000){
 		die('File uploaded exceeds maximum upload size.');
