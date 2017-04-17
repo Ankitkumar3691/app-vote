@@ -18,11 +18,12 @@ if(isset($_POST['submit'])){
 	$user_subs = pg_escape_string($_POST['subscribe']);
 	$cus_jscript = pg_escape_string($_POST['cus_js']);
 
-		if (isset($_POST["myimage"])) {
-			echo "Yes, Image is set";    
+	if (!file_exists($_FILES['image']['tmp_name']) || !is_uploaded_file($_FILES['image']['tmp_name'])) 
+		{
+			echo 'No upload';
 		}
 		else{	
-			echo "No, Image is not set";
+			echo "Yes, Image here";
 		}
 	
 	// Poll Logo Upload and Show
