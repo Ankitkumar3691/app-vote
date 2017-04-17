@@ -18,17 +18,17 @@ if(isset($_POST['submit'])){
 	$user_subs = pg_escape_string($_POST['subscribe']);
 	$cus_jscript = pg_escape_string($_POST['cus_js']);
 
-	if (!file_exists($_FILES['image']['tmp_name']) || !is_uploaded_file($_FILES['image']['tmp_name'])) 
+	// Poll Logo Upload and Show
+	$uploaddir = 'poll-logo/';
+	$uploadfile = $uploaddir . basename($_FILES['myimage']['name']);
+	
+	if (!file_exists($_FILES['myimage']['tmp_name']) || !is_uploaded_file($_FILES['myimage']['tmp_name'])) 
 		{
 			echo 'No upload';
 		}
 		else{	
 			echo "Yes, Image here";
-		}
-	
-	// Poll Logo Upload and Show
-	$uploaddir = 'poll-logo/';
-	$uploadfile = $uploaddir . basename($_FILES['myimage']['name']);
+		}	
 
 	if (move_uploaded_file($_FILES['myimage']['tmp_name'], $uploadfile))
 	{    
