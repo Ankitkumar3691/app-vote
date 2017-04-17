@@ -45,8 +45,8 @@ include 'config.php';
 </style>
 <script type="text/javascript">
 $('#pagination-demo').twbsPagination({
-	totalPages: 50,
-	visiblePages: 5
+	totalPages: 2,
+	visiblePages: 2
 });
 </script>
 </head>
