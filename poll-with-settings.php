@@ -44,9 +44,9 @@ include 'config.php';
     color: #fff;
     float: right;
 }
-.toggled{
-    background: <?php echo($l);?>;
-    border-color: <?php echo($l);?>;
+.total.toggled{
+    background: <?php echo($l);?>!important;
+    border-color: <?php echo($l);?>!important;;
 }
 </style>
 <script type="text/javascript">
@@ -70,7 +70,7 @@ $(document).ready(function() {
 			</div>
 			<div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
 				<div id="poll_status">
-					<h3><?php echo($j);?></h3>
+					<h3></h3>
 				</div>
 			</div>
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
