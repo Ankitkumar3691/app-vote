@@ -60,6 +60,13 @@ $(document).ready(function() {
 	$('#pagination-demo').twbsPagination({
 		totalPages: 1,
 	});
+	var my_req = <?php echo $m; ?>;
+	if (my_req == 'Yes'){
+		$('#suggestion_form').show();
+	}
+	else {
+		$('#suggestion_form').hide();
+	}
 });
 </script>
 </head>
@@ -80,7 +87,7 @@ $(document).ready(function() {
 				</div>
 			</div>
 			<!-- Suggestion Form -->
-			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="suggestion_form">
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="suggestion_form" >
 				<form>
 					<h2>Post Your Suggestion Here : </h2>
 					<div class="form-group">
