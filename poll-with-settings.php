@@ -53,6 +53,9 @@ include 'config.php';
     background: #d9edf7 none repeat scroll 0 0;
     padding: 0 10px 10px;
 }
+#sugges_btn{
+	cursor: pointer;
+}
 </style>
 <script type="text/javascript">
 <?php echo $k; ?>;
@@ -67,6 +70,10 @@ $(document).ready(function() {
 	if (my_req == 'Yes'){
 		$('#suggestion_form').show();
 	}
+	$('#sugges_btn').click(function() {
+		$('#suggestion_form form').show();
+		$(this).hide();
+	});	
 });
 </script>	
 </head>
