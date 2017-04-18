@@ -60,9 +60,6 @@ $(document).ready(function() {
 	var my_req = <?php echo $m; ?>;
 	alert (my_req);
 	alert ('Work');
-	$('#pagination-demo').twbsPagination({
-		totalPages: 1,
-	});
 });
 </script>
 </head>
