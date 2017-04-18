@@ -63,10 +63,9 @@ $(document).ready(function() {
 });
 
 $(document).ready(function() {
-	var my_req = <?php echo $m; ?>;
-	var my_result = 'Yes';
+	var my_req = "<?php echo $m; ?>";
 	alert (my_req);
-	if (my_req == my_result){
+	if (my_req == 'Yes'){
 		$("#suggestion_form").css("display", "block !important");
 	}
 });
