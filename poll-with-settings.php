@@ -64,10 +64,7 @@ $(document).ready(function() {
 
 $(document).ready(function() {
 	var my_req = "<?php echo $m; ?>";
-	//alert (my_req);
 	if (my_req == 'Yes'){
-			alert (my_req);
-		//$("#suggestion_form").css("display", "block !important");
 		$('#suggestion_form').show();
 	}
 });
@@ -91,16 +88,17 @@ $(document).ready(function() {
 			</div>
 			<!-- Suggestion Form -->
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="suggestion_form" style="display:none">
-				<form>
+				<form style="display:none">
 					<h2>Post Your Suggestion Here : </h2>
 					<div class="form-group">
 					  <input type="text" class="form-control" required id="" placeholder="Item Title">
 					</div>
 					<div class="form-group">
-					  <input type="text" class="form-control" required id="" placeholder="Item Description">
+					  <textarea class="form-control" required id="" placeholder="Item Description"></textarea>
 					</div>
 					<center><button type="submit" class="btn btn-default">Make Suggestion</button></center>
 				</form>
+				<div id="sugges_btn"><h3>Make a suggestion</h3></div>
 			</div>			
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 				<div class="heading">
