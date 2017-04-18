@@ -55,12 +55,13 @@ include 'config.php';
 }
 </style>
 <script type="text/javascript">
+<?php echo $k; ?>;
 $(document).ready(function() {
-	var my_req = <?php echo $m; ?>;
-	alert (my_req);
-	alert ('Work');
+	$('#pagination-demo').twbsPagination({
+		totalPages: 1,
+	});
 });
-</script>
+</script>	
 </head>
 <body style="background-color:<?php echo($c);?>!important;">
 
