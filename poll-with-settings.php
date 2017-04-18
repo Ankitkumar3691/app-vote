@@ -66,9 +66,7 @@ $(window).load(function() {
 	var my_req = <?php echo $m; ?>;
 	alert (my_req);
 	if (my_req == 'Yes'){
-		$('#suggestion_form').show();
-	}
-	else {
+		$("#suggestion_form").css("display", "block !important");
 	}
 });
 </script>	
