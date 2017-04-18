@@ -103,6 +103,14 @@ if(isset($_GET['id']))
 	<link href="css/style.css" rel="stylesheet">
 	<!-- color CSS -->
 	<link href="css/colors/blue.css" id="theme"  rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    $("#User_Request").click(function(){
+        $("#request_options").toggle();
+    });
+});
+</script>
 </head>
 <body>
 	<!-- Preloader -->
@@ -166,15 +174,15 @@ if(isset($_GET['id']))
 								<h3>Active Count BG Color : </h3><p><input type="text" name="active_count_color" class="colorpicker" value="<?php echo($l); ?>" /></p>
 							</div>							
 							</div>
-							<div class="col-md-6 col-sm-12 col-xs-12">
+							<!--div class="col-md-6 col-sm-12 col-xs-12">
 									<center><h3 style="padding:5px 0;">Select Status to Display : </h3>
-											<p><select name="display_status" value="<?php echo($j); ?>"></br>
+											<p><select name="display_status" value=""></br>
 													<option value="In Progress"><b>In Progress</b></option>
 													<option value="Beta"><b>Beta</b></option>
 													<option value="Completed"><b>Completed</b></option>
 												</select> </p>				
 									</center>
-							</div>
+							</div-->
 							<div class="col-md-6 col-sm-12 col-xs-12 bt-switch">
 								<div class="m-b-30">
 								<center><h3>Allow Users To Subscribe : </h3>
@@ -182,6 +190,20 @@ if(isset($_GET['id']))
 									</center>
 								</div>	
 							</div>	
+							<div class="col-md-6 col-sm-12 col-xs-12 bt-switch">
+								<div class="m-b-30">
+								<center><h3>Accept User Requests : </h3>
+									<input type="checkbox" id="User_Request" name="user_req" checked data-size="normal" value="Yes" data-on-text="Enable" data-off-text="Disabled"/>
+									</center>
+								</div>
+								<div id="request_options">
+									<ul>Option 1 : When request is submitted, do the following:	
+										<li>Publish immediately</li>
+										<li>Make pending until poll moderator approves</li></ul>
+									<ul>Option 2 : When request is submitted, notify the following email addresses:	
+										<li><input type="text" name="" placeholder="Enter Email"/></li></ul>
+								</div>	
+							</div>								
 							<div class="col-md-12 col-sm-12 col-xs-12">							
 								<center><input id="setting_submit" type="submit" name="submit" value="Save"></center>
 							</div>
