@@ -53,14 +53,15 @@ include 'config.php';
     background: #d9edf7 none repeat scroll 0 0;
     padding: 0 10px 10px;
 }
-#sugges_btn{
+#sugges_btn {
 	cursor: pointer;
 	display:table;
 	width:100%
     border-radius: 5px;
     margin-top: 20px;
-    background-image: url(images\arrow_drop.png);
+    background-image: url(http://app.upvoteapp.com/images/arrow_drop.png);
     background-position: top right;
+	background-repeat: no-repeat;
 }
 
 </style>
