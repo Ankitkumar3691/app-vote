@@ -61,6 +61,12 @@ $(document).ready(function() {
 		totalPages: 1,
 	});
 });
+
+$(document).ready(function(){
+	var my_req = <?php echo $m; ?>;
+	alert (my_req);
+	alert ('Work');	
+});	
 </script>	
 </head>
 <body style="background-color:<?php echo($c);?>!important;">
