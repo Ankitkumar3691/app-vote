@@ -7,7 +7,7 @@ if(isset($_POST['submit'])){
 	$sug_desc = pg_escape_string($_POST['sugges_desc']);
 	
 	$insert = 'INSERT INTO suggesstion_items ("Item_Title","Item_Desc") VALUES (\''.$sug_title.'\',\''.$sug_desc.'\')';
-	echo ($insert);
+	print ($insert);
 	die();
 	$insert_result = pg_query($insert) or die('Query failed: ' . pg_last_error());
 }
@@ -161,11 +161,6 @@ while ($row = pg_fetch_array($result)) {
 				</div>
 <?php
 }
-// Free resultset
-pg_free_result($result);
-
-// Closing connection
-pg_close($dbconn);
 ?>
 				<center><ul id="pagination-demo" class="pagination-lg"></ul></center>
 					<p class="email">Email:&nbsp;<a href="#">abc@gmail.com</a>&nbsp;enter your account</p>
