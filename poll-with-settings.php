@@ -7,6 +7,8 @@ if(isset($_POST['submit'])){
 	$sug_desc = pg_escape_string($_POST['sugges_desc']);
 	
 	$insert = 'INSERT INTO suggesstion_items ("Item_Title","Item_Desc") VALUES (\''.$sug_title.'\',\''.$sug_desc.'\')';
+	echo ($insert);
+	die();
 	$insert_result = pg_query($insert) or die('Query failed: ' . pg_last_error());
 }
 
@@ -112,7 +114,7 @@ $(document).ready(function() {
 			</div>
 			<!-- Suggestion Form -->
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="suggestion_form" style="display:none">
-				<form style="display:none;padding: 10px;" method="POST" action="">
+				<form method="POST" action="" style="display:none; padding: 10px;">
 					<h3>Post Your Suggestion Here : </h3>
 					<div class="form-group">
 					  <input type="text" class="form-control" name="sugges_title" required id="" placeholder="Item Title">
