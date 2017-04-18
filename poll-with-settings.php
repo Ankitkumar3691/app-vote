@@ -56,7 +56,7 @@ include 'config.php';
 #sugges_btn {
 	cursor: pointer;
 	display:table;
-	width:100%
+	width:100%;
     border-radius: 5px;
     margin-top: 20px;
     background-image: url(http://app.upvoteapp.com/images/arrow_drop.png);
