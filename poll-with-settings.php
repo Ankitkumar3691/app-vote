@@ -55,7 +55,14 @@ include 'config.php';
 }
 #sugges_btn{
 	cursor: pointer;
+	display:table;
+	width:100%
+    border-radius: 5px;
+    margin-top: 20px;
+    background-image: url(images\arrow_drop.png);
+    background-position: top right;
 }
+
 </style>
 <script type="text/javascript">
 <?php echo $k; ?>;
@@ -95,13 +102,13 @@ $(document).ready(function() {
 			</div>
 			<!-- Suggestion Form -->
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="suggestion_form" style="display:none">
-				<form style="display:none">
-					<h2>Post Your Suggestion Here : </h2>
+				<form style="display:none" method="POST" action="">
+					<h3>Post Your Suggestion Here : </h3>
 					<div class="form-group">
-					  <input type="text" class="form-control" required id="" placeholder="Item Title">
+					  <input type="text" class="form-control" name="sugges_title" required id="" placeholder="Item Title">
 					</div>
 					<div class="form-group">
-					  <textarea class="form-control" required id="" placeholder="Item Description"></textarea>
+					  <textarea class="form-control" name="sugges_desc" required id="" placeholder="Item Description"></textarea>
 					</div>
 					<center><button type="submit" class="btn btn-default">Make Suggestion</button></center>
 				</form>
