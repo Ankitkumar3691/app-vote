@@ -69,7 +69,6 @@ $(window).load(function() {
 		$('#suggestion_form').show();
 	}
 	else {
-		$('#suggestion_form').hide();
 	}
 });
 </script>	
@@ -91,7 +90,7 @@ $(window).load(function() {
 				</div>
 			</div>
 			<!-- Suggestion Form -->
-			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="suggestion_form" >
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="suggestion_form" style="display:none">
 				<form>
 					<h2>Post Your Suggestion Here : </h2>
 					<div class="form-group">
