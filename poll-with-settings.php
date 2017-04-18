@@ -51,19 +51,18 @@ include 'config.php';
 }
 #suggestion_form {
     background: #d9edf7 none repeat scroll 0 0;
-    padding: 0 10px 10px;
+	border-radius: 5px;
+	margin-top: 20px;
 }
 #sugges_btn {
 	cursor: pointer;
 	display:table;
 	width:100%;
-    border-radius: 5px;
-    margin-top: 20px;
     background-image: url(http://app.upvoteapp.com/images/arrow_drop.png);
-    background-position: top right;
+    background-position: center right;
 	background-repeat: no-repeat;
+	padding: 10px;
 }
-
 </style>
 <script type="text/javascript">
 <?php echo $k; ?>;
