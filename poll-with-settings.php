@@ -49,6 +49,10 @@ include 'config.php';
     background: <?php echo($l);?>!important;
     border-color: <?php echo($l);?>!important;;
 }
+#suggestion_form {
+    background: #d9edf7 none repeat scroll 0 0;
+    padding: 10px;
+}
 </style>
 <script type="text/javascript">
 <?php echo $k; ?>;
@@ -66,17 +70,17 @@ $(document).ready(function() {
 		<!-- Suggestion Form -->
 			<div id="suggestion_form">
 				<form>
+					<h2>Post Your Suggestion Here : </h2>
 					<div class="form-group">
-					  <label>Item Title:</label>
-					  <input type="text" class="form-control" id="" placeholder="Item Title">
+					  <input type="text" class="form-control" required id="" placeholder="Item Title">
 					</div>
 					<div class="form-group">
-					  <label>Description:</label>
-					  <input type="text" class="form-control" id="" placeholder="Item Description">
+					  <input type="text" class="form-control" required id="" placeholder="Item Description">
 					</div>
-					<button type="submit" class="btn btn-default">Make Suggestion</button>
+					<center><button type="submit" class="btn btn-default">Make Suggestion</button></center>
 				</form>
 			</div>
+			
 			<!-- Show Logo -->
 			<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
 				<div id="show-image">
