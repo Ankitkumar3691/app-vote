@@ -66,6 +66,16 @@ $(document).ready(function(){
 	var my_req = <?php echo $m; ?>;
 	alert (my_req);
 	alert ('Work');	
+});
+
+$(document).ready(function() {
+ // executes when HTML-Document is loaded and DOM is ready
+ alert("document is ready");
+});
+
+$(window).load(function() {
+ // executes when complete page is fully loaded, including all frames, objects and images
+ alert("window is loaded");
 });	
 </script>	
 </head>
