@@ -106,7 +106,7 @@ if(isset($_GET['id']))
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 <script>
 $(document).ready(function(){
-    $(".bootstrap-switch-container span").click(function(){
+    $(".User_Request .bootstrap-switch-container span").click(function(){
         $("#request_options ul").toggle();
     });
 });
@@ -192,7 +192,7 @@ $(document).ready(function(){
 							</div>	
 							<div class="col-md-6 col-sm-12 col-xs-12 bt-switch">
 								<div class="m-b-30">
-								<center id="User_Request"><h3>Accept User Requests : </h3>
+								<center class="User_Request"><h3>Accept User Requests : </h3>
 									<input type="checkbox" name="user_req" checked data-size="normal" value="Yes" data-on-text="Enable" data-off-text="Disabled"/>
 									</center>
 								</div>
