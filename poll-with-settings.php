@@ -24,6 +24,15 @@ include 'config.php';
 		$l= $row["Active_Count_BG"];
 		$m= $row["User_Request"];		
 	}
+	
+if(isset($_POST['submit'])){
+	
+	$sug_title = pg_escape_string($_GET['sugges_title']);
+	$sug_desc = pg_escape_string($_POST['sugges_desc-title']);
+	
+	$insert = 'INSERT INTO suggesstion_items ("Item_Title","Item_Desc") VALUES (\''.$sug_title.'\',\''.$sug_desc.'\')';
+	$insert_result = pg_query($insert) or die('Query failed: ' . pg_last_error());
+}	
 ?>
 <!DOCTYPE html>
 <html lang="en">
