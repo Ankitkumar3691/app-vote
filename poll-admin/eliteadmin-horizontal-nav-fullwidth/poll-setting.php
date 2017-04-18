@@ -106,7 +106,7 @@ if(isset($_GET['id']))
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 <script>
 $(document).ready(function(){
-    $(".bootstrap-switch-label").click(function(){
+    $(".bootstrap-switch-id-User_Request").click(function(){
         $("#request_options ul").toggle();
     });
 });
@@ -197,11 +197,11 @@ $(document).ready(function(){
 									</center>
 								</div>
 								<div id="request_options">
-									<ul>Option 1 : When request is submitted, do the following:	
-										<li>Publish immediately</li>
-										<li>Make pending until poll moderator approves</li></ul>
-									<ul>Option 2 : When request is submitted, notify the following email addresses:	
-										<li><input type="text" name="" placeholder="Enter Email"/></li></ul>
+									<ul><h4>Option 1 : When request is submitted, do the following:	</h4>
+										<li><h5>Publish immediately</h5></li>
+										<li><h5>Make pending until poll moderator approves</h5></li></ul>
+									<ul><h4>Option 2 : When request is submitted, notify the following email addresses:	</h4>
+										<input type="text" name="" placeholder="Enter Email"/></ul>
 								</div>	
 							</div>								
 							<div class="col-md-12 col-sm-12 col-xs-12">							
