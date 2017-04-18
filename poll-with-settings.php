@@ -21,6 +21,7 @@ include 'config.php';
 		$i= $row["Count_Text_Color"];		
 		$j= $row["Status_Option"];		
 		$k= $row["Custom_Javascript"];	
+		$l= $row["Active_Count_BG"];		
 	}
 ?>
 <!DOCTYPE html>
@@ -42,6 +43,10 @@ include 'config.php';
 #poll_status {
     color: #fff;
     float: right;
+}
+.toggled{
+    background: <?php echo($l);?>;
+    border-color: <?php echo($l);?>;
 }
 </style>
 <script type="text/javascript">
