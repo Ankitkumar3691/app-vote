@@ -63,6 +63,20 @@ $(document).ready(function() {
 
 	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 main">
 		<div class="container">
+		<!-- Suggestion Form -->
+			<div id="suggestion_form">
+				<form>
+					<div class="form-group">
+					  <label>Item Title:</label>
+					  <input type="text" class="form-control" id="" placeholder="Item Title">
+					</div>
+					<div class="form-group">
+					  <label>Description:</label>
+					  <input type="text" class="form-control" id="" placeholder="Item Description">
+					</div>
+					<button type="submit" class="btn btn-default">Make Suggestion</button>
+				</form>
+			</div>
 			<!-- Show Logo -->
 			<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
 				<div id="show-image">
