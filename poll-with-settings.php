@@ -102,7 +102,7 @@ $(document).ready(function() {
 			</div>
 			<!-- Suggestion Form -->
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="suggestion_form" style="display:none">
-				<form style="display:none" method="POST" action="">
+				<form style="display:none;padding: 10px;" method="POST" action="">
 					<h3>Post Your Suggestion Here : </h3>
 					<div class="form-group">
 					  <input type="text" class="form-control" name="sugges_title" required id="" placeholder="Item Title">
