@@ -70,7 +70,8 @@ $(document).ready(function() {
 			<!-- Show Logo -->
 			<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
 				<div id="show-image">
-					<img src="http://app.upvoteapp.com/poll-admin/eliteadmin-horizontal-nav-fullwidth/<?php echo ($a); ?>" style="width: 100%;">
+					<img src="images\Shopified_App_Logo.png" style="width: 100%;">
+					<!--img src="http://app.upvoteapp.com/poll-admin/eliteadmin-horizontal-nav-fullwidth/<!?php echo ($a); ?>" style="width: 100%;"-->
 				</div>	
 			</div>
 			<div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
@@ -79,7 +80,7 @@ $(document).ready(function() {
 				</div>
 			</div>
 			<!-- Suggestion Form -->
-			<div id="suggestion_form">
+			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" id="suggestion_form">
 				<form>
 					<h2>Post Your Suggestion Here : </h2>
 					<div class="form-group">
