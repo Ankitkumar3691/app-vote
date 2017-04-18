@@ -64,9 +64,11 @@ $(document).ready(function() {
 
 $(document).ready(function() {
 	var my_req = "<?php echo $m; ?>";
-	alert (my_req);
+	//alert (my_req);
 	if (my_req == 'Yes'){
-		$("#suggestion_form").css("display", "block !important");
+			alert (my_req);
+		//$("#suggestion_form").css("display", "block !important");
+		$('#suggestion_form').show();
 	}
 });
 </script>	
