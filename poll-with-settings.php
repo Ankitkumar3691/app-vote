@@ -55,7 +55,6 @@ include 'config.php';
 }
 </style>
 <script type="text/javascript">
-<?php echo $k; ?>;
 $(document).ready(function() {
 	var my_req = <?php echo $m; ?>;
 	alert (my_req);
