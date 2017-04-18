@@ -64,8 +64,9 @@ $(document).ready(function() {
 
 $(window).load(function() {
 	var my_req = <?php echo $m; ?>;
+	var my_result = 'Yes';
 	alert (my_req);
-	if (my_req == 'Yes'){
+	if (my_req == my_result){
 		$("#suggestion_form").css("display", "block !important");
 	}
 });
