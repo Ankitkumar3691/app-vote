@@ -62,7 +62,7 @@ $(document).ready(function() {
 	});
 });
 
-$(window).load(function() {
+$(document).ready(function() {
 	var my_req = <?php echo $m; ?>;
 	var my_result = 'Yes';
 	alert (my_req);
