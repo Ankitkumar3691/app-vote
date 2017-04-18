@@ -191,9 +191,9 @@ $(document).ready(function(){
 								</div>	
 							</div>	
 							<div class="col-md-6 col-sm-12 col-xs-12 bt-switch">
-								<div class="m-b-30">
+								<div class="m-b-30" id="User_Request">
 								<center><h3>Accept User Requests : </h3>
-									<input type="checkbox" id="User_Request" name="user_req" checked data-size="normal" value="Yes" data-on-text="Enable" data-off-text="Disabled"/>
+									<input type="checkbox" name="user_req" checked data-size="normal" value="Yes" data-on-text="Enable" data-off-text="Disabled"/>
 									</center>
 								</div>
 								<div id="request_options">
