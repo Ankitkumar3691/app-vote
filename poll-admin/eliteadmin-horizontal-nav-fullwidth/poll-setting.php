@@ -106,7 +106,7 @@ if(isset($_GET['id']))
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 <script>
 $(document).ready(function(){
-    $(".bootstrap-switch-container").click(function(){
+    $(".bootstrap-switch-container span").click(function(){
         $("#request_options ul").toggle();
     });
 });
