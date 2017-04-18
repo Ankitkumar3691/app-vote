@@ -51,7 +51,7 @@ include 'config.php';
 }
 #suggestion_form {
     background: #d9edf7 none repeat scroll 0 0;
-    padding: 10px;
+    padding: 0 10px 10px;
 }
 </style>
 <script type="text/javascript">
@@ -67,20 +67,6 @@ $(document).ready(function() {
 
 	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 main">
 		<div class="container">
-		<!-- Suggestion Form -->
-			<div id="suggestion_form">
-				<form>
-					<h2>Post Your Suggestion Here : </h2>
-					<div class="form-group">
-					  <input type="text" class="form-control" required id="" placeholder="Item Title">
-					</div>
-					<div class="form-group">
-					  <input type="text" class="form-control" required id="" placeholder="Item Description">
-					</div>
-					<center><button type="submit" class="btn btn-default">Make Suggestion</button></center>
-				</form>
-			</div>
-			
 			<!-- Show Logo -->
 			<div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
 				<div id="show-image">
@@ -92,6 +78,19 @@ $(document).ready(function() {
 					<h3></h3>
 				</div>
 			</div>
+			<!-- Suggestion Form -->
+			<div id="suggestion_form">
+				<form>
+					<h2>Post Your Suggestion Here : </h2>
+					<div class="form-group">
+					  <input type="text" class="form-control" required id="" placeholder="Item Title">
+					</div>
+					<div class="form-group">
+					  <input type="text" class="form-control" required id="" placeholder="Item Description">
+					</div>
+					<center><button type="submit" class="btn btn-default">Make Suggestion</button></center>
+				</form>
+			</div>			
 			<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
 				<div class="heading">
 					<h1 style="color:<?php echo ($e);?>;"><?php echo ($b);?></h1>
