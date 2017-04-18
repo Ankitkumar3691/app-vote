@@ -12,7 +12,7 @@ if(isset($_POST['submit'])){
 	$insert_result = pg_query($insert) or die('Query failed: ' . pg_last_error());
 }
 
-	$p_id= 1;
+	$p_id= 2;
 	
 	$query = 'SELECT * from poll_setting where poll_setting."Poll_id" = \''.$p_id.'\'';
 	
@@ -136,7 +136,7 @@ $(document).ready(function() {
 <?php
 include 'config.php';
 
-$poll= 1;
+$poll= 2;
 	
 $query = 'SELECT * from vote where vote."poll_id" = \''.$poll.'\' ORDER BY vote."Id"';
 $result = pg_query($query) or die('Query failed: ' . pg_last_error());	
