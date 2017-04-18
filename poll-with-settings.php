@@ -62,21 +62,16 @@ $(document).ready(function() {
 	});
 });
 
-$(document).ready(function(){
+$(window).load(function() {
 	var my_req = <?php echo $m; ?>;
 	alert (my_req);
-	alert ('Work');	
+	if (my_req == 'Yes'){
+		$('#suggestion_form').show();
+	}
+	else {
+		$('#suggestion_form').hide();
+	}
 });
-
-$(document).ready(function() {
- // executes when HTML-Document is loaded and DOM is ready
- alert("document is ready");
-});
-
-$(window).load(function() {
- // executes when complete page is fully loaded, including all frames, objects and images
- alert("window is loaded");
-});	
 </script>	
 </head>
 <body style="background-color:<?php echo($c);?>!important;">
