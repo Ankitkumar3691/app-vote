@@ -1,15 +1,6 @@
 <?php
 include 'config.php';
 
-if(isset($_POST['submit'])){
-	
-	$sug_title = pg_escape_string($_POST['sugges_title']);
-	$sug_desc = pg_escape_string($_POST['sugges_desc']);
-	
-	$insert = 'INSERT INTO suggesstion_items ("Item_Title","Item_Desc") VALUES (\''.$sug_title.'\',\''.$sug_desc.'\')';
-	$insert_result = pg_query($insert) or die('Query failed: ' . pg_last_error());
-}
-
 	$p_id= 1;
 	
 	$query = 'SELECT * from poll_setting where poll_setting."Poll_id" = \''.$p_id.'\'';
@@ -32,8 +23,19 @@ if(isset($_POST['submit'])){
 		$k= $row["Custom_Javascript"];	
 		$l= $row["Active_Count_BG"];
 		$m= $row["User_Request"];		
+		$n= $row["Publish_Option"];		
+		$o= $row["Suggest_Email"];		
 	}
-		
+
+if(isset($_POST['submit'])){
+	
+	$sug_title = pg_escape_string($_POST['sugges_title']);
+	$sug_desc = pg_escape_string($_POST['sugges_desc']);
+	
+	$insert = 'INSERT INTO vote ("Question", "Count_num", "Quest_Desc", "user_name", "poll_id") VALUES (\''.$sug_title.'\',0, \''.$sug_desc.'\', , \''.$p_id.'\')';
+	$insert_result = pg_query($insert_result) or die('Query failed: ' . pg_last_error());		
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
