@@ -29,7 +29,7 @@ include 'config.php';
 
 if(isset($_POST['submit'])){
 	
-	if ($n = "Publish") {
+	if ($n == Publish) {
 	
 	$p_id= 1;
 	$count_code=0;
@@ -37,31 +37,13 @@ if(isset($_POST['submit'])){
 	$sug_title = pg_escape_string($_POST['sugges_title']);
 	$sug_desc = pg_escape_string($_POST['sugges_desc']);
 	
-	$insert = 'INSERT INTO vote ("Question", "Count_num", "Quest_Desc","poll_id") VALUES (\''.$sug_title.'\',\''.$count_code.'\',\''.$sug_desc.'\',\''.$p_id.'\')';
-	$insert_result = pg_query($insert) or die('Query failed: ' . pg_last_error());
+	print $sug_title;
+	die();
+	//$insert = 'INSERT INTO vote ("Question", "Count_num", "Quest_Desc","poll_id") VALUES (\''.$sug_title.'\',\''.$count_code.'\',\''.$sug_desc.'\',\''.$p_id.'\')';
+	//$insert_result = pg_query($insert) or die('Query failed: ' . pg_last_error());
 	}
 	
-	//Send Email to Poll Admin
-// the message
-//$msg = "Hi, An User ".$fname." has created the account on your Hydrofloss Store.";
-$message = '<html><body>';
-$message .= '<h2>Hi..</h2>';
-$message .= '<p>A new request has been submitted for '.$b.'</p><br />';
-$message .= '<p>Details below: </p>';
-$message .= '<p>'.$sug_title.'</p>';
-$message .= '<p>'.$sug_desc.'</p>';
-$message .= '<p> Thank You';
-$message .= '</body></html>';
 
-// To send HTML mail, the Content-type header must be set
-
-$headers  = 'MIME-Version: 1.0' . "\r\n";
-$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-
-// send email
-//mail("helpdesk@hydrofloss.com","User Account",$message,$headers);
-mail($o,"Poll Request",$message,$headers);
-	
 }
 ?>
 <!DOCTYPE html>
