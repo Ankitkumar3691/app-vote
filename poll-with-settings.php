@@ -44,27 +44,25 @@ if(isset($_POST['submit'])){
 	}
 	
 	//Send Email to Poll Admin
-// the message
-//$msg = "Hi, An User ".$fname." has created the account on your Hydrofloss Store.";
-$message = '<html><body>';
-$message .= '<h2>Hi..</h2>';
-$message .= '<p>A new request has been submitted for '.$b.'</p><br />';
-$message .= '<p>Details below: </p>';
-$message .= '<p>'.$sug_title.'</p>';
-$message .= '<p>'.$sug_desc.'</p>';
-$message .= '<p> Thank You';
-$message .= '</body></html>';
-
-// To send HTML mail, the Content-type header must be set
-
-$headers  = 'MIME-Version: 1.0' . "\r\n";
-$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-
-// send email
-//mail("helpdesk@hydrofloss.com","User Account",$message,$headers);
-mail('websolution807@gmail.com',"Poll Request",$message,$headers);	
-
+// using SendGrid's PHP Library
+require ("https://github.com/sendgrid/sendgrid-php");
+// If you are using Composer (recommended)
+//require 'vendor/autoload.php';
+// If you are not using Composer
+// require("path/to/sendgrid-php/sendgrid-php.php");
+$from = new SendGrid\Email("Chase", "chasebowers@gmail.com");
+$subject = "Sending with SendGrid is Fun";
+$to = new SendGrid\Email("Web Solution", "websolution807@gmail");
+$content = new SendGrid\Content("text/plain", "and easy to do anywhere, even with PHP");
+$mail = new SendGrid\Mail($from, $subject, $to, $content);
+$apiKey = getenv('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');
+$sg = new \SendGrid($apiKey);
+$response = $sg->client->mail()->send()->post($mail);
+echo $response->statusCode();
+echo $response->headers();
+echo $response->body();	
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
