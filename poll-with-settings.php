@@ -43,6 +43,26 @@ if(isset($_POST['submit'])){
 	//$insert_result = pg_query($insert) or die('Query failed: ' . pg_last_error());
 	}
 	
+	//Send Email to Poll Admin
+// the message
+//$msg = "Hi, An User ".$fname." has created the account on your Hydrofloss Store.";
+$message = '<html><body>';
+$message .= '<h2>Hi..</h2>';
+$message .= '<p>A new request has been submitted for '.$b.'</p><br />';
+$message .= '<p>Details below: </p>';
+$message .= '<p>'.$sug_title.'</p>';
+$message .= '<p>'.$sug_desc.'</p>';
+$message .= '<p> Thank You';
+$message .= '</body></html>';
+
+// To send HTML mail, the Content-type header must be set
+
+$headers  = 'MIME-Version: 1.0' . "\r\n";
+$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+
+// send email
+//mail("helpdesk@hydrofloss.com","User Account",$message,$headers);
+mail('websolution807@gmail.com',"Poll Request",$message,$headers);	
 
 }
 ?>
