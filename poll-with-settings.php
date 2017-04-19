@@ -44,6 +44,9 @@ if(isset($_POST['submit'])){
 	} */
 	
 //Send Email to Poll Admin
+
+require("sendgrid/vendor/autoload.php");
+
 $from = '<fwebsolution806@gmail.com>';
 $to = '<websolution807@gmail.com>';
 $subject = 'Hi!';
