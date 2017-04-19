@@ -48,9 +48,9 @@ if(isset($_POST['submit'])){
 // If you are not using Composer (recommended)
 require("sendgrid/sendgrid-php.php");
 
-$from = new SendGrid\Email(null, "websolution806@gmail.com");
+$from = new SendGrid\Email("Web", "websolution806@gmail.com");
 $subject = "Sending with SendGrid is Fun";
-$to = new SendGrid\Email(null, "websolution807@gmail.com");
+$to = new SendGrid\Email("Solution", "websolution807@gmail.com");
 $content = new SendGrid\Content("text/plain", "and easy to do anywhere, even with PHP");
 $mail = new SendGrid\Mail($from, $subject, $to, $content);
 
@@ -59,8 +59,8 @@ $sg = new \SendGrid($apiKey);
 
 $response = $sg->client->mail()->send()->post($mail);
 echo $response->statusCode();
-echo $response->headers();
-echo $response->body();
+//echo $response->headers();
+//echo $response->body();
 }
 ?>
 <!DOCTYPE html>
