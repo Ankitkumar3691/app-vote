@@ -56,7 +56,7 @@ $mail->Username = 'postmaster@appbba12625d0304f9d9e35d8557e45a732.mailgun.org'; 
 $mail->Password = '18fc37ce99fa9b0f80a33a744fbaa276';                           // SMTP password
 $mail->SMTPSecure = 'tls';                            // Enable encryption, only 'tls' is accepted
 
-$mail->From = 'appbba12625d0304f9d9e35d8557e45a732.mailgun.org';
+$mail->From = 'websolution806@gmail.com';
 $mail->FromName = 'Mailer';
 $mail->addAddress('websolution807@gmail.com');                 // Add a recipient
 
