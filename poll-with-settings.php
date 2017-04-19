@@ -54,7 +54,7 @@ $to = new SendGrid\Email("Solution", "websolution807@gmail.com");
 $content = new SendGrid\Content("text/plain", "and easy to do anywhere, even with PHP");
 $mail = new SendGrid\Mail($from, $subject, $to, $content);
 
-$apiKey = getenv('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');
+$apiKey = getenv('TDK6bBiZTBKsNbVLGglFLg.-nAf8u05OLXnL-mtfz5QU3rc1uEYWmwqnwNyzMRdjwo');
 $sg = new \SendGrid($apiKey);
 
 $response = $sg->client->mail()->send()->post($mail);
