@@ -29,7 +29,7 @@ include 'config.php';
 
 if(isset($_POST['submit'])){
 	
-	if ($n == Publish) {
+	/* if ($n == Publish) {
 	
 	$p_id= 1;
 	$count_code=0;
@@ -39,9 +39,9 @@ if(isset($_POST['submit'])){
 	
 	print $sug_title;
 	die();
-	//$insert = 'INSERT INTO vote ("Question", "Count_num", "Quest_Desc","poll_id") VALUES (\''.$sug_title.'\',\''.$count_code.'\',\''.$sug_desc.'\',\''.$p_id.'\')';
-	//$insert_result = pg_query($insert) or die('Query failed: ' . pg_last_error());
-	}
+	$insert = 'INSERT INTO vote ("Question", "Count_num", "Quest_Desc","poll_id") VALUES (\''.$sug_title.'\',\''.$count_code.'\',\''.$sug_desc.'\',\''.$p_id.'\')';
+	$insert_result = pg_query($insert) or die('Query failed: ' . pg_last_error());
+	} */
 	
 	//Send Email to Poll Admin
 // using SendGrid's PHP Library
@@ -49,18 +49,22 @@ if(isset($_POST['submit'])){
 // If you are using Composer (recommended)
 //require 'vendor/autoload.php';
 // If you are not using Composer
+// If you are not using Composer (recommended)
 require("/sendgrid/sendgrid-php.php");
-$from = new SendGrid\Email("Chase", "chasebowers@gmail.com");
-$subject = "Sending with SendGrid is Fun";
-$to = new SendGrid\Email("Web Solution", "websolution807@gmail");
-$content = new SendGrid\Content("text/plain", "and easy to do anywhere, even with PHP");
+
+$from = new SendGrid\Email(null, "test@example.com");
+$subject = "Hello World from the SendGrid PHP Library!";
+$to = new SendGrid\Email(null, "websolution807@gmail");
+$content = new SendGrid\Content("text/plain", "Hello, Email!");
 $mail = new SendGrid\Mail($from, $subject, $to, $content);
+
 $apiKey = getenv('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');
 $sg = new \SendGrid($apiKey);
+
 $response = $sg->client->mail()->send()->post($mail);
 echo $response->statusCode();
 echo $response->headers();
-echo $response->body();	
+echo $response->body();
 }
 
 ?>
