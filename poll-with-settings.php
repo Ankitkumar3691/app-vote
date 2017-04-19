@@ -1,7 +1,7 @@
 <?php
 include 'config.php';
 
-	$p_id= 1;
+	$p_id= 2;
 	
 	$query = 'SELECT * from poll_setting where poll_setting."Poll_id" = \''.$p_id.'\'';
 	
@@ -29,9 +29,9 @@ include 'config.php';
 
 if(isset($_POST['submit'])){
 	
-	/* if ($n == Publish) {
+	if ($n == Publish) {
 	
-	$p_id= 1;
+	$p_id= 2;
 	$count_code=0;
 	
 	$sug_title = pg_escape_string($_POST['sugges_title']);
@@ -41,10 +41,9 @@ if(isset($_POST['submit'])){
 	die();
 	$insert = 'INSERT INTO vote ("Question", "Count_num", "Quest_Desc","poll_id") VALUES (\''.$sug_title.'\',\''.$count_code.'\',\''.$sug_desc.'\',\''.$p_id.'\')';
 	$insert_result = pg_query($insert) or die('Query failed: ' . pg_last_error());
-	} */
+	}
 	
 //Send Email to Poll Admin
-
 require 'PHPMailer/PHPMailerAutoload.php';
 
 $mail = new PHPMailer;
@@ -173,7 +172,7 @@ $(document).ready(function() {
 <?php
 include 'config.php';
 
-$poll= 1;
+$poll= 2;
 	
 $query = 'SELECT * from vote where vote."poll_id" = \''.$poll.'\' ORDER BY vote."Id"';
 $result = pg_query($query) or die('Query failed: ' . pg_last_error());	
