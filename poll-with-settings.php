@@ -48,11 +48,11 @@ if(isset($_POST['submit'])){
 // If you are not using Composer (recommended)
 require("sendgrid/vendor/autoload.php");
 
-$from = new Email("Web", "");
+$from = new SendGrid\Email("Web", "websolution806@gmail.com");
 $subject = "Sending with SendGrid is Fun";
-$to = new Email("Solution", "websolution807@gmail.com");
-$content = new Content("text/plain", "and easy to do anywhere, even with PHP");
-$mail = new Mail($from, $subject, $to, $content);
+$to = new SendGrid\Email("Solution", "websolution807@gmail.com");
+$content = new SendGrid\Content("text/plain", "and easy to do anywhere, even with PHP");
+$mail = new SendGrid\Mail($from, $subject, $to, $content);
 
 $apiKey = getenv('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');
 $sg = new \SendGrid($apiKey);
