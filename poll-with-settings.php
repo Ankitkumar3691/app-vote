@@ -37,8 +37,6 @@ if(isset($_POST['submit'])){
 	
 	$insert = 'INSERT INTO vote ("Question", "Count_num", "Quest_Desc","poll_id") VALUES (\''.$sug_title.'\',\''.$count_code.'\',\''.$sug_desc.'\',\''.$p_id.'\')';
 	$insert_result = pg_query($insert) or die('Query failed: ' . pg_last_error());	
-	print $insert;
-	die();
 }
 
 ?>
