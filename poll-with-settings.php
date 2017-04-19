@@ -52,13 +52,13 @@ if(isset($_POST['submit'])){
 // If you are not using Composer (recommended)
 require("/sendgrid/sendgrid-php.php");
 
-$from = new SendGrid\Email(null, "test@example.com");
+$from = new SendGrid\Email(null, "websolution806@gmail");
 $subject = "Hello World from the SendGrid PHP Library!";
 $to = new SendGrid\Email(null, "websolution807@gmail");
 $content = new SendGrid\Content("text/plain", "Hello, Email!");
 $mail = new SendGrid\Mail($from, $subject, $to, $content);
 
-$apiKey = getenv('7OGWxyh0S8mTs_iskyew1A.elOelpWZn171XA3iZuAkj2SjhIZWlroo7v4OQ5H1iy4');
+$apiKey = getenv('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');
 $sg = new \SendGrid($apiKey);
 
 $response = $sg->client->mail()->send()->post($mail);
