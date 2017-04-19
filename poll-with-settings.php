@@ -34,7 +34,7 @@ if(isset($_POST['submit'])){
 	$sug_title = pg_escape_string($_POST['sugges_title']);
 	$sug_desc = pg_escape_string($_POST['sugges_desc']);
 	
-	$insert = 'INSERT INTO vote ("Question", "Count_num", "Quest_Desc", "user_name", "poll_id") VALUES (\''.$sug_title.'\',0,\''.$sug_desc.'\', , \''.$p_id.'\')';
+	$insert = 'INSERT INTO vote ("Question", "Count_num", "Quest_Desc", "user_name", "poll_id") VALUES (\''.$sug_title.'\',"0",\''.$sug_desc.'\', , \''.$p_id.'\')';
 	$insert_result = pg_query($insert) or die('Query failed: ' . pg_last_error());		
 }
 
