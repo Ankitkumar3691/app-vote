@@ -46,7 +46,7 @@ if(isset($_POST['submit'])){
 //Send Email to Poll Admin
 
 // If you are not using Composer (recommended)
-require("/sendgrid/sendgrid-php.php");
+require("sendgrid/sendgrid-php.php");
 
 $from = new Email(null, "websolution806@gmail.com");
 $subject = "Hello World from the SendGrid PHP Library";
