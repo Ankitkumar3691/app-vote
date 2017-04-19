@@ -58,7 +58,7 @@ $mail->SMTPSecure = 'tls';                            // Enable encryption, only
 
 $mail->From = 'websolution806@gmail.com';
 $mail->FromName = 'Mailer';
-$mail->addAddress('websolution807@gmail.com');                 // Add a recipient
+$mail->addAddress($o);                 // Add a recipient
 
 $mail->WordWrap = 50;                                 // Set word wrap to 50 characters
 
