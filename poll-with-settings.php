@@ -45,23 +45,32 @@ if(isset($_POST['submit'])){
 	
 //Send Email to Poll Admin
 
-// Using Awesome https://github.com/PHPMailer/PHPMailer
+require 'PHPMailer/PHPMailerAutoload.php';
 
-# Include the Autoloader (see "Libraries" for install instructions)
-require 'vendor/autoload.php';
-use Mailgun\Mailgun;
+$mail = new PHPMailer;
 
-# Instantiate the client.
-$mgClient = new Mailgun('1bf78a7e59a26e3d13c5768e1e5771bd');
-$domain = "appbba12625d0304f9d9e35d8557e45a732.mailgun.org";
+$mail->isSMTP();                                      // Set mailer to use SMTP
+$mail->Host = 'smtp.mailgun.org';                     // Specify main and backup SMTP servers
+$mail->SMTPAuth = true;                               // Enable SMTP authentication
+$mail->Username = 'postmaster@appbba12625d0304f9d9e35d8557e45a732.mailgun.org';   // SMTP username
+$mail->Password = '18fc37ce99fa9b0f80a33a744fbaa276';                           // SMTP password
+$mail->SMTPSecure = 'tls';                            // Enable encryption, only 'tls' is accepted
 
-# Make the call to the client.
-$result = $mgClient->sendMessage($domain, array(
-    'from'    => 'Excited User <postmaster@appbba12625d0304f9d9e35d8557e45a732.mailgun.org>',
-    'to'      => 'Baz <websolution807@gmail.com>',
-    'subject' => 'Hello',
-    'text'    => 'Testing some Mailgun awesomness!'
-));
+$mail->From = 'appbba12625d0304f9d9e35d8557e45a732.mailgun.org';
+$mail->FromName = 'Mailer';
+$mail->addAddress('websolution807@gmail.com');                 // Add a recipient
+
+$mail->WordWrap = 50;                                 // Set word wrap to 50 characters
+
+$mail->Subject = 'Hello';
+$mail->Body    = 'Testing some Mailgun awesomness';
+
+if(!$mail->send()) {
+    echo 'Message could not be sent.';
+    echo 'Mailer Error: ' . $mail->ErrorInfo;
+} else {
+    echo 'Message has been sent';
+}
 
 }
 ?>
