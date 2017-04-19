@@ -45,11 +45,11 @@ if(isset($_POST['submit'])){
 	
 	//Send Email to Poll Admin
 // using SendGrid's PHP Library
-require ("https://github.com/sendgrid/sendgrid-php");
+//require("https://github.com/sendgrid/sendgrid-php");
 // If you are using Composer (recommended)
 //require 'vendor/autoload.php';
 // If you are not using Composer
-// require("path/to/sendgrid-php/sendgrid-php.php");
+require("/sendgrid/sendgrid-php.php");
 $from = new SendGrid\Email("Chase", "chasebowers@gmail.com");
 $subject = "Sending with SendGrid is Fun";
 $to = new SendGrid\Email("Web Solution", "websolution807@gmail");
