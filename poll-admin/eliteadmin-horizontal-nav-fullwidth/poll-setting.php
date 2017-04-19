@@ -44,9 +44,6 @@ if(isset($_POST['submit'])){
 		$update = 'UPDATE poll_setting SET "Poll_id"= \''.$poll_id.'\', "Logo_Path"= \''.$uploadfile.'\', "Poll_Title"= \''.$poll_title.'\', "Page_Bg_Color"= \''.$page_background.'\', "Poll_Bg_Color"= \''.$poll_background.'\', "Poll_Title_Color"= \''.$title_color.'\', "Poll_Item_Color"= \''.$item_color.'\', "Description_Color"= \''.$desc_color.'\', "Count_BG_Color"= \''.$count_back_color.'\', "Count_Text_Color"= \''.$count_text_color.'\', "Status_Option"= \''.$poll_display_st.'\', "User_Subscribe"= \''.$user_subs.'\', "Custom_Javascript"= \''.$cus_jscript.'\', "Active_Count_BG"= \''.$active_color.'\', "User_Request"= \''.$user_request.'\', "Publish_Option"= \''.$sug_item_request.'\', "Suggest_Email"= \''.$sug_email.'\' where poll_setting."Poll_id" = \''.$poll_id.'\'';	
 		
 		$update_result = pg_query($update) or die('Query failed: ' . pg_last_error());
-		print $update;
-		die();
-		 
 	} 
 	else {
 		// Insert New Poll Settings
