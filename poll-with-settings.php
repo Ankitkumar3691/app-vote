@@ -46,7 +46,10 @@ if(isset($_POST['submit'])){
 //Send Email to Poll Admin
 
 // If you are not using Composer (recommended)
-require("/sendgrid/vendor/autoload.php");
+//require("/sendgrid/vendor/autoload.php");
+
+// using SendGrid's PHP Library
+https://github.com/sendgrid/sendgrid-php
 
 $from = new SendGrid\Email("", "websolution806@gmail.com");
 $subject = "Sending with SendGrid is Fun";
@@ -61,7 +64,6 @@ $response = $sg->client->mail()->send()->post($mail);
 echo $response->statusCode();
 echo $response->headers();
 echo $response->body();
-echo "Work";
 }
 ?>
 <!DOCTYPE html>
