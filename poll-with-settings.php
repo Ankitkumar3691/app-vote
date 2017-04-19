@@ -7,9 +7,9 @@ if(isset($_POST['submit'])){
 	$sug_desc = pg_escape_string($_POST['sugges_desc']);
 	
 	$insert = 'INSERT INTO suggesstion_items ("Item_Title","Item_Desc") VALUES (\''.$sug_title.'\',\''.$sug_desc.'\')';
-	print ($insert);
-	die();
 	$insert_result = pg_query($insert) or die('Query failed: ' . pg_last_error());
+	print $insert;
+	die();
 }
 
 	$p_id= 1;
