@@ -43,30 +43,41 @@ if(isset($_POST['submit'])){
 	$insert_result = pg_query($insert) or die('Query failed: ' . pg_last_error());
 	} */
 	
-	//Send Email to Poll Admin
-// using SendGrid's PHP Library
-//require("https://github.com/sendgrid/sendgrid-php");
-// If you are using Composer (recommended)
-//require 'vendor/autoload.php';
-// If you are not using Composer
-// If you are not using Composer (recommended)
-require("/sendgrid/sendgrid-php.php");
+//Send Email to Poll Admin
 
-$from = new SendGrid\Email(null, "websolution806@gmail");
-$subject = "Hello World from the SendGrid PHP Library!";
-$to = new SendGrid\Email(null, "websolution807@gmail");
-$content = new SendGrid\Content("text/plain", "Hello, Email!");
-$mail = new SendGrid\Mail($from, $subject, $to, $content);
+// If you are not using Composer (recommended)
+require("http://app.upvoteapp.com/sendgrid/sendgrid-php.php");
+
+$request_body = json_decode('{
+  "personalizations": [
+    {
+      "to": [
+        {
+          "email": "websolution807@gmail"
+        }
+      ],
+      "subject": "Hello World from the SendGrid PHP Library!"
+    }
+  ],
+  "from": {
+    "email": "websolution806@gmail"
+  },
+  "content": [
+    {
+      "type": "text/plain",
+      "value": "Hello, Email!"
+    }
+  ]
+}');
 
 $apiKey = getenv('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');
 $sg = new \SendGrid($apiKey);
 
-$response = $sg->client->mail()->send()->post($mail);
+$response = $sg->client->mail()->send()->post($request_body);
 echo $response->statusCode();
-echo $response->headers();
 echo $response->body();
+echo $response->headers();
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
