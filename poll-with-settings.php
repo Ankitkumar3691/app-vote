@@ -45,34 +45,13 @@ if(isset($_POST['submit'])){
 	
 //Send Email to Poll Admin
 
-require("https://github.com/PHPMailer/PHPMailer");
-
-$from = '<f5d95ef8f7-4f908c@inbox.mailtrap.io>';
-$to = '<websolution807@gmail.com>';
-$subject = 'Hi!';
-$body = "Hi,\n\nHow are you?";
-
-$headers = array(
-    'From' => $from,
-    'To' => $to,
-    'Subject' => $subject
-);
-
-$smtp = Email::configTransport('mailtrap', [
-  'host' => 'smtp.mailtrap.io',
-  'port' => 2525,
-  'username' => '20369eb42e7149',
-  'password' => '42b8e28a821bcc',
-  'className' => 'Smtp'
-]);
-	
-$mail = $smtp->send($to, $headers, $body);
-
-if (PEAR::isError($mail)) {
-    echo('<p>' . $mail->getMessage() . '</p>');
-} else {
-    echo('<p>Message successfully sent!</p>');
-}  
+curl -s --user 'api:1bf78a7e59a26e3d13c5768e1e5771bd' \
+    https://api.mailgun.net/v3/appbba12625d0304f9d9e35d8557e45a732.mailgun.org \
+    -F from='Excited User <postmaster@appbba12625d0304f9d9e35d8557e45a732.mailgun.org>' \
+    -F to=websolution807@gmail.com \
+    -F to=bar@example.com \
+    -F subject='Hello' \
+    -F text='Testing some Mailgun awesomness!'		
 
 }
 ?>
