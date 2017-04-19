@@ -122,7 +122,7 @@ $(document).ready(function() {
 					<div class="form-group">
 					  <textarea class="form-control" name="sugges_desc" required id="" placeholder="Item Description"></textarea>
 					</div>
-					<center><button type="submit" class="btn btn-default">Make Suggestion</button></center>
+					<center><input class="btn btn-default" type="submit" name="submit" value="Make Suggestion"></center>
 				</form>
 				<div id="sugges_btn"><h3>Make a suggestion</h3></div>
 			</div>			
