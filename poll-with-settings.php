@@ -45,13 +45,23 @@ if(isset($_POST['submit'])){
 	
 //Send Email to Poll Admin
 
-curl -s --user 'api:1bf78a7e59a26e3d13c5768e1e5771bd' \
-    https://api.mailgun.net/v3/appbba12625d0304f9d9e35d8557e45a732.mailgun.org \
-    -F from='Excited User <postmaster@appbba12625d0304f9d9e35d8557e45a732.mailgun.org>' \
-    -F to=websolution807@gmail.com \
-    -F to=bar@example.com \
-    -F subject='Hello' \
-    -F text='Testing some Mailgun awesomness!'		
+// Using Awesome https://github.com/PHPMailer/PHPMailer
+
+# Include the Autoloader (see "Libraries" for install instructions)
+require 'vendor/autoload.php';
+use Mailgun\Mailgun;
+
+# Instantiate the client.
+$mgClient = new Mailgun('1bf78a7e59a26e3d13c5768e1e5771bd');
+$domain = "appbba12625d0304f9d9e35d8557e45a732.mailgun.org";
+
+# Make the call to the client.
+$result = $mgClient->sendMessage($domain, array(
+    'from'    => 'Excited User <postmaster@appbba12625d0304f9d9e35d8557e45a732.mailgun.org>',
+    'to'      => 'Baz <websolution807@gmail.com>',
+    'subject' => 'Hello',
+    'text'    => 'Testing some Mailgun awesomness!'
+));
 
 }
 ?>
