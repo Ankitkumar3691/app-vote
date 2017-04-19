@@ -46,13 +46,13 @@ if(isset($_POST['submit'])){
 //Send Email to Poll Admin
 
 // If you are not using Composer (recommended)
-require("sendgrid/sendgrid-php.php");
+require("sendgrid/vendor/autoload.php");
 
-$from = new SendGrid\Email("Web", "websolution806@gmail.com");
+$from = new Email("Web", "");
 $subject = "Sending with SendGrid is Fun";
-$to = new SendGrid\Email("Solution", "websolution807@gmail.com");
-$content = new SendGrid\Content("text/plain", "and easy to do anywhere, even with PHP");
-$mail = new SendGrid\Mail($from, $subject, $to, $content);
+$to = new Email("Solution", "websolution807@gmail.com");
+$content = new Content("text/plain", "and easy to do anywhere, even with PHP");
+$mail = new Mail($from, $subject, $to, $content);
 
 $apiKey = getenv('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');
 $sg = new \SendGrid($apiKey);
@@ -60,7 +60,7 @@ $sg = new \SendGrid($apiKey);
 $response = $sg->client->mail()->send()->post($mail);
 echo $response->statusCode();
 echo $response->headers();
-echo $response->body();
+//echo $response->body();
 }
 ?>
 <!DOCTYPE html>
