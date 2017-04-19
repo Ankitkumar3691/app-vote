@@ -8,8 +8,6 @@ if(isset($_POST['submit'])){
 	
 	$insert = 'INSERT INTO suggesstion_items ("Item_Title","Item_Desc") VALUES (\''.$sug_title.'\',\''.$sug_desc.'\')';
 	$insert_result = pg_query($insert) or die('Query failed: ' . pg_last_error());
-	print $insert;
-	die();
 }
 
 	$p_id= 1;
