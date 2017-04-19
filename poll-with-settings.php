@@ -45,9 +45,9 @@ if(isset($_POST['submit'])){
 	
 //Send Email to Poll Admin
 
-require("sendgrid/vendor/autoload.php");
+require("https://github.com/PHPMailer/PHPMailer");
 
-$from = '<fwebsolution806@gmail.com>';
+$from = '<f5d95ef8f7-4f908c@inbox.mailtrap.io>';
 $to = '<websolution807@gmail.com>';
 $subject = 'Hi!';
 $body = "Hi,\n\nHow are you?";
