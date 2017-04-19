@@ -19,6 +19,7 @@ if(isset($_POST['submit'])){
 	$cus_jscript = pg_escape_string($_POST['cus_js']);
 	$active_color = pg_escape_string($_POST['active_count_color']);
 	$user_request = pg_escape_string($_POST['user_req']);
+	$sug_item_request = pg_escape_string($_POST['req_option']);
 
 	// Poll Logo Upload and Show
 	$uploaddir = 'poll-logo/';
@@ -39,14 +40,14 @@ if(isset($_POST['submit'])){
 	if ($rows == 1) {
 		
 		// Update Exiting Poll Settings
-		$update = 'UPDATE poll_setting SET "Poll_id"= \''.$poll_id.'\', "Logo_Path"= \''.$uploadfile.'\', "Poll_Title"= \''.$poll_title.'\', "Page_Bg_Color"= \''.$page_background.'\', "Poll_Bg_Color"= \''.$poll_background.'\', "Poll_Title_Color"= \''.$title_color.'\', "Poll_Item_Color"= \''.$item_color.'\', "Description_Color"= \''.$desc_color.'\', "Count_BG_Color"= \''.$count_back_color.'\', "Count_Text_Color"= \''.$count_text_color.'\', "Status_Option"= \''.$poll_display_st.'\', "User_Subscribe"= \''.$user_subs.'\', "Custom_Javascript"= \''.$cus_jscript.'\', "Active_Count_BG"= \''.$active_color.'\', "User_Request"= \''.$user_request.'\' where poll_setting."Poll_id" = \''.$poll_id.'\'';	
+		$update = 'UPDATE poll_setting SET "Poll_id"= \''.$poll_id.'\', "Logo_Path"= \''.$uploadfile.'\', "Poll_Title"= \''.$poll_title.'\', "Page_Bg_Color"= \''.$page_background.'\', "Poll_Bg_Color"= \''.$poll_background.'\', "Poll_Title_Color"= \''.$title_color.'\', "Poll_Item_Color"= \''.$item_color.'\', "Description_Color"= \''.$desc_color.'\', "Count_BG_Color"= \''.$count_back_color.'\', "Count_Text_Color"= \''.$count_text_color.'\', "Status_Option"= \''.$poll_display_st.'\', "User_Subscribe"= \''.$user_subs.'\', "Custom_Javascript"= \''.$cus_jscript.'\', "Active_Count_BG"= \''.$active_color.'\', "User_Request"= \''.$user_request.'\', "Publish_Option"= \''.$sug_item_request.'\' where poll_setting."Poll_id" = \''.$poll_id.'\'';	
 		
 		$update_result = pg_query($update) or die('Query failed: ' . pg_last_error());
 		 
 	} 
 	else {
 		// Insert New Poll Settings
-		$insert = 'INSERT INTO poll_setting ("Poll_id","Logo_Path","Poll_Title","Page_Bg_Color","Poll_Bg_Color","Poll_Title_Color","Poll_Item_Color","Description_Color","Count_BG_Color","Count_Text_Color","Status_Option","User_Subscribe","Custom_Javascript","Active_Count_BG","User_Request") VALUES (\''.$poll_id.'\',\''.$uploadfile.'\',\''.$poll_title.'\',\''.$page_background.'\',\''.$poll_background.'\',\''.$title_color.'\',\''.$item_color.'\',\''.$desc_color.'\',\''.$count_back_color.'\',\''.$count_text_color.'\',\''.$poll_display_st.'\',\''.$user_subs.'\',\''.$cus_jscript.'\',\''.$active_color.'\',\''.$user_request.'\')';
+		$insert = 'INSERT INTO poll_setting ("Poll_id","Logo_Path","Poll_Title","Page_Bg_Color","Poll_Bg_Color","Poll_Title_Color","Poll_Item_Color","Description_Color","Count_BG_Color","Count_Text_Color","Status_Option","User_Subscribe","Custom_Javascript","Active_Count_BG","User_Request","Publish_Option") VALUES (\''.$poll_id.'\',\''.$uploadfile.'\',\''.$poll_title.'\',\''.$page_background.'\',\''.$poll_background.'\',\''.$title_color.'\',\''.$item_color.'\',\''.$desc_color.'\',\''.$count_back_color.'\',\''.$count_text_color.'\',\''.$poll_display_st.'\',\''.$user_subs.'\',\''.$cus_jscript.'\',\''.$active_color.'\',\''.$user_request.'\',\''.$sug_item_request.'\')';
 		$insert_result = pg_query($insert) or die('Query failed: ' . pg_last_error());
 	}
 } 
@@ -199,10 +200,10 @@ $(document).ready(function(){
 									</center>
 								</div>
 								<div id="request_options">
-									<ul><h4>Option 1 : When request is submitted, do the following:	</h4>
-										<li><h5>Publish immediately</h5></li>
-										<li><h5>Make pending until poll moderator approves</h5></li></ul>
-									<ul><h4>Option 2 : When request is submitted, notify the following email addresses:	</h4>
+									<ul><h4>When request is submitted, do the following:</h4>
+										<input name="req_option" value="Publish" type="radio"> Publish immediately<br>
+										<input name="req_option" value="Pending" type="radio"> Make pending until poll moderator approves</ul>
+									<ul><h4>When request is submitted, notify the following email addresses:	</h4>
 										<input type="text" name="" placeholder="Enter Email"/></ul>
 								</div>	
 							</div>								
