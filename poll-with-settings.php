@@ -45,22 +45,40 @@ if(isset($_POST['submit'])){
 	
 //Send Email to Poll Admin
 
-// If you are not using Composer (recommended)
-require("sendgrid/vendor/autoload.php");
+Email::configTransport('mailtrap', [
+  'host' => 'smtp.mailtrap.io',
+  'port' => 2525,
+  'username' => '20369eb42e7149',
+  'password' => '42b8e28a821bcc',
+  'className' => 'Smtp'
+]);	
 
-$from = new SendGrid\Email("Web", "websolution806@gmail.com");
-$subject = "Sending with SendGrid is Fun";
-$to = new SendGrid\Email("Solution", "websolution807@gmail.com");
-$content = new SendGrid\Content("text/plain", "and easy to do anywhere, even with PHP");
-$mail = new SendGrid\Mail($from, $subject, $to, $content);
+ $from = "Sandra <websolution806@gmail.com>";
+ $to = "Web <websolution806@gmail.com>";
+ $subject = "Hi!";
+ $body = "Hi,\n\nHow are you?";
+ 
+ $host = "smtp.mailtrap.io";
+ $username = "20369eb42e7149";
+ $password = "42b8e28a821bcc";
+ 
+ $headers = array ('From' => $from,
+   'To' => $to,
+   'Subject' => $subject);
+ $smtp = Mail::factory('smtp',
+   array ('host' => $host,
+     'auth' => true,
+     'username' => $username,
+     'password' => $password));
+ 
+ $mail = $smtp->send($to, $headers, $body);
+ 
+ if (PEAR::isError($mail)) {
+   echo("<p>" . $mail->getMessage() . "</p>");
+  } else {
+   echo("<p>Message successfully sent!</p>");
+  }
 
-$apiKey = getenv('TDK6bBiZTBKsNbVLGglFLg.-nAf8u05OLXnL-mtfz5QU3rc1uEYWmwqnwNyzMRdjwo');
-$sg = new \SendGrid($apiKey);
-
-$response = $sg->client->mail()->send()->post($mail);
-echo $response->statusCode();
-echo $response->headers();
-echo $response->body();
 }
 ?>
 <!DOCTYPE html>
