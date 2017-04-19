@@ -44,40 +44,32 @@ if(isset($_POST['submit'])){
 	} */
 	
 //Send Email to Poll Admin
+$from = '<fwebsolution806@gmail.com>';
+$to = '<websolution807@gmail.com>';
+$subject = 'Hi!';
+$body = "Hi,\n\nHow are you?";
 
-Email::configTransport('mailtrap', [
+$headers = array(
+    'From' => $from,
+    'To' => $to,
+    'Subject' => $subject
+);
+
+$smtp = Email::configTransport('mailtrap', [
   'host' => 'smtp.mailtrap.io',
   'port' => 2525,
   'username' => '20369eb42e7149',
   'password' => '42b8e28a821bcc',
   'className' => 'Smtp'
-]);	
+]);
+	
+$mail = $smtp->send($to, $headers, $body);
 
- $from = "Sandra <websolution806@gmail.com>";
- $to = "Web <websolution806@gmail.com>";
- $subject = "Hi!";
- $body = "Hi,\n\nHow are you?";
- 
- $host = "smtp.mailtrap.io";
- $username = "20369eb42e7149";
- $password = "42b8e28a821bcc";
- 
- $headers = array ('From' => $from,
-   'To' => $to,
-   'Subject' => $subject);
- $smtp = Mail::factory('smtp',
-   array ('host' => $host,
-     'auth' => true,
-     'username' => $username,
-     'password' => $password));
- 
- $mail = $smtp->send($to, $headers, $body);
- 
- if (PEAR::isError($mail)) {
-   echo("<p>" . $mail->getMessage() . "</p>");
-  } else {
-   echo("<p>Message successfully sent!</p>");
-  }
+if (PEAR::isError($mail)) {
+    echo('<p>' . $mail->getMessage() . '</p>');
+} else {
+    echo('<p>Message successfully sent!</p>');
+}  
 
 }
 ?>
