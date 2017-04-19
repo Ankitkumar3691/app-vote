@@ -46,37 +46,22 @@ if(isset($_POST['submit'])){
 //Send Email to Poll Admin
 
 // If you are not using Composer (recommended)
-require("http://app.upvoteapp.com/sendgrid/sendgrid-php.php");
+require("/sendgrid/sendgrid-php.php");
 
-$request_body = json_decode('{
-  "personalizations": [
-    {
-      "to": [
-        {
-          "email": "websolution807@gmail"
-        }
-      ],
-      "subject": "Hello World from the SendGrid PHP Library!"
-    }
-  ],
-  "from": {
-    "email": "websolution806@gmail"
-  },
-  "content": [
-    {
-      "type": "text/plain",
-      "value": "Hello, Email!"
-    }
-  ]
-}');
+$from = new SendGrid\Email("", "websolution806@gmail.com");
+$subject = "Sending with SendGrid is Fun";
+$to = new SendGrid\Email("", "websolution807@gmail.com");
+$content = new SendGrid\Content("text/plain", "and easy to do anywhere, even with PHP");
+$mail = new SendGrid\Mail($from, $subject, $to, $content);
 
-$apiKey = getenv('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');
+$apiKey = getenv('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');
 $sg = new \SendGrid($apiKey);
 
-$response = $sg->client->mail()->send()->post($request_body);
+$response = $sg->client->mail()->send()->post($mail);
 echo $response->statusCode();
-echo $response->body();
 echo $response->headers();
+echo $response->body();
+echo "Work";
 }
 ?>
 <!DOCTYPE html>
