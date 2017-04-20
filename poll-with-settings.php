@@ -163,7 +163,7 @@ while ($row = pg_fetch_array($result)) {
 	//echo '<pre>';
 	//print_r ($row);
 ?>
-				<div class="list" id="<?php echo $row['Id']?>">
+				<div class="list">
 					<div id="show_status" style="display:<?php echo $row['Item_Response'];?>"><p><?php echo $row['Item_Status']?></p></div>
 					<div class="toggle">
 						<div class="total" style="background-color:<?php echo($h);?>;">
