@@ -31,7 +31,7 @@ include 'config.php';
 // Send Suggestion Box Data into Database
 if(isset($_POST['submit'])){
 	
-	/* if ($n == Publish) {
+	if ($n == Publish) {
 	
 	$p_id= 1;
 	$count_code=0;
@@ -39,11 +39,9 @@ if(isset($_POST['submit'])){
 	$sug_title = pg_escape_string($_POST['sugges_title']);
 	$sug_desc = pg_escape_string($_POST['sugges_desc']);
 	
-	print $sug_title;
-	die();
-	$insert = 'INSERT INTO vote ("Question", "Count_num", "Quest_Desc","poll_id") VALUES (\''.$sug_title.'\',\''.$count_code.'\',\''.$sug_desc.'\',\''.$p_id.'\')';
-	$insert_result = pg_query($insert) or die('Query failed: ' . pg_last_error());
-	} */
+	//$insert = 'INSERT INTO vote ("Question", "Count_num", "Quest_Desc","poll_id") VALUES (\''.$sug_title.'\',\''.$count_code.'\',\''.$sug_desc.'\',\''.$p_id.'\')';
+	//$insert_result = pg_query($insert) or die('Query failed: ' . pg_last_error());
+	} 
 	
 	//Send Email to Poll Admin
 	require 'PHPMailer/PHPMailerAutoload.php';
@@ -63,8 +61,8 @@ if(isset($_POST['submit'])){
 
 	$mail->WordWrap = 50;                                 // Set word wrap to 50 characters
 
-	$mail->Subject = 'Hello';
-	$mail->Body    = 'Testing some Mailgun awesomness';
+	$mail->Subject = 'Poll Request';
+	$mail->Body    = '<h3>A new request has been submitted for '.$b.' poll.</h3><br /> Details below : <br /> '.$sug_title. '<br />'.$sug_desc. '';
 
 	if(!$mail->send()) {
 		echo 'Message could not be sent.';
