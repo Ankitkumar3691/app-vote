@@ -1,6 +1,7 @@
 <?php
 include 'config.php';
 
+// Getting Poll Settings Options Data
 	$p_id= 1;
 	
 	$query = 'SELECT * from poll_setting where poll_setting."Poll_id" = \''.$p_id.'\'';
@@ -27,6 +28,7 @@ include 'config.php';
 		$o= $row["Suggest_Email"];		
 	}
 
+// Send Suggestion Box Data into Database
 if(isset($_POST['submit'])){
 	
 	/* if ($n == Publish) {
@@ -46,6 +48,7 @@ if(isset($_POST['submit'])){
 
 
 }
+	
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -84,6 +87,9 @@ if(isset($_POST['submit'])){
     background-position: center right;
 	background-repeat: no-repeat;
 	padding: 10px;
+}
+#show_status {
+    display: none;
 }
 </style>
 <script type="text/javascript">
@@ -158,7 +164,7 @@ while ($row = pg_fetch_array($result)) {
 	//print_r ($row);
 ?>
 				<div class="list" id="<?php echo $row['Id']?>">
-					<div id="show_status"><p><?php echo $row['Item_Status']?></p></div>
+					<div id="show_status" style="display:<?php echo $row['Item_Response'];?>"><p><?php echo $row['Item_Status']?></p></div>
 					<div class="toggle">
 						<div class="total" style="background-color:<?php echo($h);?>;">
 							<span class="icon"><img src="images\arrow.png"> </span>
