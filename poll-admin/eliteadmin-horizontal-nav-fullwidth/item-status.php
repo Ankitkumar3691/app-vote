@@ -13,15 +13,12 @@ include ('config.php');
 	<meta name="description" content="">
 	<meta name="author" content="">
 	<link rel="icon" type="image/png" sizes="16x16" href="../plugins/images/favicon.png">
-	<title>Poll Setting</title>
+	<title>Item Status</title>
 	<!-- Bootstrap Core CSS -->
 	<link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
 	<link href="../plugins/bower_components/bootstrap-switch/bootstrap-switch.min.css" rel="stylesheet">
 	<!-- Menu CSS -->
 	<link href="../plugins/bower_components/sidebar-nav/dist/sidebar-nav.min.css" rel="stylesheet">
-	<link rel="stylesheet" href="../plugins/bower_components/dropify/dist/css/dropify.min.css">
-	<!-- Color picker plugins css -->
-	<link href="../plugins/bower_components/jquery-asColorPicker-master/css/asColorPicker.css" rel="stylesheet">
 	<!-- toast CSS -->
 	<link href="../plugins/bower_components/toast-master/css/jquery.toast.css" rel="stylesheet">
 	<!-- morris CSS -->
@@ -109,19 +106,6 @@ $(document).ready(function(){
 <script src="../plugins/bower_components/jquery-sparkline/jquery.sparkline.min.js"></script>
 <script src="../plugins/bower_components/jquery-sparkline/jquery.charts-sparkline.js"></script>
 <script src="../plugins/bower_components/toast-master/js/jquery.toast.js"></script>
-<!-- Color Picker Plugin JavaScript -->
-<script src="../plugins/bower_components/jquery-asColorPicker-master/libs/jquery-asColor.js"></script>
-<script src="../plugins/bower_components/jquery-asColorPicker-master/libs/jquery-asGradient.js"></script>
-<script src="../plugins/bower_components/jquery-asColorPicker-master/dist/jquery-asColorPicker.min.js"></script>
-<script>
-$(".colorpicker").asColorPicker();
-$(".complex-colorpicker").asColorPicker({
-    mode: 'complex'
-});
-$(".gradient-colorpicker").asColorPicker({
-    mode: 'gradient'
-});
-</script>
 <!-- bt-switch -->
 <script src="../plugins/bower_components/bootstrap-switch/bootstrap-switch.min.js"></script>
 <script type="text/javascript">
