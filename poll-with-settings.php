@@ -1,7 +1,7 @@
 <?php
 include 'config.php';
 
-	$p_id= 2;
+	$p_id= 1;
 	
 	$query = 'SELECT * from poll_setting where poll_setting."Poll_id" = \''.$p_id.'\'';
 	
@@ -29,9 +29,9 @@ include 'config.php';
 
 if(isset($_POST['submit'])){
 	
-	if ($n == Publish) {
+	/* if ($n == Publish) {
 	
-	$p_id= 2;
+	$p_id= 1;
 	$count_code=0;
 	
 	$sug_title = pg_escape_string($_POST['sugges_title']);
@@ -41,35 +41,35 @@ if(isset($_POST['submit'])){
 	die();
 	$insert = 'INSERT INTO vote ("Question", "Count_num", "Quest_Desc","poll_id") VALUES (\''.$sug_title.'\',\''.$count_code.'\',\''.$sug_desc.'\',\''.$p_id.'\')';
 	$insert_result = pg_query($insert) or die('Query failed: ' . pg_last_error());
-	}
+	} */
 	
-//Send Email to Poll Admin
-require 'PHPMailer/PHPMailerAutoload.php';
+	//Send Email to Poll Admin
+	require 'PHPMailer/PHPMailerAutoload.php';
 
-$mail = new PHPMailer;
+	$mail = new PHPMailer;
 
-$mail->isSMTP();                                      // Set mailer to use SMTP
-$mail->Host = 'smtp.mailgun.org';                     // Specify main and backup SMTP servers
-$mail->SMTPAuth = true;                               // Enable SMTP authentication
-$mail->Username = 'postmaster@appbba12625d0304f9d9e35d8557e45a732.mailgun.org';   // SMTP username
-$mail->Password = '18fc37ce99fa9b0f80a33a744fbaa276';                           // SMTP password
-$mail->SMTPSecure = 'tls';                            // Enable encryption, only 'tls' is accepted
+	$mail->isSMTP();                                      // Set mailer to use SMTP
+	$mail->Host = 'smtp.mailgun.org';                     // Specify main and backup SMTP servers
+	$mail->SMTPAuth = true;                               // Enable SMTP authentication
+	$mail->Username = 'postmaster@appbba12625d0304f9d9e35d8557e45a732.mailgun.org';   // SMTP username
+	$mail->Password = '18fc37ce99fa9b0f80a33a744fbaa276';                           // SMTP password
+	$mail->SMTPSecure = 'tls';                            // Enable encryption, only 'tls' is accepted
 
-$mail->From = 'websolution806@gmail.com';
-$mail->FromName = 'Mailer';
-$mail->addAddress($o);                 // Add a recipient
+	$mail->From = 'websolution806@gmail.com';
+	$mail->FromName = 'Mailer';
+	$mail->addAddress($o);                 // Add a recipient
 
-$mail->WordWrap = 50;                                 // Set word wrap to 50 characters
+	$mail->WordWrap = 50;                                 // Set word wrap to 50 characters
 
-$mail->Subject = 'Hello';
-$mail->Body    = 'Testing some Mailgun awesomness';
+	$mail->Subject = 'Hello';
+	$mail->Body    = 'Testing some Mailgun awesomness';
 
-if(!$mail->send()) {
-    echo 'Message could not be sent.';
-    echo 'Mailer Error: ' . $mail->ErrorInfo;
-} else {
-    echo 'Message has been sent';
-}
+	if(!$mail->send()) {
+		echo 'Message could not be sent.';
+		echo 'Mailer Error: ' . $mail->ErrorInfo;
+	} else {
+		echo 'Message has been sent';
+	}
 
 }
 ?>
@@ -172,7 +172,7 @@ $(document).ready(function() {
 <?php
 include 'config.php';
 
-$poll= 2;
+$poll= 1;
 	
 $query = 'SELECT * from vote where vote."poll_id" = \''.$poll.'\' ORDER BY vote."Id"';
 $result = pg_query($query) or die('Query failed: ' . pg_last_error());	
