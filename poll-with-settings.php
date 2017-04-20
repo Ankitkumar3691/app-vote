@@ -157,7 +157,7 @@ while ($row = pg_fetch_array($result)) {
 	//echo '<pre>';
 	//print_r ($row);
 ?>
-				<div class="list">
+				<div class="list" id="<?php echo $row['Id']?>">
 					<div id="show_status"><p><?php echo $row['Item_Status']?></p></div>
 					<div class="toggle">
 						<div class="total" style="background-color:<?php echo($h);?>;">
