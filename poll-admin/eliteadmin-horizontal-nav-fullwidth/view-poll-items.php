@@ -64,6 +64,7 @@ include('left-sidebar.php');
 				  <th>Counts</th>
 				  <th>Poll Item Description</th>
 				  <th>Action</th>
+				  <th>Setting</th>
 				</tr>
 				</thead>			
 				<tbody>
@@ -80,7 +81,7 @@ $result = pg_query($sql) or die('Query failed: ' . pg_last_error());
 
 	while ($row = pg_fetch_array($result)) {	
 		$id= $row["Id"];
-        echo "<tr id='$id'><td>" . $row["Id"]. "</td><td>" . $row["Question"]. "</td><td>" . $row["Count_num"]. "</td><td>" . $row["Quest_Desc"] . "</td><td>" ."<a href='http://app.upvoteapp.com/poll-admin/eliteadmin-horizontal-nav-fullwidth/update-poll-item.php?id=$id'><img src='edit_one.png' alt='Edit'/></a>"  ."&nbsp;/&nbsp;<a href='http://app.upvoteapp.com/poll-admin/eliteadmin-horizontal-nav-fullwidth/delete-poll-item.php?id=$id'><img src='close.png' alt='Delete'/></a>"  ."</td></tr>";
+        echo "<tr id='$id'><td>" . $row["Id"]. "</td><td>" . $row["Question"]. "</td><td>" . $row["Count_num"]. "</td><td>" . $row["Quest_Desc"] . "</td><td>" ."<a href='http://app.upvoteapp.com/poll-admin/eliteadmin-horizontal-nav-fullwidth/update-poll-item.php?id=$id'><img src='edit_one.png' alt='Edit'/></a>"  ."&nbsp;/&nbsp;<a href='http://app.upvoteapp.com/poll-admin/eliteadmin-horizontal-nav-fullwidth/delete-poll-item.php?id=$id'><img src='close.png' alt='Delete'/></a>"  ."</td><td>" ."<a href='#?id=$id'>Item Status</a>". "</td></tr>";
     }
 ?>
 				</tbody>
@@ -91,6 +92,7 @@ $result = pg_query($sql) or die('Query failed: ' . pg_last_error());
 					  <th>Counts</th>
 					  <th>Poll Item Description</th>
 					  <th>Action</th>
+					  <th>Setting</th>
 					</tr>
 				</tfoot>	
 			</table>
