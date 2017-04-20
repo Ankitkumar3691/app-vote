@@ -45,7 +45,33 @@ if(isset($_POST['submit'])){
 	$insert_result = pg_query($insert) or die('Query failed: ' . pg_last_error());
 	} */
 	
+	//Send Email to Poll Admin
+	require 'PHPMailer/PHPMailerAutoload.php';
 
+	$mail = new PHPMailer;
+
+	$mail->isSMTP();                                      // Set mailer to use SMTP
+	$mail->Host = 'smtp.mailgun.org';                     // Specify main and backup SMTP servers
+	$mail->SMTPAuth = true;                               // Enable SMTP authentication
+	$mail->Username = 'upvoteapp@appbba12625d0304f9d9e35d8557e45a732.mailgun.org';   // SMTP username
+	$mail->Password = '25kd87ec99fA7l0f80A55A744dhss984';                           // SMTP password
+	$mail->SMTPSecure = 'tls';                            // Enable encryption, only 'tls' is accepted
+
+	$mail->From = 'websolution806@gmail.com';
+	$mail->FromName = 'Mailer';
+	$mail->addAddress($o);                 // Add a recipient
+
+	$mail->WordWrap = 50;                                 // Set word wrap to 50 characters
+
+	$mail->Subject = 'Hello';
+	$mail->Body    = 'Testing some Mailgun awesomness';
+
+	if(!$mail->send()) {
+		echo 'Message could not be sent.';
+		echo 'Mailer Error: ' . $mail->ErrorInfo;
+	} else {
+		echo 'Message has been sent';
+	}
 
 }
 	
