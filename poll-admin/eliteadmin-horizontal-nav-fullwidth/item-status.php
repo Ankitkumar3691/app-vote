@@ -92,7 +92,7 @@ $(document).ready(function(){
 							<div class="col-md-6 col-sm-12 col-xs-12 bt-switch">
 								<div class="m-b-30">
 								<center class="Status_Request"><h3>Item Status : </h3>
-									<input type="checkbox" name="item_sts" checked data-size="normal" value="Show" data-on-text="Show" data-off-text="Hidden"/>
+									<input type="checkbox" name="item_sts" checked data-size="normal" value="block" data-on-text="Show" data-off-text="Hidden"/>
 									</center>
 								</div>
 								<div id="enter_status">
