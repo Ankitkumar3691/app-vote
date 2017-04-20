@@ -49,6 +49,7 @@ if(isset($_POST['submit'])){
 	$mail = new PHPMailer;
 
 	$mail->isSMTP();                                      // Set mailer to use SMTP
+	$mail->isHTML(true);
 	$mail->Host = 'smtp.mailgun.org';                     // Specify main and backup SMTP servers
 	$mail->SMTPAuth = true;                               // Enable SMTP authentication
 	$mail->Username = 'postmaster@appbba12625d0304f9d9e35d8557e45a732.mailgun.org';   // SMTP username
@@ -62,7 +63,10 @@ if(isset($_POST['submit'])){
 	$mail->WordWrap = 50;                                 // Set word wrap to 50 characters
 
 	$mail->Subject = 'Poll Request';
-	$mail->Body    = '<h3>A new request has been submitted for '.$b.' poll.</h3><br /> Details below : <br /> '.$sug_title. '<br />'.$sug_desc. '';
+	$mail->Body    = '<h3>A new request has been submitted for '.$b.' poll.</h3><br /> 
+					<h3>Details below : <br /> 
+					'.$sug_title. '<br />
+					'.$sug_desc.'</h3>';
 
 	if(!$mail->send()) {
 		echo 'Message could not be sent.';
