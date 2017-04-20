@@ -43,33 +43,7 @@ if(isset($_POST['submit'])){
 	$insert_result = pg_query($insert) or die('Query failed: ' . pg_last_error());
 	} */
 	
-	//Send Email to Poll Admin
-	require 'PHPMailer/PHPMailerAutoload.php';
 
-	$mail = new PHPMailer;
-
-	$mail->isSMTP();                                      // Set mailer to use SMTP
-	$mail->Host = 'smtp.mailgun.org';                     // Specify main and backup SMTP servers
-	$mail->SMTPAuth = true;                               // Enable SMTP authentication
-	$mail->Username = 'postmaster@appbba12625d0304f9d9e35d8557e45a732.mailgun.org';   // SMTP username
-	$mail->Password = '18fc37ce99fa9b0f80a33a744fbaa276';                           // SMTP password
-	$mail->SMTPSecure = 'tls';                            // Enable encryption, only 'tls' is accepted
-
-	$mail->From = 'websolution806@gmail.com';
-	$mail->FromName = 'Mailer';
-	$mail->addAddress($o);                 // Add a recipient
-
-	$mail->WordWrap = 50;                                 // Set word wrap to 50 characters
-
-	$mail->Subject = 'Hello';
-	$mail->Body    = 'Testing some Mailgun awesomness';
-
-	if(!$mail->send()) {
-		echo 'Message could not be sent.';
-		echo 'Mailer Error: ' . $mail->ErrorInfo;
-	} else {
-		echo 'Message has been sent';
-	}
 
 }
 ?>
@@ -184,6 +158,7 @@ while ($row = pg_fetch_array($result)) {
 	//print_r ($row);
 ?>
 				<div class="list">
+					<div id="show_status"><p><?php echo $row['Item_Status']?></p></div>
 					<div class="toggle">
 						<div class="total" style="background-color:<?php echo($h);?>;">
 							<span class="icon"><img src="images\arrow.png"> </span>
