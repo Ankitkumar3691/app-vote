@@ -60,8 +60,6 @@ $(document).ready(function(){
 				  <h4 class="page-title">Poll Item Status</h4>
 				</div>
 				<div class="col-md-12 col-sm-12 col-xs-12">
-					<!-- Logo Upload -->
-					<div id="poll-settings">
 						<form method="POST" action="" enctype="multipart/form-data">
 							<div class="col-md-6 col-sm-12 col-xs-12 bt-switch">
 								<div class="m-b-30">
@@ -78,7 +76,6 @@ $(document).ready(function(){
 								<center><input id="setting_submit" type="submit" name="submit" value="Save"></center>
 							</div>
 						</form>
-					</div>
 				</div>
 				<!-- /.col-lg-12 -->
 				<?php include('right-sidebar.php');?>
@@ -124,50 +121,6 @@ $(".complex-colorpicker").asColorPicker({
 $(".gradient-colorpicker").asColorPicker({
     mode: 'gradient'
 });
-</script>
-<!-- jQuery file upload -->
-<script src="../plugins/bower_components/dropify/dist/js/dropify.min.js"></script>
-<script>
-            $(document).ready(function(){
-                // Basic
-                $('.dropify').dropify();
-
-                // Translated
-                $('.dropify-fr').dropify({
-                    messages: {
-                        default: 'Glissez-déposez un fichier ici ou cliquez',
-                        replace: 'Glissez-déposez un fichier ou cliquez pour remplacer',
-                        remove:  'Supprimer',
-                        error:   'Désolé, le fichier trop volumineux'
-                    }
-                });
-
-                // Used events
-                var drEvent = $('#input-file-events').dropify();
-
-                drEvent.on('dropify.beforeClear', function(event, element){
-                    return confirm("Do you really want to delete \"" + element.file.name + "\" ?");
-                });
-
-                drEvent.on('dropify.afterClear', function(event, element){
-                    alert('File deleted');
-                });
-
-                drEvent.on('dropify.errors', function(event, element){
-                    console.log('Has Errors');
-                });
-
-                var drDestroy = $('#input-file-to-destroy').dropify();
-                drDestroy = drDestroy.data('dropify')
-                $('#toggleDropify').on('click', function(e){
-                    e.preventDefault();
-                    if (drDestroy.isDropified()) {
-                        drDestroy.destroy();
-                    } else {
-                        drDestroy.init();
-                    }
-                })
-            });
 </script>
 <!-- bt-switch -->
 <script src="../plugins/bower_components/bootstrap-switch/bootstrap-switch.min.js"></script>
