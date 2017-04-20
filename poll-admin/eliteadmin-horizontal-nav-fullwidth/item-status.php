@@ -3,7 +3,7 @@ include('session.php');
 
 include ('config.php');	
 
-if(isset($_POST['Submit'])){
+if(isset($_POST['submit'])){
 	
 	$id= pg_escape_string($_GET['id']);	
 	$sts= pg_escape_string($_POST['item_sts']);
