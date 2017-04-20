@@ -33,7 +33,7 @@ include ('config.php');
 <script>
 $(document).ready(function(){
     $(".Status_Request .bootstrap-switch-container span").click(function(){
-        $("enter_status ul").toggle();
+        $("#enter_status ul").toggle();
     });
 });
 </script>
