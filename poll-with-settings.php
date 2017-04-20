@@ -39,8 +39,8 @@ if(isset($_POST['submit'])){
 	$sug_title = pg_escape_string($_POST['sugges_title']);
 	$sug_desc = pg_escape_string($_POST['sugges_desc']);
 	
-	//$insert = 'INSERT INTO vote ("Question", "Count_num", "Quest_Desc","poll_id") VALUES (\''.$sug_title.'\',\''.$count_code.'\',\''.$sug_desc.'\',\''.$p_id.'\')';
-	//$insert_result = pg_query($insert) or die('Query failed: ' . pg_last_error());
+	$insert = 'INSERT INTO vote ("Question", "Count_num", "Quest_Desc","poll_id") VALUES (\''.$sug_title.'\',\''.$count_code.'\',\''.$sug_desc.'\',\''.$p_id.'\')';
+	$insert_result = pg_query($insert) or die('Query failed: ' . pg_last_error());
 	} 
 	
 	//Send Email to Poll Admin
@@ -64,7 +64,7 @@ if(isset($_POST['submit'])){
 
 	$mail->Subject = 'Poll Request';
 	$mail->Body    = '<h3>A new request has been submitted for '.$b.'.</h3> 
-					<h3>Details are below : 
+					<h3>Details are below : <br />
 					Item Title : '.$sug_title. '<br />
 					Item Description : '.$sug_desc.'</h3>';
 
@@ -192,7 +192,7 @@ while ($row = pg_fetch_array($result)) {
 	//print_r ($row);
 ?>
 				<div class="list">
-					<!--div id="show_status" style="display:<!?php echo $row['Item_Response'];?>"><p><!?php echo $row['Item_Status']?></p></div-->
+					<div id="show_status" style="display:<?php echo $row['Item_Response'];?>"><p><?php echo $row['Item_Status']?></p></div>
 					<div class="toggle">
 						<div class="total" style="background-color:<?php echo($h);?>;">
 							<span class="icon"><img src="images\arrow.png"> </span>
