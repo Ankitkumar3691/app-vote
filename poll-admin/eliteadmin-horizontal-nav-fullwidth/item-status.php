@@ -3,6 +3,37 @@ include('session.php');
 
 include ('config.php');	
 
+if(isset($_POST['Submit'])){
+	
+	$id= pg_escape_string($_GET['id']);	
+	$sts= pg_escape_string($_POST['item_sts']);
+	$new_sts= pg_escape_string($_POST['new_status']);
+
+	$sql = 'UPDATE vote SET "Item_Response"= \''.$sts.'\', "Item_Status"= \''.$new_sts.'\' where vote."Id" = \''.$id.'\'';
+	
+	$result_update = pg_query($sql) or die('Query failed: ' . pg_last_error());
+}
+
+if(isset($_GET['id']))
+{
+	$id= pg_escape_string($_GET['id']);
+	
+	$query = 'SELECT * from vote where vote."Id" = \''.$id.'\'';
+	
+	$result = pg_query($query) or die('Query failed: ' . pg_last_error());	
+	
+	// output data of each row
+	while($row = pg_fetch_array($result)) {
+		$id= $row["Id"];
+		$a= $row["Question"];
+		$b= $row["Count_num"];
+		$d= $row["Quest_Desc"];
+		$e= $row["user_name"];
+		$f= $row["poll_id"];
+		$g= $row["Item_Status"];
+	}
+}
+
 ?> 
 <!DOCTYPE html>  
 <html lang="en">
@@ -66,7 +97,7 @@ $(document).ready(function(){
 								</div>
 								<div id="enter_status">
 									<ul><h4>Please Enter Status for Item :</h4>
-										<input type="text" name="new_status" placeholder="Enter Status" value=""/></ul>
+										<input type="text" name="new_status" placeholder="Enter Status" value="<?php echo ($g);?>"/></ul>
 								</div>	
 							</div>								
 							<div class="col-md-12 col-sm-12 col-xs-12">							
