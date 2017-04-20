@@ -53,11 +53,11 @@ if(isset($_POST['submit'])){
 	$mail->isSMTP();                                      // Set mailer to use SMTP
 	$mail->Host = 'smtp.mailgun.org';                     // Specify main and backup SMTP servers
 	$mail->SMTPAuth = true;                               // Enable SMTP authentication
-	$mail->Username = 'upvoteapp@appbba12625d0304f9d9e35d8557e45a732.mailgun.org';   // SMTP username
-	$mail->Password = '25kd87ec99fA7l0f80A55A744dhss984';                           // SMTP password
+	$mail->Username = 'postmaster@appbba12625d0304f9d9e35d8557e45a732.mailgun.org';   // SMTP username
+	$mail->Password = '18fc37ce99fa9b0f80a33a744fbaa276';                           // SMTP password
 	$mail->SMTPSecure = 'tls';                            // Enable encryption, only 'tls' is accepted
 
-	$mail->From = 'websolution806@gmail.com';
+	$mail->From = 'excited@samples.mailgun.org';
 	$mail->FromName = 'Mailer';
 	$mail->addAddress($o);                 // Add a recipient
 
