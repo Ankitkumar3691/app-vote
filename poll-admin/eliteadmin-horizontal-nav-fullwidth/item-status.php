@@ -66,7 +66,7 @@ $(document).ready(function(){
 								</div>
 								<div id="enter_status">
 									<ul><h4>Please Enter Status for Item :</h4>
-										<input type="text" name="new_status" placeholder="Enter Status" value="<?php echo($); ?>"/></ul>
+										<input type="text" name="new_status" placeholder="Enter Status" value=""/></ul>
 								</div>	
 							</div>								
 							<div class="col-md-12 col-sm-12 col-xs-12">							
