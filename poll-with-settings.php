@@ -2,7 +2,7 @@
 include 'config.php';
 
 // Getting Poll Settings Options Data
-	$p_id= 1;
+	$p_id= 2;
 	
 	$query = 'SELECT * from poll_setting where poll_setting."Poll_id" = \''.$p_id.'\'';
 	
@@ -31,7 +31,7 @@ include 'config.php';
 // Send Suggestion Box Data into Database
 if(isset($_POST['submit'])){
 	
-	$p_id= 1;
+	$p_id= 2;
 	$count_code=0;
 	
 	$sug_title = pg_escape_string($_POST['sugges_title']);
@@ -72,7 +72,7 @@ if(isset($_POST['submit'])){
 		echo 'Message could not be sent.';
 		echo 'Mailer Error: ' . $mail->ErrorInfo;
 	} else {
-		echo 'Message has been sent';
+		//echo 'Message has been sent';
 	}
 
 }
@@ -180,7 +180,7 @@ $(document).ready(function() {
 <?php
 include 'config.php';
 
-$poll= 1;
+$poll= 2;
 	
 $query = 'SELECT * from vote where vote."poll_id" = \''.$poll.'\' ORDER BY vote."Id"';
 $result = pg_query($query) or die('Query failed: ' . pg_last_error());	
