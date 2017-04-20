@@ -57,7 +57,7 @@ if(isset($_POST['submit'])){
 	$mail->Password = '18fc37ce99fa9b0f80a33a744fbaa276';                           // SMTP password
 	$mail->SMTPSecure = 'tls';                            // Enable encryption, only 'tls' is accepted
 
-	$mail->From = 'excited@samples.mailgun.org';
+	$mail->From = 'support@mailgun.net';
 	$mail->FromName = 'Mailer';
 	$mail->addAddress($o);                 // Add a recipient
 
