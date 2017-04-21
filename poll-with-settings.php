@@ -50,10 +50,10 @@ if(isset($_POST['submit'])){
 
 	$mail->isSMTP();                                      // Set mailer to use SMTP
 	$mail->isHTML(true);
-	$mail->Host = 'smtp.mailgun.org';                     // Specify main and backup SMTP servers
+	$mail->Host = '';                     // Specify main and backup SMTP servers
 	$mail->SMTPAuth = true;                               // Enable SMTP authentication
-	$mail->Username = 'postmaster@appbba12625d0304f9d9e35d8557e45a732.mailgun.org';   // SMTP username
-	$mail->Password = '18fc37ce99fa9b0f80a33a744fbaa276';                           // SMTP password
+	$mail->Username = '';   // SMTP username
+	$mail->Password = '';                           // SMTP password
 	$mail->SMTPSecure = 'tls';                            // Enable encryption, only 'tls' is accepted
 
 	$mail->From = 'support@mailgun.net';
